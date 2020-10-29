@@ -7,16 +7,16 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 ### Gestión Cliente
 - [frontendGestionCliente](src/frontendGestionCliente)
 ### Gestión Usuario
-- [src/frontendGestionUsuario](frontendGestionUsuario)
-- [src/backend](backend)
+- [frontendGestionUsuario](src/frontendGestionUsuario)
+- [backend](src/backend)
 ### Gestión Reporte
-- [src/frontendGestionReporte](frontendGestionReporte)
+- [frontendGestionReporte](src/frontendGestionReporte)
 ### Gestión Venta
-- [src/frontendGestionVenta](frontendGestionVenta)
+- [frontendGestionVenta](src/frontendGestionVenta)
 ### Gestión Domicilio
-- [src/frontendGestionDomicilio](frontendGestionDomicilio)
+- [frontendGestionDomicilio](src/frontendGestionDomicilio)
 ### Gestión Inventario
-- [src/frontendGestionInventario](frontendGestionInventario)
+- [frontendGestionInventario](src/frontendGestionInventario)
 
 ## Adicional
 
