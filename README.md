@@ -5,7 +5,7 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 ## Modulos
 
 ### Gestión Cliente
-- [src/frontendGestionCliente](frontendGestionCliente)
+- [frontendGestionCliente](src/frontendGestionCliente)
 ### Gestión Usuario
 - [src/frontendGestionUsuario](frontendGestionUsuario)
 - [src/backend](backend)
