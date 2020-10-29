@@ -5,27 +5,27 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 ## Modulos
 
 ### Gestión Cliente
-- [frontendGestionCliente](frontendGestionCliente)
+- [src/frontendGestionCliente](frontendGestionCliente)
 ### Gestión Usuario
-- [frontendGestionUsuario](frontendGestionUsuario)
+- [src/frontendGestionUsuario](frontendGestionUsuario)
+- [src/backend](backend)
 ### Gestión Reporte
-- [frontendGestionReporte](frontendGestionReporte)
-- [backend](backend)
+- [src/frontendGestionReporte](frontendGestionReporte)
 ### Gestión Venta
-- [frontendGestionVenta](frontendGestionVenta)
+- [src/frontendGestionVenta](frontendGestionVenta)
 ### Gestión Domicilio
-- [frontendGestionDomicilio](frontendGestionDomicilio)
+- [src/frontendGestionDomicilio](frontendGestionDomicilio)
 ### Gestión Inventario
-- [frontendGestionInventario](frontendGestionInventario)
+- [src/frontendGestionInventario](frontendGestionInventario)
 
 ## Adicional
 
 ### Mensajes Emergentes
-- [frontendMensEmerg](frontendMensEmerg)
+- [src/frontendMensEmerg](frontendMensEmerg)
 
 ### Pruebas Unitarias (Estructura)
 - [test/backend](test/backend)
 
 ### Iconos Frontend
-- [imagenes](imagenes)
+- [src/imagenes](imagenes)
 
