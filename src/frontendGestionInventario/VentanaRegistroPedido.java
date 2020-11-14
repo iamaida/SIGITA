@@ -5,7 +5,18 @@
  */
 package frontendGestionInventario;
 
-import backend.Usuario;
+import backendGestionInventario.ConexionBDInventario;
+import backendGestionInventario.ItemPedido;
+import backendGestionInventario.Pedido;
+import backendGestionInventario.Producto;
+import modeloGestionUsuario.Usuario;
+import frontendMensEmerg.VentanaMRegistroExit;
+import frontendMensEmerg.VentanaMRegistroNExit;
+import frontendMensEmerg.VentanaMensajeError;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -23,8 +34,20 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         this.user = new Usuario();
         this.user = user;
         jLabelUserName.setText(user.getNombreUsuario());
-    }
+        centrarNCamposJTable(jTProductos);
+        nroItem =0;
+        order =new Pedido();
+        items = new ArrayList<ItemPedido>();
+        
 
+    }
+    private void centrarNCamposJTable(JTable tabla)
+    {
+        TableCellRenderer rendererFromHeader = tabla.getTableHeader().getDefaultRenderer();
+        JLabel headerLabel = (JLabel) rendererFromHeader;
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,26 +61,26 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jPanelMenu = new javax.swing.JPanel();
         jLabelNombre1 = new javax.swing.JLabel();
         jLabelAsterisco1 = new javax.swing.JLabel();
-        jTextFieldBornDay = new javax.swing.JTextField();
+        jTFcodAlmacenista = new javax.swing.JTextField();
         jLabelBornDay = new javax.swing.JLabel();
         jLabelAsterisco4 = new javax.swing.JLabel();
         jLabelAsterisco5 = new javax.swing.JLabel();
-        jLabelNombre2 = new javax.swing.JLabel();
+        jButtonBuscarP = new javax.swing.JLabel();
         jSeparatorUsuario1 = new javax.swing.JSeparator();
-        jLabelNombre10 = new javax.swing.JLabel();
-        jTextFieldBornDay1 = new javax.swing.JTextField();
+        jLTotal = new javax.swing.JLabel();
+        jTFFecha = new javax.swing.JTextField();
         jLabelBornDay1 = new javax.swing.JLabel();
-        jTextFieldBuscar1 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTFCodProducto = new javax.swing.JTextField();
         jLabelNombre6 = new javax.swing.JLabel();
-        jButtonGenerar1 = new javax.swing.JButton();
-        jTextFieldNombre2 = new javax.swing.JTextField();
+        jTFCodigo = new javax.swing.JTextField();
         jLabelAsterisco11 = new javax.swing.JLabel();
         jLabelDireccion1 = new javax.swing.JLabel();
         jLabelAsterisco12 = new javax.swing.JLabel();
-        jTextFieldNombre5 = new javax.swing.JTextField();
-        jLabelNombre3 = new javax.swing.JLabel();
+        jLETotal = new javax.swing.JTextField();
+        jButtonAddP = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTProductos = new javax.swing.JTable();
+        jTFCantidad = new javax.swing.JTextField();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -76,7 +99,7 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelImageExit1 = new javax.swing.JLabel();
         jLabelMiniUser2 = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
-        jButtonGenerar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,14 +123,11 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelAsterisco1.setText("*");
         jPanelMenu.add(jLabelAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jTextFieldBornDay.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDayActionPerformed(evt);
-            }
-        });
-        jPanelMenu.add(jTextFieldBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 110, 30));
+        jTFcodAlmacenista.setBackground(new java.awt.Color(220, 220, 220));
+        jTFcodAlmacenista.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFcodAlmacenista.setForeground(new java.awt.Color(102, 102, 102));
+        jTFcodAlmacenista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelMenu.add(jTFcodAlmacenista, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 110, 30));
 
         jLabelBornDay.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -127,29 +147,32 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelAsterisco5.setText("*");
         jPanelMenu.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
 
-        jLabelNombre2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconSearch.png"))); // NOI18N
-        jPanelMenu.add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, 30));
-
-        jSeparatorUsuario1.setForeground(new java.awt.Color(255, 102, 51));
-        jPanelMenu.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 100, 10));
-
-        jLabelNombre10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre10.setOpaque(true);
-        jPanelMenu.add(jLabelNombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, 100, 30));
-
-        jTextFieldBornDay1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDay1ActionPerformed(evt);
+        jButtonBuscarP.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonBuscarP.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jButtonBuscarP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jButtonBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconSearch.png"))); // NOI18N
+        jButtonBuscarP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonBuscarPMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 180, 30));
+        jPanelMenu.add(jButtonBuscarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, 30));
+
+        jSeparatorUsuario1.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelMenu.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 100, 10));
+
+        jLTotal.setBackground(new java.awt.Color(255, 255, 255));
+        jLTotal.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTotal.setForeground(new java.awt.Color(102, 102, 102));
+        jLTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTotal.setOpaque(true);
+        jPanelMenu.add(jLTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 100, 30));
+
+        jTFFecha.setBackground(new java.awt.Color(220, 220, 220));
+        jTFFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFFecha.setForeground(new java.awt.Color(102, 102, 102));
+        jTFFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelMenu.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 180, 30));
 
         jLabelBornDay1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -157,59 +180,17 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelBornDay1.setText("FECHA");
         jPanelMenu.add(jLabelBornDay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
-        jTextFieldBuscar1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBuscar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldBuscar1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBuscar1.setText("Buscar");
-        jTextFieldBuscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscar1ActionPerformed(evt);
+        jTFCodProducto.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodProducto.setText("Buscar");
+        jTFCodProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCodProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFCodProductoMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 380, 30));
-
-        jScrollPane2.setBackground(new java.awt.Color(220, 220, 220));
-        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-
-        jTable1.setBackground(new java.awt.Color(220, 220, 220));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 102, 51));
-        jTable1.setName(""); // NOI18N
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
-
-        jPanelMenu.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 780, 200));
+        jPanelMenu.add(jTFCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 380, 30));
 
         jLabelNombre6.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -217,31 +198,11 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelNombre6.setText("PRODUCTO");
         jPanelMenu.add(jLabelNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, 30));
 
-        jButtonGenerar1.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonGenerar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonGenerar1.setText("TOTAL");
-        jButtonGenerar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonGenerar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonGenerar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonGenerar1MouseClicked(evt);
-            }
-        });
-        jButtonGenerar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGenerar1ActionPerformed(evt);
-            }
-        });
-        jPanelMenu.add(jButtonGenerar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 60, 30));
-
-        jTextFieldNombre2.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldNombre2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldNombre2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombre2ActionPerformed(evt);
-            }
-        });
-        jPanelMenu.add(jTextFieldNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, 30));
+        jTFCodigo.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodigo.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelMenu.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, 30));
 
         jLabelAsterisco11.setBackground(new java.awt.Color(0, 0, 0));
         jLabelAsterisco11.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -261,20 +222,66 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jLabelAsterisco12.setText("*");
         jPanelMenu.add(jLabelAsterisco12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 10, -1));
 
-        jTextFieldNombre5.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldNombre5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldNombre5.addActionListener(new java.awt.event.ActionListener() {
+        jLETotal.setBackground(new java.awt.Color(220, 220, 220));
+        jLETotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLETotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jLETotal.setText("TOTAL");
+        jLETotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jLETotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombre5ActionPerformed(evt);
+                jLETotalActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 50, 30));
+        jPanelMenu.add(jLETotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 60, 30));
 
-        jLabelNombre3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
-        jPanelMenu.add(jLabelNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, -1, 30));
+        jButtonAddP.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAddP.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jButtonAddP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jButtonAddP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jButtonAddP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAddPMouseClicked(evt);
+            }
+        });
+        jPanelMenu.add(jButtonAddP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, -1, 30));
+
+        jScrollPane2.setBackground(new java.awt.Color(220, 220, 220));
+        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+
+        jTProductos.setBackground(new java.awt.Color(220, 220, 220));
+        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
+            }
+        ));
+        jTProductos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTProductos.setFillsViewportHeight(true);
+        jTProductos.setGridColor(new java.awt.Color(255, 102, 51));
+        jTProductos.setName(""); // NOI18N
+        jTProductos.setRowHeight(30);
+        jTProductos.setSurrendersFocusOnKeystroke(true);
+        jTProductos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTProductos);
+
+        jPanelMenu.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 770, 170));
+
+        jTFCantidad.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCantidad.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCantidad.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelMenu.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 50, 30));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 850, 430));
 
@@ -374,30 +381,26 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         });
         jPanelTitulo1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 120, 40));
 
-        jButtonGenerar.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonGenerar.setText("GUARDAR");
-        jButtonGenerar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonGuardar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonGenerarMouseClicked(evt);
+                jButtonGuardarMouseClicked(evt);
             }
         });
-        jButtonGenerar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGenerarActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelTitulo1.add(jButtonGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
+        jPanelTitulo1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
 
         getContentPane().add(jPanelTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 850, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldBornDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDayActionPerformed
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
                   //Creación objeto ventana Usuarios
@@ -410,49 +413,163 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGenerarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarMouseClicked
+    private void jButtonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseClicked
+        
 
-    private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
+        order.setCodigo(jTFCodigo.getText());
+        order.setFecha(jTFFecha.getText());
+        order.setCodAlmacenista(jTFcodAlmacenista.getText());
+        order.setEstado("Enviado");
+        
+        ConexionBDInventario conexionBD = new ConexionBDInventario();
+        conexionBD.insertarPedido(order);
+        compRegistro(conexionBD.getDatoEncontrado());
+        registrarItemsPedido(conexionBD);
+        
+        jTFCodigo.setText("");
+        jTFFecha.setText("");
+        jTFcodAlmacenista.setText("");
+        jTFCantidad.setText("");
+        jTFCodProducto.setText("");
+        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
+            }
+        ));
+        jLTotal.setText("");
+    }//GEN-LAST:event_jButtonGuardarMouseClicked
+    private void registrarItemsPedido(ConexionBDInventario conexionBD)
+    {
+        for(int i=0; i< items.size(); i++)
+        {
+            conexionBD.insertarItemPedido(items.get(i));
+            compRegistro(conexionBD.getDatoEncontrado());
+        }
+    }
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarActionPerformed
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jLabelImageExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageExit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelImageExit1MouseClicked
 
-    private void jTextFieldBornDay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDay1ActionPerformed
+    private void jLETotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLETotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDay1ActionPerformed
+    }//GEN-LAST:event_jLETotalActionPerformed
 
-    private void jTextFieldBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscar1ActionPerformed
+    private void jButtonAddPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddPMouseClicked
+       
+       String  precio, cantidad;
 
-    private void jButtonGenerar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGenerar1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerar1MouseClicked
+  
+        precio = product.getPrecioCompra();
+        cantidad = jTFCantidad.getText();
+        product.setCantidad(cantidad);
+           
+        order.sumarATotal(Double.parseDouble(cantidad), Double.parseDouble(precio));   
+        order.agregarProducto(product);
 
-    private void jButtonGenerar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerar1ActionPerformed
+        //Registrar Item Pedido
+        ItemPedido itemPedido = new ItemPedido();
+        nroItem ++;
+        itemPedido.setNroItem(Integer.toString(nroItem));
+        itemPedido.setCodPedido(jTFCodigo.getText());
+        itemPedido.setCodProducto(jTFCodProducto.getText());
+        itemPedido.setCantidad(Integer.parseInt(jTFCantidad.getText()));
+        items.add(itemPedido);
+        
+        jTFCodProducto.setText("");
+        jTFCantidad.setText("");
+        
+        //Mostrar Información en tabla
+        ArrayList<Producto> productos = new ArrayList<Producto>();
+        productos = order.getProductos();
+        mostrar(productos);
+        
+        jLTotal.setText(Double.toString(order.getTotal()));
+            
+    }//GEN-LAST:event_jButtonAddPMouseClicked
+    
+    private void mostrar(ArrayList<Producto> products)
+    {
+        String imprime[][] = new String [products.size()][4];
+        
+        for(int i=0; i< products.size(); i++)
+        {
+            imprime[i][0]= products.get(i).getCodigo();
+            imprime[i][1]= products.get(i).getDescripcion();
+            imprime[i][2]= products.get(i).getPrecioCompra();
+            imprime[i][3]= products.get(i).getCantidad();
+        }
+        
+        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
+           imprime,
+            new String [] {
+                "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
+            }
+        ));
+    }
+    
+    private void jButtonBuscarPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarPMouseClicked
+       
+       ConexionBDInventario conexionBD = new ConexionBDInventario();
+       product = new Producto();
+       product = conexionBD.consultarProducto(jTFCodProducto.getText());
+       if(conexionBD.getDatoEncontrado())
+       { 
+            jTFCantidad.setText(product.getCantidad());
+            
+       }else
+       {
+           VentanaMensajeError mensajeError = new VentanaMensajeError();
+           mensajeError.setVisible(true);
 
-    private void jTextFieldNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombre2ActionPerformed
+       }
+    }//GEN-LAST:event_jButtonBuscarPMouseClicked
 
-    private void jTextFieldNombre5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombre5ActionPerformed
-
+    private void jTFCodProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFCodProductoMouseClicked
+        jTFCodProducto.setText("");
+    }//GEN-LAST:event_jTFCodProductoMouseClicked
+    
+    private void compRegistro(boolean comp)
+    {
+        if(comp)
+        {
+            VentanaMRegistroExit  vMRE= new VentanaMRegistroExit();
+            vMRE.setVisible(true);
+        }else
+        {
+            VentanaMRegistroNExit  vMRNE= new VentanaMRegistroNExit();
+            vMRNE.setVisible(true);
+        }
+    }
+    
     private Usuario user;
+    private Pedido order;
+    private Producto product;
+    private ArrayList <ItemPedido> items;
+    private int nroItem;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButtonGenerar;
-    private javax.swing.JButton jButtonGenerar1;
+    private javax.swing.JLabel jButtonAddP;
+    private javax.swing.JLabel jButtonBuscarP;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JTextField jLETotal;
+    private javax.swing.JLabel jLTotal;
     private javax.swing.JLabel jLabelAsterisco1;
     private javax.swing.JLabel jLabelAsterisco11;
     private javax.swing.JLabel jLabelAsterisco12;
@@ -465,9 +582,6 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelMiniUser2;
     private javax.swing.JLabel jLabelNombre1;
-    private javax.swing.JLabel jLabelNombre10;
-    private javax.swing.JLabel jLabelNombre2;
-    private javax.swing.JLabel jLabelNombre3;
     private javax.swing.JLabel jLabelNombre6;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelUserName1;
@@ -486,11 +600,11 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSeparator jSeparatorUsuario1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldBornDay;
-    private javax.swing.JTextField jTextFieldBornDay1;
-    private javax.swing.JTextField jTextFieldBuscar1;
-    private javax.swing.JTextField jTextFieldNombre2;
-    private javax.swing.JTextField jTextFieldNombre5;
+    private javax.swing.JTextField jTFCantidad;
+    private javax.swing.JTextField jTFCodProducto;
+    private javax.swing.JTextField jTFCodigo;
+    private javax.swing.JTextField jTFFecha;
+    private javax.swing.JTextField jTFcodAlmacenista;
+    private javax.swing.JTable jTProductos;
     // End of variables declaration//GEN-END:variables
 }

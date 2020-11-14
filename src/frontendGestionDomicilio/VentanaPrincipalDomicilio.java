@@ -5,12 +5,12 @@
  */
 package frontendGestionDomicilio;
 
-import backend.Usuario;
-import frontendSoporteMenuPrincipal.VentanaPrincipalSoporte;
+import modeloGestionUsuario.Usuario;
+import vistaGestionUsuario.VentanaPrincipalSoporte;
 import frontendGestionVenta.VentanaPrincipalVenta;
 import frontendGestionReporte.VentanaPrincipalReporte;
 import frontendGestionInventario.VentanaPrincipalInventario;
-import frontendGestionUsuario.VentanaPrincipalUsuario;
+import vistaGestionUsuario.VentanaPrincipalUsuario;
 import frontendGestionCliente.VentanaPrincipalCliente;
 
 /**

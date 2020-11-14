@@ -5,7 +5,9 @@
  */
 package frontendGestionInventario;
 
-import backend.Usuario;
+import backendGestionInventario.*;
+import modeloGestionUsuario.Usuario;
+import frontendMensEmerg.VentanaMensajeError;
 
 /**
  *
@@ -55,7 +57,7 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jPanelTitulo3 = new javax.swing.JPanel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jLabelNombre3 = new javax.swing.JLabel();
-        jLabelNombre1 = new javax.swing.JLabel();
+        jButtonBuscar = new javax.swing.JLabel();
         jPanelMenu = new javax.swing.JPanel();
         jLabelCodigo = new javax.swing.JLabel();
         jLabelCC = new javax.swing.JLabel();
@@ -63,22 +65,23 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jLabelAsterisco5 = new javax.swing.JLabel();
         jLabelCargo = new javax.swing.JLabel();
         jLabelNombre5 = new javax.swing.JLabel();
-        jLabelNombre8 = new javax.swing.JLabel();
+        jTextFieldCantidad = new javax.swing.JLabel();
         jSeparatorUsuario = new javax.swing.JSeparator();
-        jLabelNombre9 = new javax.swing.JLabel();
+        jTextFieldProveedor = new javax.swing.JLabel();
         jSeparatorUsuario1 = new javax.swing.JSeparator();
-        jLabelNombre10 = new javax.swing.JLabel();
+        jTextFieldFecha = new javax.swing.JLabel();
         jSeparatorUsuario2 = new javax.swing.JSeparator();
-        jLabelNombre11 = new javax.swing.JLabel();
+        jTextFieldPVenta = new javax.swing.JLabel();
         jSeparatorUsuario3 = new javax.swing.JSeparator();
         jLabelCodigo1 = new javax.swing.JLabel();
         jSeparatorUsuario4 = new javax.swing.JSeparator();
-        jLabelNombre12 = new javax.swing.JLabel();
+        jTextFieldTipo = new javax.swing.JLabel();
         jSeparatorUsuario5 = new javax.swing.JSeparator();
         jLabelCodigo2 = new javax.swing.JLabel();
         jLabelBornDay1 = new javax.swing.JLabel();
-        jLabelNombre13 = new javax.swing.JLabel();
+        jTextFieldPCompra = new javax.swing.JLabel();
         jSeparatorUsuario6 = new javax.swing.JSeparator();
+        jTextFieldDescrip = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -188,13 +191,18 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jPanelTitulo3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldBuscar.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldBuscar.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("Buscar");
         jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscarActionPerformed(evt);
+        jTextFieldBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldBuscarFocusGained(evt);
+            }
+        });
+        jTextFieldBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldBuscarMouseClicked(evt);
             }
         });
         jPanelTitulo3.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 520, 30));
@@ -205,11 +213,16 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jLabelNombre3.setText("CODIGO");
         jPanelTitulo3.add(jLabelNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, 30));
 
-        jLabelNombre1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconSearch.png"))); // NOI18N
-        jPanelTitulo3.add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, -1, 30));
+        jButtonBuscar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonBuscar.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jButtonBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconSearch.png"))); // NOI18N
+        jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonBuscarMouseClicked(evt);
+            }
+        });
+        jPanelTitulo3.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, -1, 30));
 
         getContentPane().add(jPanelTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1050, 80));
 
@@ -256,38 +269,42 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jLabelNombre5.setOpaque(true);
         jPanelMenu.add(jLabelNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 250, 220));
 
-        jLabelNombre8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre8.setOpaque(true);
-        jPanelMenu.add(jLabelNombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 130, 20));
+        jTextFieldCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldCantidad.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldCantidad.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldCantidad.setOpaque(true);
+        jPanelMenu.add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 130, 20));
 
         jSeparatorUsuario.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 130, 20));
 
-        jLabelNombre9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre9.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre9.setOpaque(true);
-        jPanelMenu.add(jLabelNombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 380, 30));
+        jTextFieldProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldProveedor.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldProveedor.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldProveedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldProveedor.setOpaque(true);
+        jPanelMenu.add(jTextFieldProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 370, 30));
 
         jSeparatorUsuario1.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 370, 10));
 
-        jLabelNombre10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre10.setOpaque(true);
-        jPanelMenu.add(jLabelNombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 130, 30));
+        jTextFieldFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldFecha.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldFecha.setOpaque(true);
+        jPanelMenu.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 130, 30));
 
         jSeparatorUsuario2.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 130, 10));
 
-        jLabelNombre11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre11.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre11.setOpaque(true);
-        jPanelMenu.add(jLabelNombre11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 340, 30));
+        jTextFieldPVenta.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldPVenta.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldPVenta.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldPVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldPVenta.setOpaque(true);
+        jPanelMenu.add(jTextFieldPVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 340, 30));
 
         jSeparatorUsuario3.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 340, 20));
@@ -301,11 +318,12 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jSeparatorUsuario4.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 370, 10));
 
-        jLabelNombre12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre12.setOpaque(true);
-        jPanelMenu.add(jLabelNombre12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 120, 30));
+        jTextFieldTipo.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldTipo.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldTipo.setOpaque(true);
+        jPanelMenu.add(jTextFieldTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 120, 30));
 
         jSeparatorUsuario5.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 120, 10));
@@ -322,23 +340,27 @@ public class VentanaVerProducto extends javax.swing.JFrame {
         jLabelBornDay1.setText("PRECIO COMPRA");
         jPanelMenu.add(jLabelBornDay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        jLabelNombre13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre13.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre13.setOpaque(true);
-        jPanelMenu.add(jLabelNombre13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 340, 30));
+        jTextFieldPCompra.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldPCompra.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldPCompra.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldPCompra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldPCompra.setOpaque(true);
+        jPanelMenu.add(jTextFieldPCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 340, 30));
 
         jSeparatorUsuario6.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 340, 20));
+
+        jTextFieldDescrip.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldDescrip.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldDescrip.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldDescrip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTextFieldDescrip.setOpaque(true);
+        jPanelMenu.add(jTextFieldDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 380, 30));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 850, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
                   //Creación objeto ventana Usuarios
@@ -354,8 +376,52 @@ public class VentanaVerProducto extends javax.swing.JFrame {
     private void jLabelImageExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageExit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelImageExit1MouseClicked
+
+    private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
+        ConexionBDInventario conexionBD = new ConexionBDInventario();
+        
+       Producto miProducto = conexionBD.consultarProducto(jTextFieldBuscar.getText());
+       if(conexionBD.getDatoEncontrado())
+       { 
+            jTextFieldDescrip.setText(miProducto.getDescripcion());
+            jTextFieldProveedor.setText(miProducto.getProveedor());
+            jTextFieldTipo.setText(miProducto.getTipo());
+            jTextFieldFecha.setText(miProducto.getFechaV());
+            jTextFieldPCompra.setText(miProducto.getPrecioCompra());
+            jTextFieldPVenta.setText(miProducto.getPrecioVenta());
+            jTextFieldCantidad.setText(miProducto.getCantidad());
+            
+       }else
+       {
+           VentanaMensajeError mensajeError = new VentanaMensajeError();
+           mensajeError.setVisible(true);
+            jTextFieldDescrip.setText("");
+            jTextFieldProveedor.setText("");
+            jTextFieldTipo.setText("");
+            jTextFieldFecha.setText("");
+            jTextFieldPCompra.setText("");
+            jTextFieldPVenta.setText("");
+            jTextFieldCantidad.setText("");
+       }
+    }//GEN-LAST:event_jButtonBuscarMouseClicked
+
+    private void jTextFieldBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldBuscarFocusGained
+        jTextFieldBuscar.setText("");
+    }//GEN-LAST:event_jTextFieldBuscarFocusGained
+
+    private void jTextFieldBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldBuscarMouseClicked
+            jTextFieldBuscar.setText("");
+            jTextFieldDescrip.setText("");
+            jTextFieldProveedor.setText("");
+            jTextFieldTipo.setText("");
+            jTextFieldFecha.setText("");
+            jTextFieldPCompra.setText("");
+            jTextFieldPVenta.setText("");
+            jTextFieldCantidad.setText("");
+    }//GEN-LAST:event_jTextFieldBuscarMouseClicked
     private Usuario user;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jButtonBuscar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelAsterisco5;
     private javax.swing.JLabel jLabelBornDay;
@@ -368,15 +434,8 @@ public class VentanaVerProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImageExit1;
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelMiniUser2;
-    private javax.swing.JLabel jLabelNombre1;
-    private javax.swing.JLabel jLabelNombre10;
-    private javax.swing.JLabel jLabelNombre11;
-    private javax.swing.JLabel jLabelNombre12;
-    private javax.swing.JLabel jLabelNombre13;
     private javax.swing.JLabel jLabelNombre3;
     private javax.swing.JLabel jLabelNombre5;
-    private javax.swing.JLabel jLabelNombre8;
-    private javax.swing.JLabel jLabelNombre9;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelUserName1;
     private javax.swing.JLabel jLabelWindowTitle;
@@ -401,5 +460,12 @@ public class VentanaVerProducto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorUsuario5;
     private javax.swing.JSeparator jSeparatorUsuario6;
     private javax.swing.JTextField jTextFieldBuscar;
+    private javax.swing.JLabel jTextFieldCantidad;
+    private javax.swing.JLabel jTextFieldDescrip;
+    private javax.swing.JLabel jTextFieldFecha;
+    private javax.swing.JLabel jTextFieldPCompra;
+    private javax.swing.JLabel jTextFieldPVenta;
+    private javax.swing.JLabel jTextFieldProveedor;
+    private javax.swing.JLabel jTextFieldTipo;
     // End of variables declaration//GEN-END:variables
 }

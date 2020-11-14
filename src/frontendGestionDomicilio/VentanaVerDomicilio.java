@@ -5,7 +5,7 @@
  */
 package frontendGestionDomicilio;
 
-import backend.Usuario;
+import modeloGestionUsuario.Usuario;
 
 /**
  *

@@ -5,8 +5,10 @@
  */
 package frontendGestionCliente;
 
-import backend.Usuario;
-
+import backendGestionCliente.Cliente;
+import backendGestionCliente.ConexionBDCliente;
+import modeloGestionUsuario.Usuario;
+import frontendMensEmerg.*;
 /**
  *
  * @author Aidis
@@ -38,8 +40,8 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelTelefono = new javax.swing.JLabel();
         jLabelNombre1 = new javax.swing.JLabel();
         jLabelAsterisco1 = new javax.swing.JLabel();
-        jTextFieldNombre1 = new javax.swing.JTextField();
-        jTextFieldBornDay = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
         jLabelCodigo = new javax.swing.JLabel();
         jLabelAsterisco2 = new javax.swing.JLabel();
         jTextFieldCC = new javax.swing.JTextField();
@@ -50,10 +52,10 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelDireccion = new javax.swing.JLabel();
         jLabelAsterisco5 = new javax.swing.JLabel();
         jLabelAsterisco6 = new javax.swing.JLabel();
-        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldFecha = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelAsterisco8 = new javax.swing.JLabel();
-        jTextFieldCargo = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -92,7 +94,7 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelTelefono.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabelTelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTelefono.setText("TELEFONO");
-        jPanelMenu.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
+        jPanelMenu.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
 
         jLabelNombre1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -106,23 +108,27 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelAsterisco1.setText("*");
         jPanelMenu.add(jLabelAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
-        jTextFieldNombre1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldNombre1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldNombre.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombre1ActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 590, 30));
+        jPanelMenu.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 590, 30));
 
-        jTextFieldBornDay.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTelefono.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldTelefono.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldTelefono.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDayActionPerformed(evt);
+                jTextFieldTelefonoActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 180, 30));
+        jPanelMenu.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 210, 30));
 
         jLabelCodigo.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -137,13 +143,15 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jPanelMenu.add(jLabelAsterisco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
 
         jTextFieldCC.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldCC.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldCC.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldCC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jTextFieldCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCCActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 180, 30));
+        jPanelMenu.add(jTextFieldCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 210, 30));
 
         jLabelCC.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCC.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -161,16 +169,18 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelAsterisco4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabelAsterisco4.setForeground(new java.awt.Color(255, 102, 51));
         jLabelAsterisco4.setText("*");
-        jPanelMenu.add(jLabelAsterisco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, -1, -1));
+        jPanelMenu.add(jLabelAsterisco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
 
         jTextFieldDireccion.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldDireccion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldDireccion.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDireccionActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 180, 30));
+        jPanelMenu.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 210, 30));
 
         jLabelDireccion.setBackground(new java.awt.Color(0, 0, 0));
         jLabelDireccion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -190,14 +200,16 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelAsterisco6.setText("*");
         jPanelMenu.add(jLabelAsterisco6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 10, -1));
 
-        jTextFieldTelefono.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldFecha.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldFecha.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTextFieldFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTelefonoActionPerformed(evt);
+                jTextFieldFechaActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 180, 30));
+        jPanelMenu.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 170, 30));
 
         jLabelCargo.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCargo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -211,14 +223,16 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelAsterisco8.setText("*");
         jPanelMenu.add(jLabelAsterisco8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
-        jTextFieldCargo.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldCargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldCargo.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmail.setBackground(new java.awt.Color(220, 220, 220));
+        jTextFieldEmail.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTextFieldEmail.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCargoActionPerformed(evt);
+                jTextFieldEmailActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 180, 30));
+        jPanelMenu.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 210, 30));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 850, 330));
 
@@ -368,13 +382,13 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre1ActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombre1ActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jTextFieldBornDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDayActionPerformed
+    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDayActionPerformed
+    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
 
     private void jTextFieldCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCCActionPerformed
         // TODO add your handling code here:
@@ -384,13 +398,13 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDireccionActionPerformed
 
-    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
+    private void jTextFieldFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
+    }//GEN-LAST:event_jTextFieldFechaActionPerformed
 
-    private void jTextFieldCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCargoActionPerformed
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCargoActionPerformed
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
                   //Creación objeto ventana Usuarios
@@ -404,9 +418,40 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked
-        // TODO add your handling code here:
+        Cliente miCliente = new Cliente();
+        
+        miCliente.setDocId(jTextFieldCC.getText());
+        miCliente.setNombre(jTextFieldNombre.getText());
+        miCliente.setFechaRegistro(jTextFieldFecha.getText());
+        miCliente.setDireccion(jTextFieldDireccion.getText());
+        miCliente.setTelefono(jTextFieldFecha.getText());
+        miCliente.setEmail(jTextFieldEmail.getText());
+        
+        ConexionBDCliente conexionBD = new ConexionBDCliente();
+        conexionBD.insertarCliente(miCliente);
+        compRegistro(conexionBD.getDatoEncontrado());
+        
+        jTextFieldCC.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldFecha.setText("");
+        jTextFieldDireccion.setText("");
+        jTextFieldFecha.setText("");
+        jTextFieldEmail.setText("");
     }//GEN-LAST:event_jButtonRegistrarMouseClicked
-
+    
+    private void compRegistro(boolean comp)
+    {
+        if(comp)
+        {
+            VentanaMRegistroExit  vMRE= new VentanaMRegistroExit();
+            vMRE.setVisible(true);
+        }else
+        {
+            VentanaMRegistroNExit  vMRNE= new VentanaMRegistroNExit();
+            vMRNE.setVisible(true);
+        }
+    }
+    
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
@@ -462,11 +507,11 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextFieldBornDay;
     private javax.swing.JTextField jTextFieldCC;
-    private javax.swing.JTextField jTextFieldCargo;
     private javax.swing.JTextField jTextFieldDireccion;
-    private javax.swing.JTextField jTextFieldNombre1;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldFecha;
+    private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,8 +5,17 @@
  */
 package frontendGestionReporte;
 
-import backend.Usuario;
+import backendGestionCliente.Cliente;
+import backendGestionCliente.ConexionBDCliente;
+import backendGestionInventario.ConexionBDInventario;
+import backendGestionInventario.Producto;
+import backendGestionReporte.ConexionBDReporte;
+import backendGestionReporte.Reporte;
+import modeloGestionUsuario.Usuario;
 import frontendGestionVenta.VentanaPrincipalVenta;
+import frontendMensEmerg.VentanaMRegistroExit;
+import frontendMensEmerg.VentanaMRegistroNExit;
+import frontendMensEmerg.VentanaMensajeError;
 
 /**
  *
@@ -39,32 +48,32 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jPanelMenu = new javax.swing.JPanel();
         jLabelNombre1 = new javax.swing.JLabel();
         jLabelAsterisco1 = new javax.swing.JLabel();
-        jTextFieldNombre1 = new javax.swing.JTextField();
-        jTextFieldBornDay = new javax.swing.JTextField();
+        jTFCodigo = new javax.swing.JTextField();
+        jTFCajero = new javax.swing.JTextField();
         jLabelBornDay = new javax.swing.JLabel();
         jLabelAsterisco4 = new javax.swing.JLabel();
         jLabelDireccion = new javax.swing.JLabel();
         jLabelAsterisco5 = new javax.swing.JLabel();
-        jLabelNombre2 = new javax.swing.JLabel();
-        jTextFieldBornDay1 = new javax.swing.JTextField();
+        jBAddProducto = new javax.swing.JLabel();
+        jTFTipo = new javax.swing.JTextField();
         jLabelBornDay1 = new javax.swing.JLabel();
         jLabelAsterisco10 = new javax.swing.JLabel();
         jLabelNombre4 = new javax.swing.JLabel();
-        jTextFieldBuscar1 = new javax.swing.JTextField();
-        jLabelNombre5 = new javax.swing.JLabel();
-        jTextFieldBuscar2 = new javax.swing.JTextField();
+        jTFCodProducto = new javax.swing.JTextField();
+        jBAddCliente = new javax.swing.JLabel();
+        jTFIdCliente = new javax.swing.JTextField();
         jLabelNombre6 = new javax.swing.JLabel();
         jSeparatorUsuario2 = new javax.swing.JSeparator();
-        jLabelNombre12 = new javax.swing.JLabel();
+        jLNombre = new javax.swing.JLabel();
         jLabelDireccion1 = new javax.swing.JLabel();
-        jLabelNombre13 = new javax.swing.JLabel();
+        jLDProducto = new javax.swing.JLabel();
         jSeparatorUsuario3 = new javax.swing.JSeparator();
         jLabelDireccion2 = new javax.swing.JLabel();
         jLabelAsterisco11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTAComentario = new javax.swing.JTextArea();
         jLabelDireccion3 = new javax.swing.JLabel();
-        jTextFieldBornDay2 = new javax.swing.JTextField();
+        jTFFecha = new javax.swing.JTextField();
         jLabelAsterisco6 = new javax.swing.JLabel();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -87,7 +96,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelImageExit1 = new javax.swing.JLabel();
         jLabelMiniUser2 = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
-        jButtonGenerar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -111,23 +120,27 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelAsterisco1.setText("*");
         jPanelMenu.add(jLabelAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
-        jTextFieldNombre1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldNombre1.addActionListener(new java.awt.event.ActionListener() {
+        jTFCodigo.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodigo.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombre1ActionPerformed(evt);
+                jTFCodigoActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 30));
+        jPanelMenu.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 30));
 
-        jTextFieldBornDay.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay.addActionListener(new java.awt.event.ActionListener() {
+        jTFCajero.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCajero.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCajero.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCajero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCajero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDayActionPerformed(evt);
+                jTFCajeroActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
+        jPanelMenu.add(jTFCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
 
         jLabelBornDay.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -153,24 +166,29 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelAsterisco5.setText("*");
         jPanelMenu.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
 
-        jLabelNombre2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
-        jPanelMenu.add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 30));
-
-        jTextFieldBornDay1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextFieldBornDay1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBornDay1.setText("Cambio");
-        jTextFieldBornDay1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay1.setEnabled(false);
-        jTextFieldBornDay1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDay1ActionPerformed(evt);
+        jBAddProducto.setBackground(new java.awt.Color(0, 0, 0));
+        jBAddProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jBAddProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jBAddProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBAddProductoMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 190, 20));
+        jPanelMenu.add(jBAddProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 30));
+
+        jTFTipo.setBackground(new java.awt.Color(220, 220, 220));
+        jTFTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFTipo.setForeground(new java.awt.Color(255, 255, 255));
+        jTFTipo.setText("Cambio");
+        jTFTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFTipo.setEnabled(false);
+        jTFTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTipoActionPerformed(evt);
+            }
+        });
+        jPanelMenu.add(jTFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 190, 20));
 
         jLabelBornDay1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -190,35 +208,40 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelNombre4.setText(" CLIENTE");
         jPanelMenu.add(jLabelNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
 
-        jTextFieldBuscar1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBuscar1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextFieldBuscar1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBuscar1.setText("Buscar");
-        jTextFieldBuscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscar1ActionPerformed(evt);
+        jTFCodProducto.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodProducto.setText("Buscar");
+        jTFCodProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCodProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFCodProductoMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 410, 30));
+        jPanelMenu.add(jTFCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 410, 30));
 
-        jLabelNombre5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconsAddUser.png"))); // NOI18N
-        jPanelMenu.add(jLabelNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, 30));
-
-        jTextFieldBuscar2.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBuscar2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextFieldBuscar2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBuscar2.setText("Buscar");
-        jTextFieldBuscar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBuscar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscar2ActionPerformed(evt);
+        jBAddCliente.setBackground(new java.awt.Color(0, 0, 0));
+        jBAddCliente.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jBAddCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBAddCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconsAddUser.png"))); // NOI18N
+        jBAddCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBAddClienteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 400, 30));
+        jPanelMenu.add(jBAddCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, 30));
+
+        jTFIdCliente.setBackground(new java.awt.Color(220, 220, 220));
+        jTFIdCliente.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFIdCliente.setForeground(new java.awt.Color(102, 102, 102));
+        jTFIdCliente.setText("Buscar");
+        jTFIdCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFIdCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFIdClienteMouseClicked(evt);
+            }
+        });
+        jPanelMenu.add(jTFIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 400, 30));
 
         jLabelNombre6.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -229,11 +252,12 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jSeparatorUsuario2.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 330, 10));
 
-        jLabelNombre12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre12.setOpaque(true);
-        jPanelMenu.add(jLabelNombre12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 330, 30));
+        jLNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jLNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLNombre.setForeground(new java.awt.Color(102, 102, 102));
+        jLNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLNombre.setOpaque(true);
+        jPanelMenu.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 330, 30));
 
         jLabelDireccion1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelDireccion1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -241,11 +265,12 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelDireccion1.setText("COMENTARIOS");
         jPanelMenu.add(jLabelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
-        jLabelNombre13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre13.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre13.setOpaque(true);
-        jPanelMenu.add(jLabelNombre13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 420, 30));
+        jLDProducto.setBackground(new java.awt.Color(255, 255, 255));
+        jLDProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLDProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jLDProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLDProducto.setOpaque(true);
+        jPanelMenu.add(jLDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 420, 30));
 
         jSeparatorUsuario3.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 420, 10));
@@ -262,14 +287,19 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelAsterisco11.setText("*");
         jPanelMenu.add(jLabelAsterisco11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 10, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Explique brevemente el motivo del cambio...");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jScrollPane1.setViewportView(jTextArea1);
+        jTAComentario.setBackground(new java.awt.Color(220, 220, 220));
+        jTAComentario.setColumns(20);
+        jTAComentario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTAComentario.setForeground(new java.awt.Color(102, 102, 102));
+        jTAComentario.setRows(5);
+        jTAComentario.setText("Explique brevemente el motivo del cambio...");
+        jTAComentario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTAComentario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTAComentarioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTAComentario);
 
         jPanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 630, 120));
 
@@ -279,14 +309,16 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelDireccion3.setText("DESCRIPCIÓN");
         jPanelMenu.add(jLabelDireccion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
-        jTextFieldBornDay2.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay2.addActionListener(new java.awt.event.ActionListener() {
+        jTFFecha.setBackground(new java.awt.Color(220, 220, 220));
+        jTFFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFFecha.setForeground(new java.awt.Color(102, 102, 102));
+        jTFFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDay2ActionPerformed(evt);
+                jTFFechaActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 180, 30));
+        jPanelMenu.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 180, 30));
 
         jLabelAsterisco6.setBackground(new java.awt.Color(0, 0, 0));
         jLabelAsterisco6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -405,34 +437,34 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         });
         jPanelTitulo1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 120, 40));
 
-        jButtonGenerar.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonGenerar.setText("GUARDAR");
-        jButtonGenerar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonGuardar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonGenerarMouseClicked(evt);
+                jButtonGuardarMouseClicked(evt);
             }
         });
-        jButtonGenerar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGenerarActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelTitulo1.add(jButtonGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 40));
+        jPanelTitulo1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 40));
 
         getContentPane().add(jPanelTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 850, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre1ActionPerformed
+    private void jTFCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombre1ActionPerformed
+    }//GEN-LAST:event_jTFCodigoActionPerformed
 
-    private void jTextFieldBornDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDayActionPerformed
+    private void jTFCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCajeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDayActionPerformed
+    }//GEN-LAST:event_jTFCajeroActionPerformed
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
                   //Creación objeto ventana Usuarios
@@ -445,39 +477,115 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGenerarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarMouseClicked
+    private void jButtonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseClicked
+        Reporte miReporte = new Reporte();
+        
+        miReporte.setCodigo(jTFCodigo.getText());
+        miReporte.setFecha(jTFFecha.getText());
+        miReporte.setTipo(jTFTipo.getText());
+        miReporte.setEstado("NoRevisado");
+        miReporte.setCodUsuario(jTFCajero.getText());
+        miReporte.setCodProducto(jTFCodProducto.getText());
+        miReporte.setNomInteresado(jLNombre.getText());
+        miReporte.setComentario(jTAComentario.getText());
+        
+        ConexionBDReporte conexionBD = new ConexionBDReporte();
+        conexionBD.insertarReporte(miReporte);
+        compRegistro(conexionBD.getDatoEncontrado());
+        
+        jTFCodigo.setText("");
+        jTFFecha.setText("");
+        jTFCajero.setText("");
+        jTFIdCliente.setText("");
+        jLNombre.setText("");
+        jTFCodProducto.setText("");
+        jLDProducto.setText("");
+        jTAComentario.setText("Explique brevemente el motivo del cambio...");
 
-    private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
+    }//GEN-LAST:event_jButtonGuardarMouseClicked
+    
+    private void compRegistro(boolean comp)
+    {
+        if(comp)
+        {
+            VentanaMRegistroExit  vMRE= new VentanaMRegistroExit();
+            vMRE.setVisible(true);
+        }else
+        {
+            VentanaMRegistroNExit  vMRNE= new VentanaMRegistroNExit();
+            vMRNE.setVisible(true);
+        }
+    }
+    
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarActionPerformed
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jLabelImageExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageExit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelImageExit1MouseClicked
 
-    private void jTextFieldBornDay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDay1ActionPerformed
+    private void jTFTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDay1ActionPerformed
+    }//GEN-LAST:event_jTFTipoActionPerformed
 
-    private void jTextFieldBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscar1ActionPerformed
+    private void jTFFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFFechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscar1ActionPerformed
+    }//GEN-LAST:event_jTFFechaActionPerformed
 
-    private void jTextFieldBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscar2ActionPerformed
+    private void jBAddClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAddClienteMouseClicked
+        ConexionBDCliente conexionBD = new ConexionBDCliente();
+        
+       Cliente miCliente = conexionBD.consultarCliente(jTFIdCliente.getText());
+       if(conexionBD.getDatoEncontrado())
+       { 
+            jLNombre.setText(miCliente.getNombre());
 
-    private void jTextFieldBornDay2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDay2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDay2ActionPerformed
+       }else
+       {
+           VentanaMensajeError mensajeError = new VentanaMensajeError();
+           mensajeError.setVisible(true);
+            jLNombre.setText("");
+       }
+    }//GEN-LAST:event_jBAddClienteMouseClicked
+
+    private void jBAddProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAddProductoMouseClicked
+        ConexionBDInventario conexionBD = new ConexionBDInventario();
+        
+       Producto miProducto = conexionBD.consultarProducto(jTFCodProducto.getText());
+       if(conexionBD.getDatoEncontrado())
+       { 
+            jLDProducto.setText(miProducto.getDescripcion());
+            
+       }else
+       {
+           VentanaMensajeError mensajeError = new VentanaMensajeError();
+           mensajeError.setVisible(true);
+            jTFCodProducto.setText("");
+       }
+    }//GEN-LAST:event_jBAddProductoMouseClicked
+
+    private void jTFIdClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFIdClienteMouseClicked
+        jTFIdCliente.setText("");
+    }//GEN-LAST:event_jTFIdClienteMouseClicked
+
+    private void jTFCodProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFCodProductoMouseClicked
+        jTFCodProducto.setText("");
+    }//GEN-LAST:event_jTFCodProductoMouseClicked
+
+    private void jTAComentarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAComentarioMouseClicked
+        jTAComentario.setText("");
+    }//GEN-LAST:event_jTAComentarioMouseClicked
     private Usuario user;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButtonGenerar;
+    private javax.swing.JLabel jBAddCliente;
+    private javax.swing.JLabel jBAddProducto;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLDProducto;
+    private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLabelAsterisco1;
     private javax.swing.JLabel jLabelAsterisco10;
     private javax.swing.JLabel jLabelAsterisco11;
@@ -494,11 +602,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelMiniUser2;
     private javax.swing.JLabel jLabelNombre1;
-    private javax.swing.JLabel jLabelNombre12;
-    private javax.swing.JLabel jLabelNombre13;
-    private javax.swing.JLabel jLabelNombre2;
     private javax.swing.JLabel jLabelNombre4;
-    private javax.swing.JLabel jLabelNombre5;
     private javax.swing.JLabel jLabelNombre6;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelUserName1;
@@ -521,12 +625,12 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSeparator jSeparatorUsuario2;
     private javax.swing.JSeparator jSeparatorUsuario3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldBornDay;
-    private javax.swing.JTextField jTextFieldBornDay1;
-    private javax.swing.JTextField jTextFieldBornDay2;
-    private javax.swing.JTextField jTextFieldBuscar1;
-    private javax.swing.JTextField jTextFieldBuscar2;
-    private javax.swing.JTextField jTextFieldNombre1;
+    private javax.swing.JTextArea jTAComentario;
+    private javax.swing.JTextField jTFCajero;
+    private javax.swing.JTextField jTFCodProducto;
+    private javax.swing.JTextField jTFCodigo;
+    private javax.swing.JTextField jTFFecha;
+    private javax.swing.JTextField jTFIdCliente;
+    private javax.swing.JTextField jTFTipo;
     // End of variables declaration//GEN-END:variables
 }

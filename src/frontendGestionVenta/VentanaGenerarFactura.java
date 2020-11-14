@@ -5,7 +5,10 @@
  */
 package frontendGestionVenta;
 
-import backend.Usuario;
+import modeloGestionUsuario.Usuario;
+import javax.swing.*;
+import javax.swing.table.TableCellRenderer;
+
 
 /**
  *
@@ -23,8 +26,16 @@ public class VentanaGenerarFactura extends javax.swing.JFrame {
         this.user = new Usuario();
         this.user = user;
         jLabelUserName.setText(user.getNombreUsuario());
+        centrarNCamposJTable(jTProductos);
     }
-
+    
+    private void centrarNCamposJTable(JTable tabla)
+    {
+        TableCellRenderer rendererFromHeader = tabla.getTableHeader().getDefaultRenderer();
+        JLabel headerLabel = (JLabel) rendererFromHeader;
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +66,7 @@ public class VentanaGenerarFactura extends javax.swing.JFrame {
         jTextFieldBuscar1 = new javax.swing.JTextField();
         jLabelNombre5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTProductos = new javax.swing.JTable();
         jTextFieldBuscar2 = new javax.swing.JTextField();
         jLabelNombre6 = new javax.swing.JLabel();
         jSeparatorUsuario2 = new javax.swing.JSeparator();
@@ -220,13 +231,9 @@ public class VentanaGenerarFactura extends javax.swing.JFrame {
         jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jTable1.setBackground(new java.awt.Color(220, 220, 220));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTProductos.setBackground(new java.awt.Color(220, 220, 220));
+        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -236,22 +243,15 @@ public class VentanaGenerarFactura extends javax.swing.JFrame {
             new String [] {
                 "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 102, 51));
-        jTable1.setName(""); // NOI18N
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
+        ));
+        jTProductos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTProductos.setFillsViewportHeight(true);
+        jTProductos.setGridColor(new java.awt.Color(255, 102, 51));
+        jTProductos.setName(""); // NOI18N
+        jTProductos.setRowHeight(30);
+        jTProductos.setSurrendersFocusOnKeystroke(true);
+        jTProductos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTProductos);
 
         jPanelMenu.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 770, 170));
 
@@ -547,7 +547,7 @@ public class VentanaGenerarFactura extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSeparator jSeparatorUsuario1;
     private javax.swing.JSeparator jSeparatorUsuario2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTProductos;
     private javax.swing.JTextField jTextFieldBornDay;
     private javax.swing.JTextField jTextFieldBornDay1;
     private javax.swing.JTextField jTextFieldBuscar1;

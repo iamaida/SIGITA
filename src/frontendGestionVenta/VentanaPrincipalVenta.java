@@ -5,14 +5,14 @@
  */
 package frontendGestionVenta;
 
-import backend.Usuario;
-import frontendGestionUsuario.VentanaLogin;
-import frontendSoporteMenuPrincipal.VentanaPrincipalSoporte;
+import modeloGestionUsuario.Usuario;
+import vistaGestionUsuario.VentanaLogin;
+import vistaGestionUsuario.VentanaPrincipalSoporte;
 import frontendGestionDomicilio.VentanaPrincipalDomicilio;
 import frontendGestionReporte.VentanaPrincipalReporte;
 import frontendGestionReporte.VentanaReporteCambioProducto;
 import frontendGestionInventario.VentanaPrincipalInventario;
-import frontendGestionUsuario.VentanaPrincipalUsuario;
+import vistaGestionUsuario.VentanaPrincipalUsuario;
 import frontendGestionCliente.VentanaPrincipalCliente;
 
 /**

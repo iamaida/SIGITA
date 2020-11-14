@@ -3,52 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backend;
+package modeloGestionUsuario;
 
 import java.sql.*;
 import java.util.*;
 
-public class ConexionBaseDatos {
+public class ConexionBDUsuario {
     
-    private String url;
-    private String usuario;
-    private String contrasenha;
-    private boolean datoEncontrado;
-    private Usuario user;
+
     
-    public ConexionBaseDatos()
+    public ConexionBDUsuario()
     {
         url = "jdbc:postgresql://localhost:5432/SIGITA";
         usuario= "postgres";
         contrasenha = "AMMC12345";
         datoEncontrado= false;
     }
+    
     public Usuario consultarUsuario(String codigo)
     {
-        Usuario miUsuario = new Usuario();
+        user = new Usuario();
         Connection conexion;
         try{
+            
             Class.forName("org.postgresql.Driver");
             conexion= DriverManager.getConnection(url,usuario,contrasenha);
             java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
+            
             String consulta ="SELECT * FROM Usuario WHERE codigo ="+"'"+codigo+"'" ;
             ResultSet resultado = statement.executeQuery(consulta);
            
             while(resultado.next())
             {
-                setDatoEncontrado(true);
-             System.out.println(resultado.getString("codigo"));
-                    miUsuario.setCodigo(resultado.getString("codigo"));
-                    miUsuario.setDocId(resultado.getString("docid"));
-                    miUsuario.setNombre(resultado.getString("nombre"));
-                    miUsuario.setCargo(resultado.getString("cargo"));
-                    miUsuario.setNombreUsuario(resultado.getString("nombreusuario"));
-                    miUsuario.setContrasenha(resultado.getString("contrasenha"));
-                    miUsuario.setEstado(resultado.getString("estado"));
-                    miUsuario.setFechaRegistro(resultado.getString("fecharegistro"));
-                    miUsuario.setDireccion(resultado.getString("direccion"));
-                    miUsuario.setTelefono(resultado.getString("telefono"));
+                 System.out.println("Dato encontrado!!");
+                datoEncontrado = true;
+                user.setCodigo(resultado.getString("codigo"));
+                user.setDocId(resultado.getString("docid"));
+                user.setNombre(resultado.getString("nombre"));
+                user.setCargo(resultado.getString("cargo"));
+                user.setNombreUsuario(resultado.getString("nombreusuario"));
+                user.setContrasenha(resultado.getString("contrasenha"));
+                user.setEstado(resultado.getString("estado"));
+                user.setFechaRegistro(resultado.getString("fecharegistro"));
+                user.setDireccion(resultado.getString("direccion"));
+                user.setTelefono(resultado.getString("telefono"));
                    
              }
             
@@ -57,23 +55,24 @@ public class ConexionBaseDatos {
             statement.close();
             
         }catch(Exception e){
-            
+            datoEncontrado = false;
+            System.out.println("Dato No encontrado!!");
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
     
-        return miUsuario;
+        return user;
     
     }
     
     public Usuario consultarUsuarioLogin(String password, String nUser)
     {
-        Usuario miUsuario = new Usuario();
+        user = new Usuario();
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
             conexion= DriverManager.getConnection(url,usuario,contrasenha);
             java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
+            
             String consulta ="SELECT nombre, cargo, codigo, nombreusuario FROM Usuario "+ 
               "WHERE contrasenha ="+"'"+password+"'"+"AND "+
               "nombreusuario ="+"'"+nUser+"'";
@@ -81,11 +80,11 @@ public class ConexionBaseDatos {
            
             while(resultado.next())
             {
-                setDatoEncontrado(true);
-                miUsuario.setNombre(resultado.getString("nombre"));
-                miUsuario.setCargo(resultado.getString("cargo"));
-                miUsuario.setCodigo(resultado.getString("codigo"));
-                miUsuario.setNombreUsuario(resultado.getString("nombreusuario"));
+                datoEncontrado = true;
+                user.setNombre(resultado.getString("nombre"));
+                user.setCargo(resultado.getString("cargo"));
+                user.setCodigo(resultado.getString("codigo"));
+                user.setNombreUsuario(resultado.getString("nombreusuario"));
                 
              }
                     
@@ -94,16 +93,17 @@ public class ConexionBaseDatos {
             
         }catch(Exception e){
             
+            datoEncontrado=false;
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
     
-        return miUsuario;
+        return user;
     
     }
     
     public void actualizarUsuario(String campoCambio, String valorCambio, String codigo)
     {
-         datoEncontrado= true;
+         
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
@@ -114,6 +114,7 @@ public class ConexionBaseDatos {
                    " SET "+campoCambio+ " =" +"'"+valorCambio+"'"+ "WHERE codigo ="+"'"+codigo+"'";
             
             statement.executeUpdate(consulta);
+            datoEncontrado= true;
             statement.close();
 
             
@@ -122,15 +123,13 @@ public class ConexionBaseDatos {
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
                     
-  
     }
     
     public void insertarUsuario(Usuario miUsuario)
     {
         user = new Usuario();
         user = miUsuario;
-        
-        datoEncontrado= true;
+       
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
@@ -151,6 +150,7 @@ public class ConexionBaseDatos {
                 "'"+user.getDireccion()+"'"+","+"'"+user.getTelefono()+"'"+")";
             
             statement.executeUpdate(consulta);
+            datoEncontrado= true;
             statement.close();
 
             
@@ -162,15 +162,14 @@ public class ConexionBaseDatos {
   
     }
     
-    
-    public void setDatoEncontrado(boolean datoEncontrado)
-    {
-        this.datoEncontrado= datoEncontrado;
-    }
-    
     public boolean getDatoEncontrado()
     {
         return datoEncontrado;
     }
     
+    private String url;
+    private String usuario;
+    private String contrasenha;
+    private boolean datoEncontrado;
+    private Usuario user;
 }

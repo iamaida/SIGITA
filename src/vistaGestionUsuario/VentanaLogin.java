@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package frontendGestionUsuario;
+package vistaGestionUsuario;
 
-import backend.ConexionBaseDatos;
-import backend.Usuario;
-import frontendMensEmerg.VentanaMensajeError;
-import frontendSoporteMenuPrincipal.VentanaMenuPrincipal;
+import controladorGestionUsuario.*;
 
 /**
  *
@@ -97,24 +94,9 @@ public class VentanaLogin extends javax.swing.JFrame {
         jTextFieldUserName.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldUserName.setText("Ingrese Usuario");
         jTextFieldUserName.setBorder(null);
-        jTextFieldUserName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldUserNameFocusGained(evt);
-            }
-        });
         jTextFieldUserName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldUserNameMouseClicked(evt);
-            }
-        });
-        jTextFieldUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserNameActionPerformed(evt);
-            }
-        });
-        jTextFieldUserName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldUserNameKeyPressed(evt);
             }
         });
         jPanelIntreso.add(jTextFieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 150, 29));
@@ -129,19 +111,9 @@ public class VentanaLogin extends javax.swing.JFrame {
         jPasswordField.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField.setText("ssssssssssssssssss");
         jPasswordField.setBorder(null);
-        jPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jPasswordFieldFocusGained(evt);
-            }
-        });
         jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordFieldMouseClicked(evt);
-            }
-        });
-        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldActionPerformed(evt);
             }
         });
         jPanelIntreso.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 140, 32));
@@ -161,11 +133,6 @@ public class VentanaLogin extends javax.swing.JFrame {
                 jButtonEnntrarMouseClicked(evt);
             }
         });
-        jButtonEnntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnntrarActionPerformed(evt);
-            }
-        });
         jPanelIntreso.add(jButtonEnntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 90, 40));
 
         jLabelUsuario.setBackground(new java.awt.Color(0, 0, 0));
@@ -179,60 +146,29 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void jTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserNameActionPerformed
-
-    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldActionPerformed
-
-    private void jButtonEnntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnntrarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButtonEnntrarActionPerformed
-
-    private void jPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldFocusGained
-  
-    }//GEN-LAST:event_jPasswordFieldFocusGained
-
     private void jPasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMouseClicked
         jPasswordField.setText("");
     }//GEN-LAST:event_jPasswordFieldMouseClicked
 
-    private void jTextFieldUserNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUserNameFocusGained
-       
-    }//GEN-LAST:event_jTextFieldUserNameFocusGained
-
-    private void jTextFieldUserNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserNameMouseClicked
-         jTextFieldUserName.setText("");
-    }//GEN-LAST:event_jTextFieldUserNameMouseClicked
-
-    private void jTextFieldUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserNameKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserNameKeyPressed
-
     private void jButtonEnntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEnntrarMouseClicked
-      ConexionBaseDatos conexionBD = new ConexionBaseDatos();
         
        String password= String.valueOf(jPasswordField.getPassword());
-       System.out.println(password);
        String nUser= jTextFieldUserName.getText();
-       System.out.println(nUser);
-       user = new Usuario();
-       user = conexionBD.consultarUsuarioLogin(password,nUser);
-       if(conexionBD.getDatoEncontrado())
-       { 
-            VentanaMenuPrincipal ventanaMenu= new VentanaMenuPrincipal(user);
-            ventanaMenu.setVisible(true);//mostrar ventana usuarios
-            this.setVisible(false);//Ocultar ventana en la que me encuentr
-       }else
+       
+       conUsuario = new ControladorUsuario();
+       
+       conUsuario.procesarLogin(password, nUser);
+       if(conUsuario.getEncontrado())
        {
-           VentanaMensajeError mensajeError = new VentanaMensajeError();
-           mensajeError.setVisible(true);
-
+           this.setVisible(false);
        }
+       
+      
     }//GEN-LAST:event_jButtonEnntrarMouseClicked
+
+    private void jTextFieldUserNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserNameMouseClicked
+        jTextFieldUserName.setText("");
+    }//GEN-LAST:event_jTextFieldUserNameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -275,7 +211,7 @@ public class VentanaLogin extends javax.swing.JFrame {
             }
         });
     }
-    private Usuario user;
+    private ControladorUsuario conUsuario;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEnntrar;
     private javax.swing.JLabel jLabel18;

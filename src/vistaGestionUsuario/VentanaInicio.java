@@ -3,31 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package frontendSoporteMenuPrincipal;
+package vistaGestionUsuario;
 
-import backend.Usuario;
-import frontendGestionUsuario.VentanaLogin;
-import frontendGestionVenta.VentanaPrincipalVenta;
-import frontendGestionReporte.VentanaPrincipalReporte;
-import frontendGestionInventario.VentanaPrincipalInventario;
-import frontendGestionUsuario.VentanaPrincipalUsuario;
-import frontendGestionCliente.VentanaPrincipalCliente;
+import controladorGestionUsuario.ControladorMenu;
+import controladorGestionUsuario.ControladorUsuario;
+import modeloGestionUsuario.Usuario;
+
 
 /**
  *
  * @author Aidis
  */
-public class VentanaMenuPrincipal extends javax.swing.JFrame {
+public class VentanaInicio extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaLogin
      */
-    public VentanaMenuPrincipal(Usuario user) {
+    public VentanaInicio(Usuario user) {
         initComponents();
         //Centra la ventana
         this.setLocationRelativeTo(null);
-        this.user = new Usuario();
         this.user = user;
+        controlMenu = new ControladorMenu();
         jLabelNombreEmp.setText(user.getNombre());
     }
 
@@ -47,12 +44,12 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         jLabelInventario = new javax.swing.JLabel();
         jLabelVentas = new javax.swing.JLabel();
         jLabelClientes = new javax.swing.JLabel();
-        jLabelImageSoporte = new javax.swing.JLabel();
-        jLabelImageVentas = new javax.swing.JLabel();
-        jLabelImageCustomers = new javax.swing.JLabel();
-        jLabelImageInventory = new javax.swing.JLabel();
-        jLabelImageReportes = new javax.swing.JLabel();
-        jLabelImageUsers1 = new javax.swing.JLabel();
+        imageSoporte = new javax.swing.JLabel();
+        imageVenta = new javax.swing.JLabel();
+        imageCliente = new javax.swing.JLabel();
+        imageInventario = new javax.swing.JLabel();
+        imageReporte = new javax.swing.JLabel();
+        imageUsuario = new javax.swing.JLabel();
         jPanelTitulo = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jPanelIntreso = new javax.swing.JPanel();
@@ -108,65 +105,65 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         jLabelClientes.setText("CLIENTE");
         jPanelMenu.add(jLabelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
 
-        jLabelImageSoporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSet.png"))); // NOI18N
-        jLabelImageSoporte.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageSoporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSet.png"))); // NOI18N
+        imageSoporte.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageSoporteMouseClicked(evt);
+                imageSoporteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 150, 130));
+        jPanelMenu.add(imageSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 150, 130));
 
-        jLabelImageVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSell.png"))); // NOI18N
-        jLabelImageVentas.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSell.png"))); // NOI18N
+        imageVenta.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageVentasMouseClicked(evt);
+                imageVentaMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 130));
+        jPanelMenu.add(imageVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 130));
 
-        jLabelImageCustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconClientes.png"))); // NOI18N
-        jLabelImageCustomers.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconClientes.png"))); // NOI18N
+        imageCliente.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageCustomersMouseClicked(evt);
+                imageClienteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 150, 130));
+        jPanelMenu.add(imageCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 150, 130));
 
-        jLabelImageInventory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInventory.png"))); // NOI18N
-        jLabelImageInventory.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageInventory.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageInventario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInventory.png"))); // NOI18N
+        imageInventario.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageInventoryMouseClicked(evt);
+                imageInventarioMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 150, 130));
+        jPanelMenu.add(imageInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 150, 130));
 
-        jLabelImageReportes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconForm.png"))); // NOI18N
-        jLabelImageReportes.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageReporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconForm.png"))); // NOI18N
+        imageReporte.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageReporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageReportesMouseClicked(evt);
+                imageReporteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 150, 130));
+        jPanelMenu.add(imageReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 150, 130));
 
-        jLabelImageUsers1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageUsers1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUsers.png"))); // NOI18N
-        jLabelImageUsers1.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageUsers1.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUsers.png"))); // NOI18N
+        imageUsuario.setPreferredSize(new java.awt.Dimension(34, 34));
+        imageUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageUsers1MouseClicked(evt);
+                imageUsuarioMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 150, 140));
+        jPanelMenu.add(imageUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 150, 140));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 760, 480));
 
@@ -203,11 +200,6 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                 jButtonSalirMouseClicked(evt);
             }
         });
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
-            }
-        });
         jPanelIntreso.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 90, 40));
 
         jLabelNombreEmp.setBackground(new java.awt.Color(0, 0, 0));
@@ -232,74 +224,59 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
+    private void imageClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageClienteMouseClicked
+      controlMenu.irModuloGCliente(user);
+      this.setVisible(false);
+    }//GEN-LAST:event_imageClienteMouseClicked
 
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    private void imageVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageVentaMouseClicked
+        controlMenu.irModuloGVenta(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_imageVentaMouseClicked
 
-    private void jLabelImageCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageCustomersMouseClicked
-        //Creación objeto ventana VentanaPrincipalUsuario
-      VentanaPrincipalCliente ventanaC = new VentanaPrincipalCliente(user);
-        ventanaC.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentro
-    }//GEN-LAST:event_jLabelImageCustomersMouseClicked
+    private void imageInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageInventarioMouseClicked
+        controlMenu.irModuloGInventario(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_imageInventarioMouseClicked
 
-    private void jLabelImageVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageVentasMouseClicked
-        //Creación objeto ventana VentanaPrincipalVenta
-        VentanaPrincipalVenta ventanaVentas= new VentanaPrincipalVenta(user);
-        ventanaVentas.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentro
-    }//GEN-LAST:event_jLabelImageVentasMouseClicked
+    private void imageReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageReporteMouseClicked
+        controlMenu.irModuloGReporte(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_imageReporteMouseClicked
 
-    private void jLabelImageInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageInventoryMouseClicked
-        //Creación objeto ventana VentanaPrincipalVenta
-        VentanaPrincipalInventario ventanaInventario= new VentanaPrincipalInventario(user);
-        ventanaInventario.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageInventoryMouseClicked
-
-    private void jLabelImageReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReportesMouseClicked
-        //Creación objeto ventana VentanaPrincipalVenta
-        VentanaPrincipalReporte ventanaReportes= new VentanaPrincipalReporte(user);
-        ventanaReportes.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageReportesMouseClicked
-
-    private void jLabelImageSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageSoporteMouseClicked
-        //Creación objeto ventana VentanaPrincipalVenta
-        VentanaPrincipalSoporte ventanaSoporte= new VentanaPrincipalSoporte(user);
-        ventanaSoporte.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageSoporteMouseClicked
+    private void imageSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageSoporteMouseClicked
+        controlMenu.irVentanaSoporte(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_imageSoporteMouseClicked
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
-        VentanaLogin ventanaLogin= new VentanaLogin();
-        ventanaLogin.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentro
+        controlMenu.irVentanaLogin();
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonSalirMouseClicked
 
-    private void jLabelImageUsers1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageUsers1MouseClicked
-        VentanaPrincipalUsuario ventanaU= new VentanaPrincipalUsuario(user);
-        ventanaU.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);// TODO add your handling code here:
-    }//GEN-LAST:event_jLabelImageUsers1MouseClicked
+    private void imageUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageUsuarioMouseClicked
+        controlMenu.irModuloGUsuario(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_imageUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
-    private Usuario user; 
+    private Usuario user;
+    private ControladorMenu controlMenu;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imageCliente;
+    private javax.swing.JLabel imageInventario;
+    private javax.swing.JLabel imageReporte;
+    private javax.swing.JLabel imageSoporte;
+    private javax.swing.JLabel imageUsuario;
+    private javax.swing.JLabel imageVenta;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabelBienvenida3;
     private javax.swing.JLabel jLabelClientes;
-    private javax.swing.JLabel jLabelImageCustomers;
-    private javax.swing.JLabel jLabelImageInventory;
-    private javax.swing.JLabel jLabelImageReportes;
-    private javax.swing.JLabel jLabelImageSoporte;
-    private javax.swing.JLabel jLabelImageUsers1;
-    private javax.swing.JLabel jLabelImageVentas;
     private javax.swing.JLabel jLabelImagenTienda;
     private javax.swing.JLabel jLabelInventario;
     private javax.swing.JLabel jLabelNombreEmp;

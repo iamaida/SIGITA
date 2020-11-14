@@ -5,7 +5,12 @@
  */
 package frontendGestionReporte;
 
-import backend.Usuario;
+import backendGestionInventario.*;
+import backendGestionReporte.ConexionBDReporte;
+import backendGestionReporte.Reporte;
+import modeloGestionUsuario.Usuario;
+import frontendMensEmerg.VentanaMActualizacionExit;
+import frontendMensEmerg.VentanaMActualizacionNExit;
 
 /**
  *
@@ -16,13 +21,23 @@ public class VentanaVerReporte extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public VentanaVerReporte(Usuario user) {
+    public VentanaVerReporte(Usuario user, Reporte report) {
         initComponents();
         //Centra la ventana
         this.setLocationRelativeTo(null);
-         this.user = new Usuario();
+        this.user = new Usuario();
         this.user = user;
-        jLabelUserName.setText(user.getNombreUsuario());      
+        jLabelUserName.setText(user.getNombreUsuario()); 
+        this.report = new Reporte();
+        this.report = report;
+        jLCodigo.setText(report.getCodigo());
+        jLTipo.setText(report.getTipo());
+        jLNomInteresado.setText(report.getNomInteresado());
+        ConexionBDInventario conexionBD = new ConexionBDInventario();
+        Producto miProducto = conexionBD.consultarProducto(report.getCodProducto());
+        jLProducto.setText(miProducto.getDescripcion());
+        jTAComentario.setText(report.getComentario());
+             
     }
 
     /**
@@ -51,23 +66,23 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelUserName1 = new javax.swing.JLabel();
         jLabelImageExit1 = new javax.swing.JLabel();
         jLabelMiniUser2 = new javax.swing.JLabel();
+        jButtonDenegar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jButtonSalir1 = new javax.swing.JButton();
-        jButtonSalir2 = new javax.swing.JButton();
+        jButtonAutorizar = new javax.swing.JButton();
         jPanelMenu = new javax.swing.JPanel();
         jLabelCodigo = new javax.swing.JLabel();
         jLabelAsterisco5 = new javax.swing.JLabel();
-        jLabelNombre8 = new javax.swing.JLabel();
+        jLNomInteresado = new javax.swing.JLabel();
         jSeparatorUsuario = new javax.swing.JSeparator();
-        jLabelNombre10 = new javax.swing.JLabel();
+        jLProducto = new javax.swing.JLabel();
         jSeparatorUsuario2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTAComentario = new javax.swing.JTextArea();
         jLabelDireccion1 = new javax.swing.JLabel();
-        jLabelNombre12 = new javax.swing.JLabel();
+        jLTipo = new javax.swing.JLabel();
         jSeparatorUsuario4 = new javax.swing.JSeparator();
         jLabelCargo1 = new javax.swing.JLabel();
-        jLabelNombre14 = new javax.swing.JLabel();
+        jLCodigo = new javax.swing.JLabel();
         jLabelCodigo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,8 +170,19 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelMiniUser2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUserMini.png"))); // NOI18N
         jPanelBotones.add(jLabelMiniUser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
 
+        jButtonDenegar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonDenegar.setText("DENEGAR");
+        jButtonDenegar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jButtonDenegar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonDenegar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonDenegarMouseClicked(evt);
+            }
+        });
+        jPanelBotones.add(jButtonDenegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 120, 40));
+
         jButtonSalir.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonSalir.setText("DENEGAR");
+        jButtonSalir.setText("SALIR");
         jButtonSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,44 +190,18 @@ public class VentanaVerReporte extends javax.swing.JFrame {
                 jButtonSalirMouseClicked(evt);
             }
         });
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
-            }
-        });
-        jPanelBotones.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 120, 40));
+        jPanelBotones.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 120, 40));
 
-        jButtonSalir1.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonSalir1.setText("SALIR");
-        jButtonSalir1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonSalir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSalir1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAutorizar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonAutorizar.setText("AUTORIZAR");
+        jButtonAutorizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jButtonAutorizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAutorizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSalir1MouseClicked(evt);
+                jButtonAutorizarMouseClicked(evt);
             }
         });
-        jButtonSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalir1ActionPerformed(evt);
-            }
-        });
-        jPanelBotones.add(jButtonSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 120, 40));
-
-        jButtonSalir2.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonSalir2.setText("AUTORIZAR");
-        jButtonSalir2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonSalir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSalir2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSalir2MouseClicked(evt);
-            }
-        });
-        jButtonSalir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalir2ActionPerformed(evt);
-            }
-        });
-        jPanelBotones.add(jButtonSalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 120, 40));
+        jPanelBotones.add(jButtonAutorizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 120, 40));
 
         getContentPane().add(jPanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 850, 120));
 
@@ -213,7 +213,7 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelCodigo.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabelCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCodigo.setText("DESCRIPCIÓN");
+        jLabelCodigo.setText("PRODUCTO");
         jPanelMenu.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         jLabelAsterisco5.setBackground(new java.awt.Color(0, 0, 0));
@@ -222,32 +222,34 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelAsterisco5.setText("*");
         jPanelMenu.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
 
-        jLabelNombre8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre8.setOpaque(true);
-        jPanelMenu.add(jLabelNombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 450, 30));
+        jLNomInteresado.setBackground(new java.awt.Color(255, 255, 255));
+        jLNomInteresado.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLNomInteresado.setForeground(new java.awt.Color(102, 102, 102));
+        jLNomInteresado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLNomInteresado.setOpaque(true);
+        jPanelMenu.add(jLNomInteresado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 450, 30));
 
         jSeparatorUsuario.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 450, 20));
 
-        jLabelNombre10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre10.setOpaque(true);
-        jPanelMenu.add(jLabelNombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 450, 30));
+        jLProducto.setBackground(new java.awt.Color(255, 255, 255));
+        jLProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jLProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLProducto.setOpaque(true);
+        jPanelMenu.add(jLProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 450, 30));
 
         jSeparatorUsuario2.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 450, 10));
 
-        jTextArea1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Explique brevemente el motivo del cambio...\n\nADMINISTRADOR:\nSugiero que se lleve a cabo ....");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jScrollPane1.setViewportView(jTextArea1);
+        jTAComentario.setBackground(new java.awt.Color(220, 220, 220));
+        jTAComentario.setColumns(20);
+        jTAComentario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTAComentario.setForeground(new java.awt.Color(102, 102, 102));
+        jTAComentario.setRows(5);
+        jTAComentario.setText("Explique brevemente el motivo del cambio...\n\nADMINISTRADOR:\nSugiero que se lleve a cabo ....");
+        jTAComentario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jScrollPane1.setViewportView(jTAComentario);
 
         jPanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 460, 120));
 
@@ -257,11 +259,12 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelDireccion1.setText("COMENTARIOS");
         jPanelMenu.add(jLabelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 120, -1));
 
-        jLabelNombre12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre12.setOpaque(true);
-        jPanelMenu.add(jLabelNombre12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 150, 30));
+        jLTipo.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo.setForeground(new java.awt.Color(102, 102, 102));
+        jLTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo.setOpaque(true);
+        jPanelMenu.add(jLTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 150, 30));
 
         jSeparatorUsuario4.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 150, 20));
@@ -272,13 +275,13 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         jLabelCargo1.setText("TIPO");
         jPanelMenu.add(jLabelCargo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
-        jLabelNombre14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre14.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre14.setText("R-001");
-        jLabelNombre14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jLabelNombre14.setOpaque(true);
-        jPanelMenu.add(jLabelNombre14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
+        jLCodigo.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo.setText("R-001");
+        jLCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jLCodigo.setOpaque(true);
+        jPanelMenu.add(jLCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
 
         jLabelCodigo1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCodigo1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -291,42 +294,51 @@ public class VentanaVerReporte extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
-
-    }//GEN-LAST:event_jButtonSalirMouseClicked
-
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalirActionPerformed
-
     private void jLabelImageExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageExit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelImageExit1MouseClicked
 
-    private void jButtonSalir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalir1MouseClicked
+    private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
         VentanaPrincipalReporte ventanaReportes = new VentanaPrincipalReporte(user);
         ventanaReportes.setVisible(true);//mostrar ventana usuarios
         this.setVisible(false);//Ocultar ventana en la que me encuentro
-    }//GEN-LAST:event_jButtonSalir1MouseClicked
+    }//GEN-LAST:event_jButtonSalirMouseClicked
 
-    private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalir1ActionPerformed
+    private void jButtonDenegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDenegarMouseClicked
+          ConexionBDReporte conexionBD = new ConexionBDReporte();
+          conexionBD.cambiarEstadoReporte("estado", "Denegado", jLCodigo.getText());
+          compActualizacion(conexionBD.getDatoEncontrado());
+    }//GEN-LAST:event_jButtonDenegarMouseClicked
 
-    private void jButtonSalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalir2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalir2MouseClicked
-
-    private void jButtonSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalir2ActionPerformed
-
+    private void jButtonAutorizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAutorizarMouseClicked
+        ConexionBDReporte conexionBD = new ConexionBDReporte();
+        conexionBD.cambiarEstadoReporte("estado", "Autorizado", jLCodigo.getText());
+        compActualizacion(conexionBD.getDatoEncontrado());
+    }//GEN-LAST:event_jButtonAutorizarMouseClicked
+    
+    private void compActualizacion(boolean comp)
+    {
+        if(comp)
+        {
+            VentanaMActualizacionExit  vMAE= new VentanaMActualizacionExit();
+            vMAE.setVisible(true);
+        }else
+        {
+            VentanaMActualizacionNExit  vMANE= new VentanaMActualizacionNExit();
+            vMANE.setVisible(true);
+        }
+    }
    private Usuario user;
+   private Reporte report;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAutorizar;
+    private javax.swing.JButton jButtonDenegar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JButton jButtonSalir1;
-    private javax.swing.JButton jButtonSalir2;
+    private javax.swing.JLabel jLCodigo;
+    private javax.swing.JLabel jLNomInteresado;
+    private javax.swing.JLabel jLProducto;
+    private javax.swing.JLabel jLTipo;
     private javax.swing.JLabel jLabelAsterisco5;
     private javax.swing.JLabel jLabelCargo1;
     private javax.swing.JLabel jLabelCodigo;
@@ -335,10 +347,6 @@ public class VentanaVerReporte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImageExit1;
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelMiniUser2;
-    private javax.swing.JLabel jLabelNombre10;
-    private javax.swing.JLabel jLabelNombre12;
-    private javax.swing.JLabel jLabelNombre14;
-    private javax.swing.JLabel jLabelNombre8;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelUserName1;
     private javax.swing.JLabel jLabelWindowTitle;
@@ -358,6 +366,6 @@ public class VentanaVerReporte extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorUsuario;
     private javax.swing.JSeparator jSeparatorUsuario2;
     private javax.swing.JSeparator jSeparatorUsuario4;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTAComentario;
     // End of variables declaration//GEN-END:variables
 }

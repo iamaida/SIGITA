@@ -5,14 +5,16 @@
  */
 package frontendGestionReporte;
 
-import backend.Usuario;
-import frontendGestionUsuario.VentanaLogin;
-import frontendSoporteMenuPrincipal.VentanaPrincipalSoporte;
-import frontendGestionVenta.VentanaPrincipalVenta;
-import frontendGestionReporte.VentanaVerReporte;
+import vistaGestionUsuario.VentanaPrincipalUsuario;
+import vistaGestionUsuario.VentanaLogin;
+import backendGestionReporte.*;
+import modeloGestionUsuario.Usuario;
+import vistaGestionUsuario.VentanaPrincipalSoporte;
+import frontendGestionVenta.*;
 import frontendGestionInventario.VentanaPrincipalInventario;
-import frontendGestionUsuario.VentanaPrincipalUsuario;
 import frontendGestionCliente.VentanaPrincipalCliente;
+import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  *
@@ -30,8 +32,83 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         this.user = new Usuario();
         this.user = user;
         jLabelUserName.setText(user.getNombreUsuario());
-    }
+        paneles = new ArrayList<JPanel>();
+        reportes =new ArrayList<Reporte>();
+        codigos =new ArrayList<JLabel>();
+        tipos =new ArrayList<JLabel>();
+        fechas =new ArrayList<JLabel>();
 
+        agregarPaneles();
+        agregarCodigos();
+        agregarTipos();
+        agregarFechas();
+        invisivilizarPaneles();
+        ConexionBDReporte conexionBD = new ConexionBDReporte();
+        conexionBD.consultarReportes();
+        reportes = conexionBD.getReportes();
+        vilizarPaneles();
+
+    }
+    
+    private void agregarPaneles()
+    {
+        paneles.add(jPanelReporteCambio);
+        paneles.add(jPanelReporteCambio1);
+        paneles.add(jPanelReporteCambio2);
+        paneles.add(jPanelReporteCambio3);
+        paneles.add(jPanelReporteCambio4);
+        paneles.add(jPanelReporteCambio5);
+    }
+    
+    private void invisivilizarPaneles()
+    {
+        for (int i=0;i<paneles.size();i++) {
+      
+             paneles.get(i).setVisible(false);
+        }
+    }
+    
+    private void agregarCodigos()
+    {
+        codigos.add(jLCodigo);
+        codigos.add(jLCodigo1);
+        codigos.add(jLCodigo2);
+        codigos.add(jLCodigo3);
+        codigos.add(jLCodigo4);
+        codigos.add(jLCodigo5);
+    }
+    
+    private void agregarTipos()
+    {
+        tipos.add(jLTipo);
+        tipos.add(jLTipo1);
+        tipos.add(jLTipo2);
+        tipos.add(jLTipo3);
+        tipos.add(jLTipo4);
+        tipos.add(jLTipo5);
+    
+    }
+    
+    private void agregarFechas()
+    {
+        fechas.add(jLFecha);
+        fechas.add(jLFecha1);
+        fechas.add(jLFecha2);
+        fechas.add(jLFecha3);
+        fechas.add(jLFecha4);
+        fechas.add(jLFecha5);
+    }
+    
+    private void vilizarPaneles()
+    {
+        for (int i=0;i<reportes.size();i++) {
+            codigos.get(i).setText(reportes.get(i).getCodigo());
+            tipos.get(i).setText(reportes.get(i).getTipo());
+            fechas.get(i).setText(reportes.get(i).getFecha());
+            paneles.get(i).setVisible(true);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,30 +125,114 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         jLabelMiniUser1 = new javax.swing.JLabel();
         jPanelMenu = new javax.swing.JPanel();
         jPanelReporteCambio = new javax.swing.JPanel();
-        jLabelImageReporteNovedad1 = new javax.swing.JLabel();
+        jLabelImageReporteNovedad = new javax.swing.JLabel();
         jLabelNombre4 = new javax.swing.JLabel();
         jLabelNombre5 = new javax.swing.JLabel();
         jLabelNombre6 = new javax.swing.JLabel();
         jLabelNombre8 = new javax.swing.JLabel();
         jSeparatorUsuario4 = new javax.swing.JSeparator();
-        jLabelNombre14 = new javax.swing.JLabel();
-        jLabelNombre15 = new javax.swing.JLabel();
+        jLCodigo = new javax.swing.JLabel();
+        jLTipo = new javax.swing.JLabel();
         jSeparatorUsuario5 = new javax.swing.JSeparator();
-        jLabelNombre16 = new javax.swing.JLabel();
+        jLFecha = new javax.swing.JLabel();
         jSeparatorUsuario6 = new javax.swing.JSeparator();
         jSeparatorUsuario3 = new javax.swing.JSeparator();
         jPanelReporteCambio1 = new javax.swing.JPanel();
-        jLabelImageReporteNovedad2 = new javax.swing.JLabel();
+        jLabelImageReporteNovedad1 = new javax.swing.JLabel();
         jLabelNombre7 = new javax.swing.JLabel();
         jLabelNombre9 = new javax.swing.JLabel();
         jLabelNombre10 = new javax.swing.JLabel();
         jLabelNombre11 = new javax.swing.JLabel();
         jSeparatorUsuario7 = new javax.swing.JSeparator();
-        jLabelNombre17 = new javax.swing.JLabel();
-        jLabelNombre18 = new javax.swing.JLabel();
+        jLCodigo1 = new javax.swing.JLabel();
+        jLTipo1 = new javax.swing.JLabel();
         jSeparatorUsuario8 = new javax.swing.JSeparator();
-        jLabelNombre19 = new javax.swing.JLabel();
+        jLFecha1 = new javax.swing.JLabel();
         jSeparatorUsuario9 = new javax.swing.JSeparator();
+        jPanelReporteCambio2 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad2 = new javax.swing.JLabel();
+        jLabelNombre12 = new javax.swing.JLabel();
+        jLabelNombre13 = new javax.swing.JLabel();
+        jLabelNombre20 = new javax.swing.JLabel();
+        jLabelNombre21 = new javax.swing.JLabel();
+        jSeparatorUsuario10 = new javax.swing.JSeparator();
+        jLCodigo2 = new javax.swing.JLabel();
+        jLTipo2 = new javax.swing.JLabel();
+        jSeparatorUsuario11 = new javax.swing.JSeparator();
+        jLFecha2 = new javax.swing.JLabel();
+        jSeparatorUsuario12 = new javax.swing.JSeparator();
+        jPanelReporteCambio5 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad5 = new javax.swing.JLabel();
+        jLabelNombre130 = new javax.swing.JLabel();
+        jLabelNombre131 = new javax.swing.JLabel();
+        jLabelNombre132 = new javax.swing.JLabel();
+        jLabelNombre133 = new javax.swing.JLabel();
+        jSeparatorUsuario58 = new javax.swing.JSeparator();
+        jLCodigo5 = new javax.swing.JLabel();
+        jLTipo5 = new javax.swing.JLabel();
+        jSeparatorUsuario59 = new javax.swing.JSeparator();
+        jLFecha5 = new javax.swing.JLabel();
+        jSeparatorUsuario60 = new javax.swing.JSeparator();
+        jPanelReporteCambio3 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad3 = new javax.swing.JLabel();
+        jLabelNombre146 = new javax.swing.JLabel();
+        jLabelNombre147 = new javax.swing.JLabel();
+        jLabelNombre148 = new javax.swing.JLabel();
+        jLabelNombre149 = new javax.swing.JLabel();
+        jSeparatorUsuario70 = new javax.swing.JSeparator();
+        jLCodigo3 = new javax.swing.JLabel();
+        jLTipo3 = new javax.swing.JLabel();
+        jSeparatorUsuario71 = new javax.swing.JSeparator();
+        jLFecha3 = new javax.swing.JLabel();
+        jSeparatorUsuario72 = new javax.swing.JSeparator();
+        jPanelReporteCambio8 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad24 = new javax.swing.JLabel();
+        jLabelNombre150 = new javax.swing.JLabel();
+        jLabelNombre151 = new javax.swing.JLabel();
+        jLabelNombre152 = new javax.swing.JLabel();
+        jLabelNombre153 = new javax.swing.JLabel();
+        jSeparatorUsuario73 = new javax.swing.JSeparator();
+        jLCodigo8 = new javax.swing.JLabel();
+        jLTipo8 = new javax.swing.JLabel();
+        jSeparatorUsuario74 = new javax.swing.JSeparator();
+        jLFecha8 = new javax.swing.JLabel();
+        jSeparatorUsuario75 = new javax.swing.JSeparator();
+        jPanelReporteCambio9 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad25 = new javax.swing.JLabel();
+        jLabelNombre154 = new javax.swing.JLabel();
+        jLabelNombre155 = new javax.swing.JLabel();
+        jLabelNombre156 = new javax.swing.JLabel();
+        jLabelNombre157 = new javax.swing.JLabel();
+        jSeparatorUsuario76 = new javax.swing.JSeparator();
+        jLCodigo9 = new javax.swing.JLabel();
+        jLTipo9 = new javax.swing.JLabel();
+        jSeparatorUsuario77 = new javax.swing.JSeparator();
+        jLFecha9 = new javax.swing.JLabel();
+        jSeparatorUsuario78 = new javax.swing.JSeparator();
+        jPanelReporteCambio10 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad26 = new javax.swing.JLabel();
+        jLabelNombre158 = new javax.swing.JLabel();
+        jLabelNombre159 = new javax.swing.JLabel();
+        jLabelNombre160 = new javax.swing.JLabel();
+        jLabelNombre161 = new javax.swing.JLabel();
+        jSeparatorUsuario79 = new javax.swing.JSeparator();
+        jLCodigo10 = new javax.swing.JLabel();
+        jLTipo10 = new javax.swing.JLabel();
+        jSeparatorUsuario80 = new javax.swing.JSeparator();
+        jLFecha10 = new javax.swing.JLabel();
+        jSeparatorUsuario81 = new javax.swing.JSeparator();
+        jPanelReporteCambio4 = new javax.swing.JPanel();
+        jLabelImageReporteNovedad4 = new javax.swing.JLabel();
+        jLabelNombre134 = new javax.swing.JLabel();
+        jLabelNombre135 = new javax.swing.JLabel();
+        jLabelNombre136 = new javax.swing.JLabel();
+        jLabelNombre137 = new javax.swing.JLabel();
+        jSeparatorUsuario61 = new javax.swing.JSeparator();
+        jLCodigo4 = new javax.swing.JLabel();
+        jLTipo4 = new javax.swing.JLabel();
+        jSeparatorUsuario62 = new javax.swing.JSeparator();
+        jLFecha4 = new javax.swing.JLabel();
+        jSeparatorUsuario63 = new javax.swing.JSeparator();
         jPaneMenuLateral1 = new javax.swing.JPanel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabelMenuUsuarios1 = new javax.swing.JLabel();
@@ -135,15 +296,15 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         jPanelReporteCambio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jPanelReporteCambio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImageReporteNovedad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageReporteNovedad1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
-        jLabelImageReporteNovedad1.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageReporteNovedad1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelImageReporteNovedad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageReporteNovedad1MouseClicked(evt);
+                jLabelImageReporteNovedadMouseClicked(evt);
             }
         });
-        jPanelReporteCambio.add(jLabelImageReporteNovedad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+        jPanelReporteCambio.add(jLabelImageReporteNovedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         jLabelNombre4.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -172,34 +333,34 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         jSeparatorUsuario4.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio.add(jSeparatorUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
 
-        jLabelNombre14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre14.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre14.setText("R-001");
-        jLabelNombre14.setOpaque(true);
-        jPanelReporteCambio.add(jLabelNombre14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+        jLCodigo.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo.setText("R-001");
+        jLCodigo.setOpaque(true);
+        jPanelReporteCambio.add(jLCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
 
-        jLabelNombre15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre15.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre15.setText("Cambio");
-        jLabelNombre15.setOpaque(true);
-        jPanelReporteCambio.add(jLabelNombre15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+        jLTipo.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo.setText("Cambio");
+        jLTipo.setOpaque(true);
+        jPanelReporteCambio.add(jLTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
 
         jSeparatorUsuario5.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio.add(jSeparatorUsuario5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
 
-        jLabelNombre16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre16.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre16.setText("25/10/2020");
-        jLabelNombre16.setOpaque(true);
-        jPanelReporteCambio.add(jLabelNombre16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+        jLFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha.setText("25/10/2020");
+        jLFecha.setOpaque(true);
+        jPanelReporteCambio.add(jLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
 
         jSeparatorUsuario6.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio.add(jSeparatorUsuario6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
 
-        jPanelMenu.add(jPanelReporteCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 620, 50));
+        jPanelMenu.add(jPanelReporteCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 620, 50));
 
         jSeparatorUsuario3.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 60, 0));
@@ -208,15 +369,15 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         jPanelReporteCambio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jPanelReporteCambio1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImageReporteNovedad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageReporteNovedad2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
-        jLabelImageReporteNovedad2.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageReporteNovedad2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelImageReporteNovedad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad1.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageReporteNovedad2MouseClicked(evt);
+                jLabelImageReporteNovedad1MouseClicked(evt);
             }
         });
-        jPanelReporteCambio1.add(jLabelImageReporteNovedad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+        jPanelReporteCambio1.add(jLabelImageReporteNovedad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         jLabelNombre7.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre7.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -245,34 +406,524 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         jSeparatorUsuario7.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio1.add(jSeparatorUsuario7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
 
-        jLabelNombre17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre17.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre17.setText("R-002");
-        jLabelNombre17.setOpaque(true);
-        jPanelReporteCambio1.add(jLabelNombre17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+        jLCodigo1.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo1.setText("R-002");
+        jLCodigo1.setOpaque(true);
+        jPanelReporteCambio1.add(jLCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
 
-        jLabelNombre18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre18.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre18.setText("Averia");
-        jLabelNombre18.setOpaque(true);
-        jPanelReporteCambio1.add(jLabelNombre18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+        jLTipo1.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo1.setText("Averia");
+        jLTipo1.setOpaque(true);
+        jPanelReporteCambio1.add(jLTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
 
         jSeparatorUsuario8.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio1.add(jSeparatorUsuario8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
 
-        jLabelNombre19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre19.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre19.setText("25/09/2020");
-        jLabelNombre19.setOpaque(true);
-        jPanelReporteCambio1.add(jLabelNombre19, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+        jLFecha1.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha1.setText("25/09/2020");
+        jLFecha1.setOpaque(true);
+        jPanelReporteCambio1.add(jLFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
 
         jSeparatorUsuario9.setForeground(new java.awt.Color(255, 102, 51));
         jPanelReporteCambio1.add(jSeparatorUsuario9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
 
-        jPanelMenu.add(jPanelReporteCambio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 620, 50));
+        jPanelMenu.add(jPanelReporteCambio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 620, 50));
+
+        jPanelReporteCambio2.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad2.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad2MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio2.add(jLabelImageReporteNovedad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre12.setText(" CLIENTE");
+        jPanelReporteCambio2.add(jLabelNombre12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre13.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre13.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre13.setText("COD");
+        jPanelReporteCambio2.add(jLabelNombre13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre20.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre20.setText("TIPO");
+        jPanelReporteCambio2.add(jLabelNombre20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre21.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre21.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre21.setText("FECHA");
+        jPanelReporteCambio2.add(jLabelNombre21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario10.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio2.add(jSeparatorUsuario10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo2.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo2.setText("R-001");
+        jLCodigo2.setOpaque(true);
+        jPanelReporteCambio2.add(jLCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo2.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo2.setText("Cambio");
+        jLTipo2.setOpaque(true);
+        jPanelReporteCambio2.add(jLTipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario11.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio2.add(jSeparatorUsuario11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha2.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha2.setText("25/10/2020");
+        jLFecha2.setOpaque(true);
+        jPanelReporteCambio2.add(jLFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario12.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio2.add(jSeparatorUsuario12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelMenu.add(jPanelReporteCambio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 620, 50));
+
+        jPanelReporteCambio5.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad5.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad5MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio5.add(jLabelImageReporteNovedad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre130.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre130.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre130.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre130.setText(" CLIENTE");
+        jPanelReporteCambio5.add(jLabelNombre130, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre131.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre131.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre131.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre131.setText("COD");
+        jPanelReporteCambio5.add(jLabelNombre131, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre132.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre132.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre132.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre132.setText("TIPO");
+        jPanelReporteCambio5.add(jLabelNombre132, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre133.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre133.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre133.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre133.setText("FECHA");
+        jPanelReporteCambio5.add(jLabelNombre133, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario58.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio5.add(jSeparatorUsuario58, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo5.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo5.setText("R-001");
+        jLCodigo5.setOpaque(true);
+        jPanelReporteCambio5.add(jLCodigo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo5.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo5.setText("Cambio");
+        jLTipo5.setOpaque(true);
+        jPanelReporteCambio5.add(jLTipo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario59.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio5.add(jSeparatorUsuario59, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha5.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha5.setText("25/10/2020");
+        jLFecha5.setOpaque(true);
+        jPanelReporteCambio5.add(jLFecha5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario60.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio5.add(jSeparatorUsuario60, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelMenu.add(jPanelReporteCambio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 620, 50));
+
+        jPanelReporteCambio3.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad3.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad3MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio3.add(jLabelImageReporteNovedad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre146.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre146.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre146.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre146.setText(" CLIENTE");
+        jPanelReporteCambio3.add(jLabelNombre146, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre147.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre147.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre147.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre147.setText("COD");
+        jPanelReporteCambio3.add(jLabelNombre147, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre148.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre148.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre148.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre148.setText("TIPO");
+        jPanelReporteCambio3.add(jLabelNombre148, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre149.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre149.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre149.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre149.setText("FECHA");
+        jPanelReporteCambio3.add(jLabelNombre149, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario70.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio3.add(jSeparatorUsuario70, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo3.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo3.setText("R-001");
+        jLCodigo3.setOpaque(true);
+        jPanelReporteCambio3.add(jLCodigo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo3.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo3.setText("Cambio");
+        jLTipo3.setOpaque(true);
+        jPanelReporteCambio3.add(jLTipo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario71.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio3.add(jSeparatorUsuario71, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha3.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha3.setText("25/10/2020");
+        jLFecha3.setOpaque(true);
+        jPanelReporteCambio3.add(jLFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario72.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio3.add(jSeparatorUsuario72, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelReporteCambio8.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad24.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad24MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio8.add(jLabelImageReporteNovedad24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre150.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre150.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre150.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre150.setText(" CLIENTE");
+        jPanelReporteCambio8.add(jLabelNombre150, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre151.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre151.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre151.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre151.setText("COD");
+        jPanelReporteCambio8.add(jLabelNombre151, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre152.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre152.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre152.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre152.setText("TIPO");
+        jPanelReporteCambio8.add(jLabelNombre152, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre153.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre153.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre153.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre153.setText("FECHA");
+        jPanelReporteCambio8.add(jLabelNombre153, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario73.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio8.add(jSeparatorUsuario73, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo8.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo8.setText("R-001");
+        jLCodigo8.setOpaque(true);
+        jPanelReporteCambio8.add(jLCodigo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo8.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo8.setText("Cambio");
+        jLTipo8.setOpaque(true);
+        jPanelReporteCambio8.add(jLTipo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario74.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio8.add(jSeparatorUsuario74, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha8.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha8.setText("25/10/2020");
+        jLFecha8.setOpaque(true);
+        jPanelReporteCambio8.add(jLFecha8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario75.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio8.add(jSeparatorUsuario75, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelReporteCambio3.add(jPanelReporteCambio8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 620, 50));
+
+        jPanelReporteCambio9.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad25.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad25MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio9.add(jLabelImageReporteNovedad25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre154.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre154.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre154.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre154.setText(" CLIENTE");
+        jPanelReporteCambio9.add(jLabelNombre154, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre155.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre155.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre155.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre155.setText("COD");
+        jPanelReporteCambio9.add(jLabelNombre155, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre156.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre156.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre156.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre156.setText("TIPO");
+        jPanelReporteCambio9.add(jLabelNombre156, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre157.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre157.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre157.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre157.setText("FECHA");
+        jPanelReporteCambio9.add(jLabelNombre157, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario76.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio9.add(jSeparatorUsuario76, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo9.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo9.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo9.setText("R-001");
+        jLCodigo9.setOpaque(true);
+        jPanelReporteCambio9.add(jLCodigo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo9.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo9.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo9.setText("Cambio");
+        jLTipo9.setOpaque(true);
+        jPanelReporteCambio9.add(jLTipo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario77.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio9.add(jSeparatorUsuario77, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha9.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha9.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha9.setText("25/10/2020");
+        jLFecha9.setOpaque(true);
+        jPanelReporteCambio9.add(jLFecha9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario78.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio9.add(jSeparatorUsuario78, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelReporteCambio10.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad26.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad26MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio10.add(jLabelImageReporteNovedad26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre158.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre158.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre158.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre158.setText(" CLIENTE");
+        jPanelReporteCambio10.add(jLabelNombre158, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre159.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre159.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre159.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre159.setText("COD");
+        jPanelReporteCambio10.add(jLabelNombre159, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre160.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre160.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre160.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre160.setText("TIPO");
+        jPanelReporteCambio10.add(jLabelNombre160, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre161.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre161.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre161.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre161.setText("FECHA");
+        jPanelReporteCambio10.add(jLabelNombre161, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario79.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio10.add(jSeparatorUsuario79, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo10.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo10.setText("R-001");
+        jLCodigo10.setOpaque(true);
+        jPanelReporteCambio10.add(jLCodigo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo10.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo10.setText("Cambio");
+        jLTipo10.setOpaque(true);
+        jPanelReporteCambio10.add(jLTipo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario80.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio10.add(jSeparatorUsuario80, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha10.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha10.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha10.setText("25/10/2020");
+        jLFecha10.setOpaque(true);
+        jPanelReporteCambio10.add(jLFecha10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario81.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio10.add(jSeparatorUsuario81, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelReporteCambio9.add(jPanelReporteCambio10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 620, 50));
+
+        jPanelReporteCambio3.add(jPanelReporteCambio9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 620, 50));
+
+        jPanelMenu.add(jPanelReporteCambio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 620, 50));
+
+        jPanelReporteCambio4.setBackground(new java.awt.Color(220, 220, 220));
+        jPanelReporteCambio4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jPanelReporteCambio4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImageReporteNovedad4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelImageReporteNovedad4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconReportCard.png"))); // NOI18N
+        jLabelImageReporteNovedad4.setPreferredSize(new java.awt.Dimension(34, 34));
+        jLabelImageReporteNovedad4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImageReporteNovedad4MouseClicked(evt);
+            }
+        });
+        jPanelReporteCambio4.add(jLabelImageReporteNovedad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        jLabelNombre134.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre134.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre134.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre134.setText(" CLIENTE");
+        jPanelReporteCambio4.add(jLabelNombre134, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
+
+        jLabelNombre135.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre135.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre135.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre135.setText("COD");
+        jPanelReporteCambio4.add(jLabelNombre135, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+
+        jLabelNombre136.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre136.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre136.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre136.setText("TIPO");
+        jPanelReporteCambio4.add(jLabelNombre136, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabelNombre137.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNombre137.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNombre137.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombre137.setText("FECHA");
+        jPanelReporteCambio4.add(jLabelNombre137, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 30));
+
+        jSeparatorUsuario61.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio4.add(jSeparatorUsuario61, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 10));
+
+        jLCodigo4.setBackground(new java.awt.Color(255, 255, 255));
+        jLCodigo4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCodigo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLCodigo4.setText("R-001");
+        jLCodigo4.setOpaque(true);
+        jPanelReporteCambio4.add(jLCodigo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
+
+        jLTipo4.setBackground(new java.awt.Color(255, 255, 255));
+        jLTipo4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLTipo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTipo4.setText("Cambio");
+        jLTipo4.setOpaque(true);
+        jPanelReporteCambio4.add(jLTipo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 30));
+
+        jSeparatorUsuario62.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio4.add(jSeparatorUsuario62, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 10));
+
+        jLFecha4.setBackground(new java.awt.Color(255, 255, 255));
+        jLFecha4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLFecha4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFecha4.setText("25/10/2020");
+        jLFecha4.setOpaque(true);
+        jPanelReporteCambio4.add(jLFecha4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 30));
+
+        jSeparatorUsuario63.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelReporteCambio4.add(jSeparatorUsuario63, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 120, 10));
+
+        jPanelMenu.add(jPanelReporteCambio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 620, 50));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 810, 480));
 
@@ -482,23 +1133,99 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
         this.setVisible(false);//Ocultar ventana en la que me encuentr
     }//GEN-LAST:event_jLabelMenuClientes1MouseClicked
 
+    private void jLabelImageReporteNovedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedadMouseClicked
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user, reportes.get(0));
+        ventanaVR.setVisible(true);//mostrar ventana usuarios
+        this.setVisible(false);//Ocultar ventana en la que me encuentr
+    }//GEN-LAST:event_jLabelImageReporteNovedadMouseClicked
+
     private void jLabelImageReporteNovedad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad1MouseClicked
-        VentanaVerReporte ventanaVR= new VentanaVerReporte(user);
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user, reportes.get(1));
         ventanaVR.setVisible(true);//mostrar ventana usuarios
         this.setVisible(false);//Ocultar ventana en la que me encuentr
     }//GEN-LAST:event_jLabelImageReporteNovedad1MouseClicked
 
     private void jLabelImageReporteNovedad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad2MouseClicked
-        VentanaVerReporte ventanaVR= new VentanaVerReporte(user);
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user, reportes.get(2));
         ventanaVR.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentr
+        this.setVisible(false);//Ocultar ventana en la que me encuentr    
     }//GEN-LAST:event_jLabelImageReporteNovedad2MouseClicked
 
+    private void jLabelImageReporteNovedad5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad5MouseClicked
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user, reportes.get(5));
+        ventanaVR.setVisible(true);//mostrar ventana usuarios
+        this.setVisible(false);//Ocultar ventana en la que me encuentr 
+    }//GEN-LAST:event_jLabelImageReporteNovedad5MouseClicked
+
+    private void jLabelImageReporteNovedad3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad3MouseClicked
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user,reportes.get(3));
+        ventanaVR.setVisible(true);//mostrar ventana usuarios
+        this.setVisible(false);//Ocultar ventana en la que me encuentr 
+    }//GEN-LAST:event_jLabelImageReporteNovedad3MouseClicked
+
+    private void jLabelImageReporteNovedad24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad24MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelImageReporteNovedad24MouseClicked
+
+    private void jLabelImageReporteNovedad25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad25MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelImageReporteNovedad25MouseClicked
+
+    private void jLabelImageReporteNovedad26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad26MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelImageReporteNovedad26MouseClicked
+
+    private void jLabelImageReporteNovedad4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageReporteNovedad4MouseClicked
+        VentanaVerReporte ventanaVR= new VentanaVerReporte(user, reportes.get(4));
+        ventanaVR.setVisible(true);//mostrar ventana usuarios
+        this.setVisible(false);//Ocultar ventana en la que me encuentr 
+    }//GEN-LAST:event_jLabelImageReporteNovedad4MouseClicked
+
     private Usuario user;
+    private ArrayList <Reporte> reportes;
+    private ArrayList <JPanel> paneles;
+    private ArrayList <JLabel> codigos;
+    private ArrayList <JLabel> tipos;
+    private ArrayList <JLabel> fechas;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLCodigo;
+    private javax.swing.JLabel jLCodigo1;
+    private javax.swing.JLabel jLCodigo10;
+    private javax.swing.JLabel jLCodigo2;
+    private javax.swing.JLabel jLCodigo3;
+    private javax.swing.JLabel jLCodigo4;
+    private javax.swing.JLabel jLCodigo5;
+    private javax.swing.JLabel jLCodigo8;
+    private javax.swing.JLabel jLCodigo9;
+    private javax.swing.JLabel jLFecha;
+    private javax.swing.JLabel jLFecha1;
+    private javax.swing.JLabel jLFecha10;
+    private javax.swing.JLabel jLFecha2;
+    private javax.swing.JLabel jLFecha3;
+    private javax.swing.JLabel jLFecha4;
+    private javax.swing.JLabel jLFecha5;
+    private javax.swing.JLabel jLFecha8;
+    private javax.swing.JLabel jLFecha9;
+    private javax.swing.JLabel jLTipo;
+    private javax.swing.JLabel jLTipo1;
+    private javax.swing.JLabel jLTipo10;
+    private javax.swing.JLabel jLTipo2;
+    private javax.swing.JLabel jLTipo3;
+    private javax.swing.JLabel jLTipo4;
+    private javax.swing.JLabel jLTipo5;
+    private javax.swing.JLabel jLTipo8;
+    private javax.swing.JLabel jLTipo9;
     private javax.swing.JLabel jLabelImageExit;
+    private javax.swing.JLabel jLabelImageReporteNovedad;
     private javax.swing.JLabel jLabelImageReporteNovedad1;
     private javax.swing.JLabel jLabelImageReporteNovedad2;
+    private javax.swing.JLabel jLabelImageReporteNovedad24;
+    private javax.swing.JLabel jLabelImageReporteNovedad25;
+    private javax.swing.JLabel jLabelImageReporteNovedad26;
+    private javax.swing.JLabel jLabelImageReporteNovedad3;
+    private javax.swing.JLabel jLabelImageReporteNovedad4;
+    private javax.swing.JLabel jLabelImageReporteNovedad5;
     private javax.swing.JLabel jLabelMenuClientes1;
     private javax.swing.JLabel jLabelMenuInventario1;
     private javax.swing.JLabel jLabelMenuReportes1;
@@ -508,12 +1235,34 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelNombre10;
     private javax.swing.JLabel jLabelNombre11;
-    private javax.swing.JLabel jLabelNombre14;
-    private javax.swing.JLabel jLabelNombre15;
-    private javax.swing.JLabel jLabelNombre16;
-    private javax.swing.JLabel jLabelNombre17;
-    private javax.swing.JLabel jLabelNombre18;
-    private javax.swing.JLabel jLabelNombre19;
+    private javax.swing.JLabel jLabelNombre12;
+    private javax.swing.JLabel jLabelNombre13;
+    private javax.swing.JLabel jLabelNombre130;
+    private javax.swing.JLabel jLabelNombre131;
+    private javax.swing.JLabel jLabelNombre132;
+    private javax.swing.JLabel jLabelNombre133;
+    private javax.swing.JLabel jLabelNombre134;
+    private javax.swing.JLabel jLabelNombre135;
+    private javax.swing.JLabel jLabelNombre136;
+    private javax.swing.JLabel jLabelNombre137;
+    private javax.swing.JLabel jLabelNombre146;
+    private javax.swing.JLabel jLabelNombre147;
+    private javax.swing.JLabel jLabelNombre148;
+    private javax.swing.JLabel jLabelNombre149;
+    private javax.swing.JLabel jLabelNombre150;
+    private javax.swing.JLabel jLabelNombre151;
+    private javax.swing.JLabel jLabelNombre152;
+    private javax.swing.JLabel jLabelNombre153;
+    private javax.swing.JLabel jLabelNombre154;
+    private javax.swing.JLabel jLabelNombre155;
+    private javax.swing.JLabel jLabelNombre156;
+    private javax.swing.JLabel jLabelNombre157;
+    private javax.swing.JLabel jLabelNombre158;
+    private javax.swing.JLabel jLabelNombre159;
+    private javax.swing.JLabel jLabelNombre160;
+    private javax.swing.JLabel jLabelNombre161;
+    private javax.swing.JLabel jLabelNombre20;
+    private javax.swing.JLabel jLabelNombre21;
     private javax.swing.JLabel jLabelNombre4;
     private javax.swing.JLabel jLabelNombre5;
     private javax.swing.JLabel jLabelNombre6;
@@ -527,6 +1276,13 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelReporteCambio;
     private javax.swing.JPanel jPanelReporteCambio1;
+    private javax.swing.JPanel jPanelReporteCambio10;
+    private javax.swing.JPanel jPanelReporteCambio2;
+    private javax.swing.JPanel jPanelReporteCambio3;
+    private javax.swing.JPanel jPanelReporteCambio4;
+    private javax.swing.JPanel jPanelReporteCambio5;
+    private javax.swing.JPanel jPanelReporteCambio8;
+    private javax.swing.JPanel jPanelReporteCambio9;
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
@@ -539,12 +1295,33 @@ public class VentanaPrincipalReporte extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparatorUsuario10;
+    private javax.swing.JSeparator jSeparatorUsuario11;
+    private javax.swing.JSeparator jSeparatorUsuario12;
     private javax.swing.JSeparator jSeparatorUsuario3;
     private javax.swing.JSeparator jSeparatorUsuario4;
     private javax.swing.JSeparator jSeparatorUsuario5;
+    private javax.swing.JSeparator jSeparatorUsuario58;
+    private javax.swing.JSeparator jSeparatorUsuario59;
     private javax.swing.JSeparator jSeparatorUsuario6;
+    private javax.swing.JSeparator jSeparatorUsuario60;
+    private javax.swing.JSeparator jSeparatorUsuario61;
+    private javax.swing.JSeparator jSeparatorUsuario62;
+    private javax.swing.JSeparator jSeparatorUsuario63;
     private javax.swing.JSeparator jSeparatorUsuario7;
+    private javax.swing.JSeparator jSeparatorUsuario70;
+    private javax.swing.JSeparator jSeparatorUsuario71;
+    private javax.swing.JSeparator jSeparatorUsuario72;
+    private javax.swing.JSeparator jSeparatorUsuario73;
+    private javax.swing.JSeparator jSeparatorUsuario74;
+    private javax.swing.JSeparator jSeparatorUsuario75;
+    private javax.swing.JSeparator jSeparatorUsuario76;
+    private javax.swing.JSeparator jSeparatorUsuario77;
+    private javax.swing.JSeparator jSeparatorUsuario78;
+    private javax.swing.JSeparator jSeparatorUsuario79;
     private javax.swing.JSeparator jSeparatorUsuario8;
+    private javax.swing.JSeparator jSeparatorUsuario80;
+    private javax.swing.JSeparator jSeparatorUsuario81;
     private javax.swing.JSeparator jSeparatorUsuario9;
     // End of variables declaration//GEN-END:variables
 }

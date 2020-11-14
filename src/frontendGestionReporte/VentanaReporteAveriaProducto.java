@@ -5,8 +5,15 @@
  */
 package frontendGestionReporte;
 
-import backend.Usuario;
+import backendGestionInventario.ConexionBDInventario;
+import backendGestionInventario.Producto;
+import backendGestionReporte.ConexionBDReporte;
+import backendGestionReporte.Reporte;
+import modeloGestionUsuario.Usuario;
 import frontendGestionInventario.VentanaPrincipalInventario;
+import frontendMensEmerg.VentanaMRegistroExit;
+import frontendMensEmerg.VentanaMRegistroNExit;
+import frontendMensEmerg.VentanaMensajeError;
 
 /**
  *
@@ -39,30 +46,30 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jPanelMenu = new javax.swing.JPanel();
         jLabelNombre1 = new javax.swing.JLabel();
         jLabelAsterisco1 = new javax.swing.JLabel();
-        jTextFieldBornDay = new javax.swing.JTextField();
+        jTFAlmacenista = new javax.swing.JTextField();
         jLabelBornDay = new javax.swing.JLabel();
         jLabelAsterisco4 = new javax.swing.JLabel();
         jLabelDireccion = new javax.swing.JLabel();
         jLabelAsterisco5 = new javax.swing.JLabel();
-        jLabelNombre2 = new javax.swing.JLabel();
-        jTextFieldBornDay1 = new javax.swing.JTextField();
+        jButtonAddP = new javax.swing.JLabel();
+        jTFTipo = new javax.swing.JTextField();
         jLabelBornDay1 = new javax.swing.JLabel();
         jLabelAsterisco10 = new javax.swing.JLabel();
-        jTextFieldBuscar1 = new javax.swing.JTextField();
+        jTFCodProducto = new javax.swing.JTextField();
         jLabelNombre6 = new javax.swing.JLabel();
         jSeparatorUsuario2 = new javax.swing.JSeparator();
-        jLabelNombre12 = new javax.swing.JLabel();
+        jLNProveedor = new javax.swing.JLabel();
         jLabelDireccion1 = new javax.swing.JLabel();
-        jLabelNombre13 = new javax.swing.JLabel();
+        jLDProducto = new javax.swing.JLabel();
         jSeparatorUsuario3 = new javax.swing.JSeparator();
         jLabelDireccion2 = new javax.swing.JLabel();
         jLabelAsterisco11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTAComentario = new javax.swing.JTextArea();
         jLabelDireccion3 = new javax.swing.JLabel();
-        jTextFieldBornDay2 = new javax.swing.JTextField();
+        jTFFecha = new javax.swing.JTextField();
         jLabelAsterisco6 = new javax.swing.JLabel();
-        jTextFieldNombre2 = new javax.swing.JTextField();
+        jTFCodigo = new javax.swing.JTextField();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -84,7 +91,7 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelImageExit1 = new javax.swing.JLabel();
         jLabelMiniUser2 = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
-        jButtonGenerar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -108,20 +115,22 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelAsterisco1.setText("*");
         jPanelMenu.add(jLabelAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jTextFieldBornDay.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay.addActionListener(new java.awt.event.ActionListener() {
+        jTFAlmacenista.setBackground(new java.awt.Color(220, 220, 220));
+        jTFAlmacenista.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFAlmacenista.setForeground(new java.awt.Color(102, 102, 102));
+        jTFAlmacenista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFAlmacenista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDayActionPerformed(evt);
+                jTFAlmacenistaActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
+        jPanelMenu.add(jTFAlmacenista, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 80, 30));
 
         jLabelBornDay.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabelBornDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelBornDay.setText("CAJERO");
-        jPanelMenu.add(jLabelBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, -1, -1));
+        jLabelBornDay.setText("ALMACENISTA");
+        jPanelMenu.add(jLabelBornDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
 
         jLabelAsterisco4.setBackground(new java.awt.Color(0, 0, 0));
         jLabelAsterisco4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -141,24 +150,29 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelAsterisco5.setText("*");
         jPanelMenu.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
 
-        jLabelNombre2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombre2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
-        jPanelMenu.add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, 30));
-
-        jTextFieldBornDay1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextFieldBornDay1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBornDay1.setText("Averia");
-        jTextFieldBornDay1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay1.setEnabled(false);
-        jTextFieldBornDay1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDay1ActionPerformed(evt);
+        jButtonAddP.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAddP.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jButtonAddP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jButtonAddP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jButtonAddP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAddPMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 70, 20));
+        jPanelMenu.add(jButtonAddP, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, 30));
+
+        jTFTipo.setBackground(new java.awt.Color(220, 220, 220));
+        jTFTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFTipo.setForeground(new java.awt.Color(255, 255, 255));
+        jTFTipo.setText("Averia");
+        jTFTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFTipo.setEnabled(false);
+        jTFTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTipoActionPerformed(evt);
+            }
+        });
+        jPanelMenu.add(jTFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 70, 20));
 
         jLabelBornDay1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBornDay1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -172,17 +186,22 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelAsterisco10.setText("*");
         jPanelMenu.add(jLabelAsterisco10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        jTextFieldBuscar1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBuscar1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextFieldBuscar1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldBuscar1.setText("Buscar");
-        jTextFieldBuscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscar1ActionPerformed(evt);
+        jTFCodProducto.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodProducto.setText("Buscar");
+        jTFCodProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCodProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFCodProductoMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 390, 30));
+        jTFCodProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCodProductoActionPerformed(evt);
+            }
+        });
+        jPanelMenu.add(jTFCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 390, 30));
 
         jLabelNombre6.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNombre6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -193,11 +212,12 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jSeparatorUsuario2.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 370, 10));
 
-        jLabelNombre12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre12.setOpaque(true);
-        jPanelMenu.add(jLabelNombre12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 370, 30));
+        jLNProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        jLNProveedor.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLNProveedor.setForeground(new java.awt.Color(102, 102, 102));
+        jLNProveedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLNProveedor.setOpaque(true);
+        jPanelMenu.add(jLNProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 370, 30));
 
         jLabelDireccion1.setBackground(new java.awt.Color(0, 0, 0));
         jLabelDireccion1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -205,11 +225,12 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelDireccion1.setText("COMENTARIOS");
         jPanelMenu.add(jLabelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
-        jLabelNombre13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombre13.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNombre13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombre13.setOpaque(true);
-        jPanelMenu.add(jLabelNombre13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 360, 30));
+        jLDProducto.setBackground(new java.awt.Color(255, 255, 255));
+        jLDProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLDProducto.setForeground(new java.awt.Color(102, 102, 102));
+        jLDProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLDProducto.setOpaque(true);
+        jPanelMenu.add(jLDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 360, 30));
 
         jSeparatorUsuario3.setForeground(new java.awt.Color(255, 102, 51));
         jPanelMenu.add(jSeparatorUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 360, 10));
@@ -226,14 +247,19 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelAsterisco11.setText("*");
         jPanelMenu.add(jLabelAsterisco11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 10, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(220, 220, 220));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Explique brevemente la averia del producto...");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jScrollPane1.setViewportView(jTextArea1);
+        jTAComentario.setBackground(new java.awt.Color(220, 220, 220));
+        jTAComentario.setColumns(20);
+        jTAComentario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTAComentario.setForeground(new java.awt.Color(102, 102, 102));
+        jTAComentario.setRows(5);
+        jTAComentario.setText("Explique brevemente la averia del producto...");
+        jTAComentario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTAComentario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTAComentarioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTAComentario);
 
         jPanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 650, 130));
 
@@ -243,29 +269,33 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelDireccion3.setText("DESCRIPCIÓN");
         jPanelMenu.add(jLabelDireccion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
-        jTextFieldBornDay2.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldBornDay2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldBornDay2.addActionListener(new java.awt.event.ActionListener() {
+        jTFFecha.setBackground(new java.awt.Color(220, 220, 220));
+        jTFFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFFecha.setForeground(new java.awt.Color(102, 102, 102));
+        jTFFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBornDay2ActionPerformed(evt);
+                jTFFechaActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldBornDay2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 180, 30));
+        jPanelMenu.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 180, 30));
 
         jLabelAsterisco6.setBackground(new java.awt.Color(0, 0, 0));
         jLabelAsterisco6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabelAsterisco6.setForeground(new java.awt.Color(255, 102, 51));
         jLabelAsterisco6.setText("*");
-        jPanelMenu.add(jLabelAsterisco6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+        jPanelMenu.add(jLabelAsterisco6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
 
-        jTextFieldNombre2.setBackground(new java.awt.Color(220, 220, 220));
-        jTextFieldNombre2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jTextFieldNombre2.addActionListener(new java.awt.event.ActionListener() {
+        jTFCodigo.setBackground(new java.awt.Color(220, 220, 220));
+        jTFCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jTFCodigo.setForeground(new java.awt.Color(102, 102, 102));
+        jTFCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        jTFCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombre2ActionPerformed(evt);
+                jTFCodigoActionPerformed(evt);
             }
         });
-        jPanelMenu.add(jTextFieldNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 150, 30));
+        jPanelMenu.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 150, 30));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 850, 400));
 
@@ -378,30 +408,30 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         });
         jPanelTitulo1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 120, 40));
 
-        jButtonGenerar.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonGenerar.setText("GUARDAR");
-        jButtonGenerar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonGuardar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonGenerarMouseClicked(evt);
+                jButtonGuardarMouseClicked(evt);
             }
         });
-        jButtonGenerar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGenerarActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelTitulo1.add(jButtonGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
+        jPanelTitulo1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
 
         getContentPane().add(jPanelTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 850, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldBornDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDayActionPerformed
+    private void jTFAlmacenistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAlmacenistaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDayActionPerformed
+    }//GEN-LAST:event_jTFAlmacenistaActionPerformed
 
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
                   //Creación objeto ventana Usuarios
@@ -414,39 +444,102 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGenerarMouseClicked
+    private void jButtonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseClicked
+       Reporte miReporte = new Reporte();
+        
+        miReporte.setCodigo(jTFCodigo.getText());
+        miReporte.setFecha(jTFFecha.getText());
+        miReporte.setTipo(jTFTipo.getText());
+        miReporte.setEstado("NoRevisado");
+        miReporte.setCodUsuario(jTFAlmacenista.getText());
+        miReporte.setCodProducto(jTFCodProducto.getText());
+        miReporte.setNomInteresado(jLNProveedor.getText());
+        miReporte.setComentario(jTAComentario.getText());
+        
+        ConexionBDReporte conexionBD = new ConexionBDReporte();
+        conexionBD.insertarReporte(miReporte);
+        compRegistro(conexionBD.getDatoEncontrado());
+        
+        jTFCodigo.setText("");
+        jTFFecha.setText("");
+        jTFAlmacenista.setText("");
+        jLNProveedor.setText("");
+        jTFCodProducto.setText("");
+        jLDProducto.setText("");
+        jTAComentario.setText("Explique brevemente el motivo del cambio...");
+    }//GEN-LAST:event_jButtonGuardarMouseClicked
+    
+    private void compRegistro(boolean comp)
+    {
+        if(comp)
+        {
+            VentanaMRegistroExit  vMRE= new VentanaMRegistroExit();
+            vMRE.setVisible(true);
+        }else
+        {
+            VentanaMRegistroNExit  vMRNE= new VentanaMRegistroNExit();
+            vMRNE.setVisible(true);
+        }
+    }
+    
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarMouseClicked
-
-    private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGenerarActionPerformed
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jLabelImageExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageExit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelImageExit1MouseClicked
 
-    private void jTextFieldBornDay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDay1ActionPerformed
+    private void jTFTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDay1ActionPerformed
+    }//GEN-LAST:event_jTFTipoActionPerformed
 
-    private void jTextFieldBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscar1ActionPerformed
+    private void jTFCodProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodProductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscar1ActionPerformed
+    }//GEN-LAST:event_jTFCodProductoActionPerformed
 
-    private void jTextFieldBornDay2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBornDay2ActionPerformed
+    private void jTFFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFFechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBornDay2ActionPerformed
+    }//GEN-LAST:event_jTFFechaActionPerformed
 
-    private void jTextFieldNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre2ActionPerformed
+    private void jTFCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombre2ActionPerformed
+    }//GEN-LAST:event_jTFCodigoActionPerformed
+
+    private void jButtonAddPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddPMouseClicked
+        
+       ConexionBDInventario conexionBD = new ConexionBDInventario();
+        
+       Producto miProducto = conexionBD.consultarProducto(jTFCodProducto.getText());
+       if(conexionBD.getDatoEncontrado())
+       { 
+            jLDProducto.setText(miProducto.getDescripcion());
+            jLNProveedor.setText(miProducto.getProveedor());
+            
+       }else
+       {
+           VentanaMensajeError mensajeError = new VentanaMensajeError();
+           mensajeError.setVisible(true);
+            jTFCodProducto.setText("");
+       }
+    }//GEN-LAST:event_jButtonAddPMouseClicked
+
+    private void jTFCodProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFCodProductoMouseClicked
+        jTFCodProducto.setText("");
+    }//GEN-LAST:event_jTFCodProductoMouseClicked
+
+    private void jTAComentarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAComentarioMouseClicked
+        jTAComentario.setText("");
+    }//GEN-LAST:event_jTAComentarioMouseClicked
 
     private Usuario user;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButtonGenerar;
+    private javax.swing.JLabel jButtonAddP;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLDProducto;
+    private javax.swing.JLabel jLNProveedor;
     private javax.swing.JLabel jLabelAsterisco1;
     private javax.swing.JLabel jLabelAsterisco10;
     private javax.swing.JLabel jLabelAsterisco11;
@@ -463,9 +556,6 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelMiniUser2;
     private javax.swing.JLabel jLabelNombre1;
-    private javax.swing.JLabel jLabelNombre12;
-    private javax.swing.JLabel jLabelNombre13;
-    private javax.swing.JLabel jLabelNombre2;
     private javax.swing.JLabel jLabelNombre6;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelUserName1;
@@ -488,11 +578,11 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSeparator jSeparatorUsuario2;
     private javax.swing.JSeparator jSeparatorUsuario3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldBornDay;
-    private javax.swing.JTextField jTextFieldBornDay1;
-    private javax.swing.JTextField jTextFieldBornDay2;
-    private javax.swing.JTextField jTextFieldBuscar1;
-    private javax.swing.JTextField jTextFieldNombre2;
+    private javax.swing.JTextArea jTAComentario;
+    private javax.swing.JTextField jTFAlmacenista;
+    private javax.swing.JTextField jTFCodProducto;
+    private javax.swing.JTextField jTFCodigo;
+    private javax.swing.JTextField jTFFecha;
+    private javax.swing.JTextField jTFTipo;
     // End of variables declaration//GEN-END:variables
 }
