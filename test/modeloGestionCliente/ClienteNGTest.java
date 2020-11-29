@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modeloGestionUsuario;
+package modeloGestionCliente;
 
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -12,22 +12,22 @@ import org.testng.annotations.Test;
  *
  * @author Aidis
  */
-public class PersonaNGTest {
+public class ClienteNGTest {
     
-    public PersonaNGTest() {
+    public ClienteNGTest() {
     }
-    
-    /**
+
+/**
      * Test of setNombre method, of class Persona.
      */
     @Test
     public void testSetNombre() {
         
         String nombre = "Paco Delgado";
-        Persona persona = new Persona();
-        persona.setNombre(nombre);
+        Cliente client = new Cliente();
+        client.setNombre(nombre);
         String expResult = nombre;
-        String result = persona.getNombre();
+        String result = client.getNombre();
         assertEquals(result,expResult);
     }
 
@@ -38,10 +38,10 @@ public class PersonaNGTest {
     public void testSetDocId() {
         
         String docId = "1.143.860.120";
-        Persona persona = new Persona();
-        persona.setDocId(docId);
+        Cliente cliente = new Cliente();
+        cliente.setDocId(docId);
         String expResult = docId;
-        String result = persona.getDocId();
+        String result = cliente.getDocId();
         assertEquals(result,expResult);
     }
 
@@ -52,11 +52,11 @@ public class PersonaNGTest {
     public void testSetFechaRegistro() {
         
         String fechaRegistro = "2020-11-10";
-        Persona persona = new Persona();
-        persona.setFechaRegistro(fechaRegistro);
+        Cliente client = new Cliente();
+        client.setFechaRegistro(fechaRegistro);
         
         String expResult = fechaRegistro;
-        String result = persona.getFechaRegistro();
+        String result = client.getFechaRegistro();
         assertEquals(result,expResult);
     }
 
@@ -67,7 +67,7 @@ public class PersonaNGTest {
     public void testSetDireccion() {
         
         String direccion = "Av. 65 # 34-10";
-        Persona persona = new Persona();
+        Cliente persona = new Cliente();
         persona.setDireccion(direccion);
         
         String expResult = direccion;
@@ -82,11 +82,11 @@ public class PersonaNGTest {
     public void testSetTelefono() {
         
         String telefono = "3354731";
-        Persona persona = new Persona();
-        persona.setTelefono(telefono);
+        Cliente client = new Cliente();
+        client.setTelefono(telefono);
         
         String expResult = telefono;
-        String result = persona.getTelefono();
+        String result = client.getTelefono();
         assertEquals(result,expResult);
     }
 
@@ -97,11 +97,11 @@ public class PersonaNGTest {
     public void testSetEmail() {
         
         String email = "camiloA@uncorreo.com";
-        Persona persona = new Persona();
-        persona.setEmail(email);
+        Cliente client = new Cliente();
+        client.setEmail(email);
         
         String expResult = email;
-        String result = persona.getEmail();
+        String result = client.getEmail();
         assertEquals(result,expResult);
     }
 
@@ -111,10 +111,10 @@ public class PersonaNGTest {
     @Test
     public void testGetNombre() {
         
-        Persona persona = new Persona();
+        Cliente client = new Cliente();
         String  nombre = "Felipe Andrade";
-        persona.setNombre(nombre);        
-        String result = persona.getNombre();
+        client.setNombre(nombre);        
+        String result = client.getNombre();
         assertTrue(result.equals(nombre));
 
     }
@@ -125,10 +125,10 @@ public class PersonaNGTest {
     @Test
     public void testGetDocId() {
         
-        Persona persona = new Persona();
+        Cliente client = new Cliente();
         String docId = "31.929.890";
-        persona.setDocId(docId);
-        String result = persona.getDocId();
+        client.setDocId(docId);
+        String result = client.getDocId();
         assertTrue(result.equals(docId));
 
     }
@@ -139,10 +139,10 @@ public class PersonaNGTest {
     @Test
     public void testGetFechaRegistro() {
         
-        Persona persona = new Persona();
+        Cliente cliente = new Cliente();
         String fechaRegistro = "1995-10-15";
-        persona.setFechaRegistro(fechaRegistro);
-        String result = persona.getFechaRegistro();
+        cliente.setFechaRegistro(fechaRegistro);
+        String result = cliente.getFechaRegistro();
         assertTrue(result.equals(fechaRegistro));
  
     }
@@ -153,10 +153,10 @@ public class PersonaNGTest {
     @Test
     public void testGetDireccion() {
         
-        Persona persona = new Persona();
+        Cliente client = new Cliente();
         String direccion = "Cra 11 # 24-11";
-        persona.setDireccion(direccion);
-        String result = persona.getDireccion();
+        client.setDireccion(direccion);
+        String result = client.getDireccion();
         assertTrue(result.equals(direccion));
 
     }
@@ -167,10 +167,10 @@ public class PersonaNGTest {
     @Test
     public void testGetTelefono() {
         
-        Persona persona = new Persona();
+        Cliente client = new Cliente();
         String telefono = "5556789";
-        persona.setTelefono(telefono);
-        String result = persona.getTelefono();
+        client.setTelefono(telefono);
+        String result = client.getTelefono();
         assertTrue(result.equals(telefono));
     }
 
@@ -180,10 +180,10 @@ public class PersonaNGTest {
     @Test
     public void testGetEmail() {
         
-        Persona persona = new Persona();
+        Cliente client = new Cliente();
         String email = "pablitoM@uncorreo.com";
-        persona.setEmail(email);
-        String result = persona.getEmail();
+        client.setEmail(email);
+        String result = client.getEmail();
         assertTrue(result.equals(email));
  
     }
