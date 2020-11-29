@@ -8,11 +8,10 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 - [frontend](src/frontendGestionCliente)
 
 ### Gestión Usuario
-- [frontend](src/frontendGestionUsuario)
-- [backend](src/backend)
-- [tests](test/backend)  <br/>
-Nota: las pruebas unitarias solo tienen la estructura, aun no han sido llevadas a cabo.
-
+- [modelo](src/modeloGestionUsuario)
+- [vista](src/vistaGestionUsuario)
+- [controlador](src/controladorGestionUsuario)
+- [tests](test/modeloGestionUsuario) 
 ### Gestión Reporte
 - [frontend](src/frontendGestionReporte)
 
