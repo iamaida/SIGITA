@@ -29,10 +29,8 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 - [conexionBD](src/conexionBDGestionInventario)
 - [tests](test/modeloGestionInventario)
 ### Gestión Venta
-- [modelo](src/modeloGestionVenta)
 - [vista](src/vistaGestionVenta)
 ### Gestión Domicilio
-- [modelo](src/modeloGestionDomicilio)
 - [vista](src/vistaGestionDomicilio)
 
 
