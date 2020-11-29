@@ -5,14 +5,9 @@
  */
 package controladorGestionUsuario;
 
-import vistaGestionUsuario.*;
-import frontendGestionCliente.*;
-import frontendGestionInventario.*;
-import frontendGestionReporte.*;
-import frontendGestionVenta.*;
-import frontendMensEmerg.*;
+import conexionBDGestionUsuario.ConexionBDUsuario;
 import modeloGestionUsuario.*;
-
+import vistaGestionUsuario.*;
 
 
 /**
@@ -69,11 +64,12 @@ public class ControladorUsuario {
     }
     
     
-    public void procesarEdicionEstadoUsuario(String campoCambio, String valorCambio, String codigo)
+    public void procesarEdicionEstadoUsuario(String cCambio, String vCambio, 
+                                             String codigo)
     {
         
        conexionUs = new ConexionBDUsuario();
-       conexionUs.actualizarUsuario(campoCambio, valorCambio,codigo);
+       conexionUs.actualizarUsuario(cCambio, vCambio,codigo);
        
        if(conexionUs.getDatoEncontrado())
        { 
@@ -89,11 +85,12 @@ public class ControladorUsuario {
        
     }
     
-    public void procesarEdicionUsuario(String campoCambio, String valorCambio, String codigo, int cont)
+    public void procesarEdicionUsuario(String cCambio, String vCambio, 
+                                       String codigo, int cont)
     {
         
        conexionUs = new ConexionBDUsuario();
-       conexionUs.actualizarUsuario(campoCambio, valorCambio,codigo);
+       conexionUs.actualizarUsuario(cCambio, vCambio,codigo);
        
        if(conexionUs.getDatoEncontrado())
        { 
@@ -133,15 +130,34 @@ public class ControladorUsuario {
            
        }
     }
+    
     public boolean getEncontrado()
     {
         return encontrado;
+    }
+    
+    public void irVistaUsuario(Usuario usuario)
+    {
+        VentanaVerUsuario vVUser = new   VentanaVerUsuario(usuario);
+        vVUser.setVisible(true);
+    }
+    
+    public void irEdicionUsuario(Usuario usuario)
+    {
+        VentanaEdicionUsuario vEUser = new   VentanaEdicionUsuario(usuario);
+        vEUser.setVisible(true); 
+    }
+    
+    public void irRegistroUsuario(Usuario usuario)
+    {
+        VentanaRegistroUsuario vRUser = new   VentanaRegistroUsuario(usuario);
+        vRUser.setVisible(true);//mostrar ventana usuarios
     }
     
 
     private Usuario usuarioP;
     private boolean encontrado;
     private ConexionBDUsuario conexionUs;
-    private ControladorMenu controlMenu;
+    private final ControladorMenu controlMenu;
     
 }

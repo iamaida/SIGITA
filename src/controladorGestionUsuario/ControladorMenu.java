@@ -5,11 +5,15 @@
  */
 package controladorGestionUsuario;
 
-import frontendGestionCliente.*;
-import frontendGestionInventario.*;
-import frontendGestionReporte.*;
-import frontendGestionVenta.*;
-import frontendMensEmerg.*;
+import vistaGestionInventario.VentanaPrincipalInventario;
+import vistaGestionReporte.VentanaPrincipalReporte;
+import vistaGestionVenta.VentanaPrincipalVenta;
+import vistaMensEmerg.VentanaMRegistroExit;
+import vistaMensEmerg.VentanaMensajeError;
+import vistaMensEmerg.VentanaMActualizacionNExit;
+import vistaMensEmerg.VentanaMActualizacionExit;
+import vistaMensEmerg.VentanaMRegistroNExit;
+import vistaGestionCliente.VentanaPrincipalCliente;
 import modeloGestionUsuario.Usuario;
 import vistaGestionUsuario.*;
 
@@ -63,25 +67,8 @@ public class ControladorMenu {
     public void irVentanaInicio(Usuario usuario)
     {
     
-        VentanaInicio ventanaMenu= new VentanaInicio(usuario);
-        ventanaMenu.setVisible(true);
-    }
-    public void irVistaUsuario(Usuario usuario)
-    {
-        VentanaVerUsuario vVUser = new   VentanaVerUsuario(usuario);
-        vVUser.setVisible(true);
-    }
-    
-    public void irEdicionUsuario(Usuario usuario)
-    {
-        VentanaEdicionUsuario vEUser = new   VentanaEdicionUsuario(usuario);
-        vEUser.setVisible(true); 
-    }
-    
-    public void irRegistroUsuario(Usuario usuario)
-    {
-        VentanaRegistroUsuario vRUser = new   VentanaRegistroUsuario(usuario);
-        vRUser.setVisible(true);//mostrar ventana usuarios
+        VentanaInicio vInicio= new VentanaInicio(usuario);
+        vInicio.setVisible(true);
     }
     
     public void irVentanaLogin()
@@ -99,8 +86,8 @@ public class ControladorMenu {
     
     public void irModuloGInventario(Usuario usuario)
     {
-        VentanaPrincipalInventario vInventario= new VentanaPrincipalInventario(usuario);
-        vInventario.setVisible(true);
+        VentanaPrincipalInventario vInvent= new VentanaPrincipalInventario(usuario);
+        vInvent.setVisible(true);
     }
     
     public void irVentanaSoporte(Usuario usuario)
@@ -130,6 +117,6 @@ public class ControladorMenu {
         vReporte.setVisible(true);//mostrar ventana usuarios
     }
     
-    private Usuario usuario;
+    private final Usuario usuario;
     
 }

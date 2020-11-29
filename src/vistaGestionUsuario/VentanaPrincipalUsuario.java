@@ -26,6 +26,7 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
 
         this.user = user;
         controlMenu = new ControladorMenu();
+        controlUS = new ControladorUsuario(); 
         jLabelUserName.setText(user.getNombreUsuario());
     }
 
@@ -39,36 +40,31 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelMenu = new javax.swing.JPanel();
-        jLabelAgregarUsuario = new javax.swing.JLabel();
-        jLabelVerUsuario = new javax.swing.JLabel();
-        imageFindUser = new javax.swing.JLabel();
-        imageAddUser = new javax.swing.JLabel();
-        imageEditUser = new javax.swing.JLabel();
-        jLabelEditarUsuario1 = new javax.swing.JLabel();
+        jLAddUser = new javax.swing.JLabel();
+        jLFindUsuario = new javax.swing.JLabel();
+        jIconFindUser = new javax.swing.JLabel();
+        jIconAddUser = new javax.swing.JLabel();
+        jIconEditUser = new javax.swing.JLabel();
+        jLEditUser = new javax.swing.JLabel();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelWindowTitle = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
         imageExit = new javax.swing.JLabel();
         jLabelMiniUser1 = new javax.swing.JLabel();
         jPaneMenuLateral = new javax.swing.JPanel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLMenuUsuario = new javax.swing.JLabel();
-        jLMenuVenta = new javax.swing.JLabel();
-        jLVSoporte = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
+        jMenuUsuario = new javax.swing.JLabel();
+        jMenuVenta = new javax.swing.JLabel();
+        jMenuSoporte = new javax.swing.JLabel();
+        jSUsuarioVenta = new javax.swing.JSeparator();
+        jSCliente = new javax.swing.JSeparator();
         jLMenuReporte = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
-        jSeparator12 = new javax.swing.JSeparator();
-        jSeparator13 = new javax.swing.JSeparator();
+        jSClienteInventario = new javax.swing.JSeparator();
+        jSInventarioSoporte = new javax.swing.JSeparator();
+        jSSoporteUsuario = new javax.swing.JSeparator();
         jLMenuInventario = new javax.swing.JLabel();
         jLMenuCliente = new javax.swing.JLabel();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
+        jSReporte = new javax.swing.JSeparator();
+        jSVentaReporte = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -80,53 +76,53 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
         jPanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelAgregarUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAgregarUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelAgregarUsuario.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAgregarUsuario.setText("REGISTRAR");
-        jPanelMenu.add(jLabelAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        jLAddUser.setBackground(new java.awt.Color(0, 0, 0));
+        jLAddUser.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLAddUser.setForeground(new java.awt.Color(255, 102, 51));
+        jLAddUser.setText("REGISTRAR");
+        jPanelMenu.add(jLAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        jLabelVerUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelVerUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelVerUsuario.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelVerUsuario.setText("VER");
-        jPanelMenu.add(jLabelVerUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
+        jLFindUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jLFindUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLFindUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jLFindUsuario.setText("VER");
+        jPanelMenu.add(jLFindUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
 
-        imageFindUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageFindUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconFindUser.png"))); // NOI18N
-        imageFindUser.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageFindUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconFindUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconFindUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconFindUser.png"))); // NOI18N
+        jIconFindUser.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconFindUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageFindUserMouseClicked(evt);
+                jIconFindUserMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageFindUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 150, 130));
+        jPanelMenu.add(jIconFindUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 150, 130));
 
-        imageAddUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddUser.png"))); // NOI18N
-        imageAddUser.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconAddUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddUser.png"))); // NOI18N
+        jIconAddUser.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageAddUserMouseClicked(evt);
+                jIconAddUserMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 130));
+        jPanelMenu.add(jIconAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 130));
 
-        imageEditUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageEditUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconEditUser.png"))); // NOI18N
-        imageEditUser.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageEditUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconEditUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconEditUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconEditUser.png"))); // NOI18N
+        jIconEditUser.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconEditUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageEditUserMouseClicked(evt);
+                jIconEditUserMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageEditUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, 130));
+        jPanelMenu.add(jIconEditUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, 130));
 
-        jLabelEditarUsuario1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelEditarUsuario1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelEditarUsuario1.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelEditarUsuario1.setText("EDITAR ");
-        jPanelMenu.add(jLabelEditarUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
+        jLEditUser.setBackground(new java.awt.Color(0, 0, 0));
+        jLEditUser.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLEditUser.setForeground(new java.awt.Color(255, 102, 51));
+        jLEditUser.setText("EDITAR ");
+        jPanelMenu.add(jLEditUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 810, 480));
 
@@ -164,63 +160,44 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
         jPaneMenuLateral.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPaneMenuLateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator2.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 253, 1, 10));
-
-        jLMenuUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        jLMenuUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniUsers .png"))); // NOI18N
-        jLMenuUsuario.setText("USUARIO");
-        jLMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniUsers .png"))); // NOI18N
+        jMenuUsuario.setText("USUARIO");
+        jMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLMenuUsuarioMouseClicked(evt);
+                jMenuUsuarioMouseClicked(evt);
             }
         });
-        jPaneMenuLateral.add(jLMenuUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 230, -1));
+        jPaneMenuLateral.add(jMenuUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 230, -1));
 
-        jLMenuVenta.setBackground(new java.awt.Color(0, 0, 0));
-        jLMenuVenta.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLMenuVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniSell.png"))); // NOI18N
-        jLMenuVenta.setText("VENTA");
-        jLMenuVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuVenta.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuVenta.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jMenuVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniSell.png"))); // NOI18N
+        jMenuVenta.setText("VENTA");
+        jMenuVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLMenuVentaMouseClicked(evt);
+                jMenuVentaMouseClicked(evt);
             }
         });
-        jPaneMenuLateral.add(jLMenuVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 230, -1));
+        jPaneMenuLateral.add(jMenuVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 230, -1));
 
-        jLVSoporte.setBackground(new java.awt.Color(0, 0, 0));
-        jLVSoporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLVSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniSetting.png"))); // NOI18N
-        jLVSoporte.setText("SOPORTE ");
-        jLVSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuSoporte.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuSoporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jMenuSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMiniSetting.png"))); // NOI18N
+        jMenuSoporte.setText("SOPORTE ");
+        jMenuSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLVSoporteMouseClicked(evt);
+                jMenuSoporteMouseClicked(evt);
             }
         });
-        jPaneMenuLateral.add(jLVSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 230, -1));
+        jPaneMenuLateral.add(jMenuSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 230, -1));
 
-        jSeparator3.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 257, 1, 22));
+        jSUsuarioVenta.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSUsuarioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 10));
 
-        jSeparator7.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 10));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator10.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 238, 10));
-
-        jSeparator4.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 60, 290, 10));
-
-        jSeparator6.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 290, 10));
-
-        jPaneMenuLateral.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 10));
+        jSCliente.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 238, 10));
 
         jLMenuReporte.setBackground(new java.awt.Color(0, 0, 0));
         jLMenuReporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -233,14 +210,14 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
         });
         jPaneMenuLateral.add(jLMenuReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 230, 26));
 
-        jSeparator11.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 10));
+        jSClienteInventario.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSClienteInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 10));
 
-        jSeparator12.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 240, 10));
+        jSInventarioSoporte.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSInventarioSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 240, 10));
 
-        jSeparator13.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 240, 10));
+        jSSoporteUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSSoporteUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 240, 10));
 
         jLMenuInventario.setBackground(new java.awt.Color(0, 0, 0));
         jLMenuInventario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -264,11 +241,11 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
         });
         jPaneMenuLateral.add(jLMenuCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, -1));
 
-        jSeparator8.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 240, 10));
+        jSReporte.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 240, 10));
 
-        jSeparator9.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 240, 10));
+        jSVentaReporte.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSVentaReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 240, 10));
 
         getContentPane().add(jPaneMenuLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 240, 480));
 
@@ -280,85 +257,81 @@ public class VentanaPrincipalUsuario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_imageExitMouseClicked
 
-    private void imageAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageAddUserMouseClicked
-        controlMenu.irRegistroUsuario(user );
+    private void jIconAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconAddUserMouseClicked
+        controlUS.irRegistroUsuario(user );
         this.setVisible(false);
-    }//GEN-LAST:event_imageAddUserMouseClicked
+    }//GEN-LAST:event_jIconAddUserMouseClicked
 
-    private void imageEditUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageEditUserMouseClicked
-        controlMenu.irEdicionUsuario( user);
+    private void jIconEditUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconEditUserMouseClicked
+        controlUS.irEdicionUsuario( user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageEditUserMouseClicked
+    }//GEN-LAST:event_jIconEditUserMouseClicked
 
-    private void imageFindUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageFindUserMouseClicked
-        controlMenu.irVistaUsuario( user);
+    private void jIconFindUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconFindUserMouseClicked
+        controlUS.irVistaUsuario( user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageFindUserMouseClicked
+    }//GEN-LAST:event_jIconFindUserMouseClicked
 
-    private void jLMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuUsuarioMouseClicked
-        controlMenu.irModuloGUsuario(user);
+    private void jLMenuClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuClienteMouseClicked
+        controlMenu.irModuloGCliente(user);
         this.setVisible(false);
-    }//GEN-LAST:event_jLMenuUsuarioMouseClicked
-
-    private void jLMenuVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuVentaMouseClicked
-        controlMenu.irModuloGVenta(user);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLMenuVentaMouseClicked
-
-    private void jLVSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLVSoporteMouseClicked
-        controlMenu.irVentanaSoporte(user);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLVSoporteMouseClicked
-
-    private void jLMenuReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuReporteMouseClicked
-        controlMenu.irModuloGReporte(user);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLMenuReporteMouseClicked
+    }//GEN-LAST:event_jLMenuClienteMouseClicked
 
     private void jLMenuInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuInventarioMouseClicked
         controlMenu.irModuloGInventario(user);
         this.setVisible(false);
     }//GEN-LAST:event_jLMenuInventarioMouseClicked
 
-    private void jLMenuClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuClienteMouseClicked
-        controlMenu.irModuloGCliente(user);
+    private void jLMenuReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMenuReporteMouseClicked
+        controlMenu.irModuloGReporte(user);
         this.setVisible(false);
-    }//GEN-LAST:event_jLMenuClienteMouseClicked
+    }//GEN-LAST:event_jLMenuReporteMouseClicked
+
+    private void jMenuSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSoporteMouseClicked
+        controlMenu.irVentanaSoporte(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuSoporteMouseClicked
+
+    private void jMenuVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuVentaMouseClicked
+        controlMenu.irModuloGVenta(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuVentaMouseClicked
+
+    private void jMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuUsuarioMouseClicked
+        controlMenu.irModuloGUsuario(user);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuUsuarioMouseClicked
     
-    private Usuario user;
-    private ControladorMenu controlMenu;
+    private final Usuario user;
+    private final ControladorMenu controlMenu;
+    private final ControladorUsuario controlUS;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imageAddUser;
-    private javax.swing.JLabel imageEditUser;
     private javax.swing.JLabel imageExit;
-    private javax.swing.JLabel imageFindUser;
+    private javax.swing.JLabel jIconAddUser;
+    private javax.swing.JLabel jIconEditUser;
+    private javax.swing.JLabel jIconFindUser;
+    private javax.swing.JLabel jLAddUser;
+    private javax.swing.JLabel jLEditUser;
+    private javax.swing.JLabel jLFindUsuario;
     private javax.swing.JLabel jLMenuCliente;
     private javax.swing.JLabel jLMenuInventario;
     private javax.swing.JLabel jLMenuReporte;
-    private javax.swing.JLabel jLMenuUsuario;
-    private javax.swing.JLabel jLMenuVenta;
-    private javax.swing.JLabel jLVSoporte;
-    private javax.swing.JLabel jLabelAgregarUsuario;
-    private javax.swing.JLabel jLabelEditarUsuario1;
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelUserName;
-    private javax.swing.JLabel jLabelVerUsuario;
     private javax.swing.JLabel jLabelWindowTitle;
+    private javax.swing.JLabel jMenuSoporte;
+    private javax.swing.JLabel jMenuUsuario;
+    private javax.swing.JLabel jMenuVenta;
     private javax.swing.JPanel jPaneMenuLateral;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JSeparator jSCliente;
+    private javax.swing.JSeparator jSClienteInventario;
+    private javax.swing.JSeparator jSInventarioSoporte;
+    private javax.swing.JSeparator jSReporte;
+    private javax.swing.JSeparator jSSoporteUsuario;
+    private javax.swing.JSeparator jSUsuarioVenta;
+    private javax.swing.JSeparator jSVentaReporte;
     // End of variables declaration//GEN-END:variables
 }

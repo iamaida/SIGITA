@@ -62,17 +62,17 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelCargo = new javax.swing.JLabel();
         jLabelFotoUsuario = new javax.swing.JLabel();
         jLabelRCargo = new javax.swing.JLabel();
-        jSeparatorUsuario = new javax.swing.JSeparator();
+        jSCargo = new javax.swing.JSeparator();
         jLabelRNombre = new javax.swing.JLabel();
-        jSeparatorUsuario1 = new javax.swing.JSeparator();
+        jSNombre = new javax.swing.JSeparator();
         jLabelRFecha = new javax.swing.JLabel();
-        jSeparatorUsuario2 = new javax.swing.JSeparator();
+        jSNUsuario = new javax.swing.JSeparator();
         jLabelRPassword = new javax.swing.JLabel();
-        jSeparatorUsuario3 = new javax.swing.JSeparator();
+        jSFecha = new javax.swing.JSeparator();
         jLabelNomUsario = new javax.swing.JLabel();
         jLabelRNUsuario = new javax.swing.JLabel();
-        jSeparatorUsuario4 = new javax.swing.JSeparator();
-        jSeparatorUsuario5 = new javax.swing.JSeparator();
+        jSPassword = new javax.swing.JSeparator();
+        jSdocId = new javax.swing.JSeparator();
         jLabelRCC = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
 
@@ -210,8 +210,8 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelRCargo.setOpaque(true);
         jPFormulario.add(jLabelRCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 130, 30));
 
-        jSeparatorUsuario.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 130, 20));
+        jSCargo.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 130, 20));
 
         jLabelRNombre.setBackground(new java.awt.Color(255, 255, 255));
         jLabelRNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -220,8 +220,8 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelRNombre.setOpaque(true);
         jPFormulario.add(jLabelRNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 320, 30));
 
-        jSeparatorUsuario1.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 320, 10));
+        jSNombre.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 320, 10));
 
         jLabelRFecha.setBackground(new java.awt.Color(255, 255, 255));
         jLabelRFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -230,8 +230,8 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelRFecha.setOpaque(true);
         jPFormulario.add(jLabelRFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 260, 30));
 
-        jSeparatorUsuario2.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 250, 10));
+        jSNUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSNUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 250, 10));
 
         jLabelRPassword.setBackground(new java.awt.Color(255, 255, 255));
         jLabelRPassword.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -240,8 +240,8 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelRPassword.setOpaque(true);
         jPFormulario.add(jLabelRPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 270, 30));
 
-        jSeparatorUsuario3.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 260, 20));
+        jSFecha.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 260, 20));
 
         jLabelNomUsario.setBackground(new java.awt.Color(0, 0, 0));
         jLabelNomUsario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -256,11 +256,11 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         jLabelRNUsuario.setOpaque(true);
         jPFormulario.add(jLabelRNUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 250, 30));
 
-        jSeparatorUsuario4.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 260, 20));
+        jSPassword.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 260, 20));
 
-        jSeparatorUsuario5.setForeground(new java.awt.Color(255, 102, 51));
-        jPFormulario.add(jSeparatorUsuario5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 320, 10));
+        jSdocId.setForeground(new java.awt.Color(255, 102, 51));
+        jPFormulario.add(jSdocId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 320, 10));
 
         jLabelRCC.setBackground(new java.awt.Color(255, 255, 255));
         jLabelRCC.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -298,7 +298,7 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
     
     private void borrarInfoCampos()
     {
-        jTFBuscar.setText("");
+        jTFBuscar.setText("Buscar");
         jLabelRNombre.setText("");
         jLabelRCC.setText("");
         jLabelRNUsuario.setText("");
@@ -358,12 +358,12 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPLateralI;
     private javax.swing.JPanel jPanelBotones;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JSeparator jSeparatorUsuario;
-    private javax.swing.JSeparator jSeparatorUsuario1;
-    private javax.swing.JSeparator jSeparatorUsuario2;
-    private javax.swing.JSeparator jSeparatorUsuario3;
-    private javax.swing.JSeparator jSeparatorUsuario4;
-    private javax.swing.JSeparator jSeparatorUsuario5;
+    private javax.swing.JSeparator jSCargo;
+    private javax.swing.JSeparator jSFecha;
+    private javax.swing.JSeparator jSNUsuario;
+    private javax.swing.JSeparator jSNombre;
+    private javax.swing.JSeparator jSPassword;
+    private javax.swing.JSeparator jSdocId;
     private javax.swing.JTextField jTFBuscar;
     // End of variables declaration//GEN-END:variables
 }

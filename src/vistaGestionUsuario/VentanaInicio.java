@@ -25,7 +25,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.user = user;
         controlMenu = new ControladorMenu();
-        jLabelNombreEmp.setText(user.getNombre());
+        jLNombreEmp.setText(user.getNombre());
     }
 
     /**
@@ -38,27 +38,27 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelMenu = new javax.swing.JPanel();
-        jLabelUsuarios = new javax.swing.JLabel();
-        jLabelReportes = new javax.swing.JLabel();
-        jLabelSoporte = new javax.swing.JLabel();
-        jLabelInventario = new javax.swing.JLabel();
-        jLabelVentas = new javax.swing.JLabel();
-        jLabelClientes = new javax.swing.JLabel();
-        imageSoporte = new javax.swing.JLabel();
-        imageVenta = new javax.swing.JLabel();
-        imageCliente = new javax.swing.JLabel();
-        imageInventario = new javax.swing.JLabel();
-        imageReporte = new javax.swing.JLabel();
-        imageUsuario = new javax.swing.JLabel();
+        jLUsuario = new javax.swing.JLabel();
+        jLReporte = new javax.swing.JLabel();
+        jLSoporte = new javax.swing.JLabel();
+        jLInventario = new javax.swing.JLabel();
+        jLVenta = new javax.swing.JLabel();
+        jLCliente = new javax.swing.JLabel();
+        jIconSoporte = new javax.swing.JLabel();
+        jIconVenta = new javax.swing.JLabel();
+        jIconCliente = new javax.swing.JLabel();
+        jIconInventario = new javax.swing.JLabel();
+        jIconReporte = new javax.swing.JLabel();
+        jIconUsuario = new javax.swing.JLabel();
         jPanelTitulo = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        jLTituloVentana = new javax.swing.JLabel();
         jPanelIntreso = new javax.swing.JPanel();
-        jSeparatorUsuario = new javax.swing.JSeparator();
-        jLabelUser = new javax.swing.JLabel();
-        jButtonSalir = new javax.swing.JButton();
-        jLabelNombreEmp = new javax.swing.JLabel();
-        jLabelImagenTienda = new javax.swing.JLabel();
-        jLabelBienvenida3 = new javax.swing.JLabel();
+        jSNomEmpleado = new javax.swing.JSeparator();
+        jIconUser = new javax.swing.JLabel();
+        jBSalir = new javax.swing.JButton();
+        jLNombreEmp = new javax.swing.JLabel();
+        jIconTienda = new javax.swing.JLabel();
+        jLBienvenida = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -69,101 +69,101 @@ public class VentanaInicio extends javax.swing.JFrame {
         jPanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelUsuarios.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelUsuarios.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelUsuarios.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelUsuarios.setText("USUARIO");
-        jPanelMenu.add(jLabelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        jLUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jLUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jLUsuario.setText("USUARIO");
+        jPanelMenu.add(jLUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
-        jLabelReportes.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelReportes.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelReportes.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelReportes.setText("REPORTE");
-        jPanelMenu.add(jLabelReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
+        jLReporte.setBackground(new java.awt.Color(0, 0, 0));
+        jLReporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLReporte.setForeground(new java.awt.Color(255, 102, 51));
+        jLReporte.setText("REPORTE");
+        jPanelMenu.add(jLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
 
-        jLabelSoporte.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelSoporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelSoporte.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelSoporte.setText("SOPORTE");
-        jPanelMenu.add(jLabelSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
+        jLSoporte.setBackground(new java.awt.Color(0, 0, 0));
+        jLSoporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLSoporte.setForeground(new java.awt.Color(255, 102, 51));
+        jLSoporte.setText("SOPORTE");
+        jPanelMenu.add(jLSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
 
-        jLabelInventario.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelInventario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelInventario.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelInventario.setText("INVENTARIO");
-        jPanelMenu.add(jLabelInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        jLInventario.setBackground(new java.awt.Color(0, 0, 0));
+        jLInventario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLInventario.setForeground(new java.awt.Color(255, 102, 51));
+        jLInventario.setText("INVENTARIO");
+        jPanelMenu.add(jLInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
-        jLabelVentas.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelVentas.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelVentas.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelVentas.setText("VENTA");
-        jPanelMenu.add(jLabelVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
+        jLVenta.setBackground(new java.awt.Color(0, 0, 0));
+        jLVenta.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLVenta.setForeground(new java.awt.Color(255, 102, 51));
+        jLVenta.setText("VENTA");
+        jPanelMenu.add(jLVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
 
-        jLabelClientes.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelClientes.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelClientes.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelClientes.setText("CLIENTE");
-        jPanelMenu.add(jLabelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
+        jLCliente.setBackground(new java.awt.Color(0, 0, 0));
+        jLCliente.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLCliente.setForeground(new java.awt.Color(255, 102, 51));
+        jLCliente.setText("CLIENTE");
+        jPanelMenu.add(jLCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
 
-        imageSoporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSet.png"))); // NOI18N
-        imageSoporte.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconSoporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSet.png"))); // NOI18N
+        jIconSoporte.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageSoporteMouseClicked(evt);
+                jIconSoporteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 150, 130));
+        jPanelMenu.add(jIconSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 150, 130));
 
-        imageVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSell.png"))); // NOI18N
-        imageVenta.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconSell.png"))); // NOI18N
+        jIconVenta.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageVentaMouseClicked(evt);
+                jIconVentaMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 130));
+        jPanelMenu.add(jIconVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 130));
 
-        imageCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconClientes.png"))); // NOI18N
-        imageCliente.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconClientes.png"))); // NOI18N
+        jIconCliente.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageClienteMouseClicked(evt);
+                jIconClienteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 150, 130));
+        jPanelMenu.add(jIconCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 150, 130));
 
-        imageInventario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInventory.png"))); // NOI18N
-        imageInventario.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconInventario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInventory.png"))); // NOI18N
+        jIconInventario.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageInventarioMouseClicked(evt);
+                jIconInventarioMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 150, 130));
+        jPanelMenu.add(jIconInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 150, 130));
 
-        imageReporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconForm.png"))); // NOI18N
-        imageReporte.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconReporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconForm.png"))); // NOI18N
+        jIconReporte.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconReporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageReporteMouseClicked(evt);
+                jIconReporteMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 150, 130));
+        jPanelMenu.add(jIconReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 150, 130));
 
-        imageUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUsers.png"))); // NOI18N
-        imageUsuario.setPreferredSize(new java.awt.Dimension(34, 34));
-        imageUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jIconUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUsers.png"))); // NOI18N
+        jIconUsuario.setPreferredSize(new java.awt.Dimension(34, 34));
+        jIconUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imageUsuarioMouseClicked(evt);
+                jIconUsuarioMouseClicked(evt);
             }
         });
-        jPanelMenu.add(imageUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 150, 140));
+        jPanelMenu.add(jIconUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 150, 140));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 760, 480));
 
@@ -171,11 +171,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         jPanelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 102, 51));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("MENU");
-        jPanelTitulo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
+        jLTituloVentana.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLTituloVentana.setForeground(new java.awt.Color(255, 102, 51));
+        jLTituloVentana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTituloVentana.setText("MENU");
+        jPanelTitulo.add(jLTituloVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         getContentPane().add(jPanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 760, 100));
 
@@ -185,79 +185,79 @@ public class VentanaInicio extends javax.swing.JFrame {
         jPanelIntreso.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPanelIntreso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparatorUsuario.setForeground(new java.awt.Color(255, 102, 51));
-        jPanelIntreso.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 250, 22));
+        jSNomEmpleado.setForeground(new java.awt.Color(255, 102, 51));
+        jPanelIntreso.add(jSNomEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 250, 22));
 
-        jLabelUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUser.png"))); // NOI18N
-        jPanelIntreso.add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUser.png"))); // NOI18N
+        jPanelIntreso.add(jIconUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jButtonSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonSalir.setText("SALIR");
-        jButtonSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
-        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBSalir.setBackground(new java.awt.Color(255, 255, 255));
+        jBSalir.setText("SALIR");
+        jBSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 51), 1, true));
+        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSalirMouseClicked(evt);
+                jBSalirMouseClicked(evt);
             }
         });
-        jPanelIntreso.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 90, 40));
+        jPanelIntreso.add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 90, 40));
 
-        jLabelNombreEmp.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNombreEmp.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNombreEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNombreEmp.setText("NOMBRE EMPLEADO");
-        jPanelIntreso.add(jLabelNombreEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, -1));
+        jLNombreEmp.setBackground(new java.awt.Color(0, 0, 0));
+        jLNombreEmp.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLNombreEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLNombreEmp.setText("NOMBRE EMPLEADO");
+        jPanelIntreso.add(jLNombreEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, -1));
 
-        jLabelImagenTienda.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelImagenTienda.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabelImagenTienda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImagenTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/store.png"))); // NOI18N
-        jPanelIntreso.add(jLabelImagenTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 60, 50));
+        jIconTienda.setBackground(new java.awt.Color(0, 0, 0));
+        jIconTienda.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jIconTienda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/store.png"))); // NOI18N
+        jPanelIntreso.add(jIconTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 60, 50));
 
-        jLabelBienvenida3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelBienvenida3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabelBienvenida3.setText("¡ Bienvenido a SIGITA!");
-        jPanelIntreso.add(jLabelBienvenida3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        jLBienvenida.setBackground(new java.awt.Color(0, 0, 0));
+        jLBienvenida.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLBienvenida.setText("¡ Bienvenido a SIGITA!");
+        jPanelIntreso.add(jLBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         getContentPane().add(jPanelIntreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void imageClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageClienteMouseClicked
+    private void jIconClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconClienteMouseClicked
       controlMenu.irModuloGCliente(user);
       this.setVisible(false);
-    }//GEN-LAST:event_imageClienteMouseClicked
+    }//GEN-LAST:event_jIconClienteMouseClicked
 
-    private void imageVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageVentaMouseClicked
+    private void jIconVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconVentaMouseClicked
         controlMenu.irModuloGVenta(user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageVentaMouseClicked
+    }//GEN-LAST:event_jIconVentaMouseClicked
 
-    private void imageInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageInventarioMouseClicked
+    private void jIconInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconInventarioMouseClicked
         controlMenu.irModuloGInventario(user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageInventarioMouseClicked
+    }//GEN-LAST:event_jIconInventarioMouseClicked
 
-    private void imageReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageReporteMouseClicked
+    private void jIconReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconReporteMouseClicked
         controlMenu.irModuloGReporte(user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageReporteMouseClicked
+    }//GEN-LAST:event_jIconReporteMouseClicked
 
-    private void imageSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageSoporteMouseClicked
+    private void jIconSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconSoporteMouseClicked
         controlMenu.irVentanaSoporte(user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageSoporteMouseClicked
+    }//GEN-LAST:event_jIconSoporteMouseClicked
 
-    private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
+    private void jBSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalirMouseClicked
         controlMenu.irVentanaLogin();
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonSalirMouseClicked
+    }//GEN-LAST:event_jBSalirMouseClicked
 
-    private void imageUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageUsuarioMouseClicked
+    private void jIconUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconUsuarioMouseClicked
         controlMenu.irModuloGUsuario(user);
         this.setVisible(false);
-    }//GEN-LAST:event_imageUsuarioMouseClicked
+    }//GEN-LAST:event_jIconUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -267,28 +267,28 @@ public class VentanaInicio extends javax.swing.JFrame {
     private ControladorMenu controlMenu;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imageCliente;
-    private javax.swing.JLabel imageInventario;
-    private javax.swing.JLabel imageReporte;
-    private javax.swing.JLabel imageSoporte;
-    private javax.swing.JLabel imageUsuario;
-    private javax.swing.JLabel imageVenta;
-    private javax.swing.JButton jButtonSalir;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabelBienvenida3;
-    private javax.swing.JLabel jLabelClientes;
-    private javax.swing.JLabel jLabelImagenTienda;
-    private javax.swing.JLabel jLabelInventario;
-    private javax.swing.JLabel jLabelNombreEmp;
-    private javax.swing.JLabel jLabelReportes;
-    private javax.swing.JLabel jLabelSoporte;
-    private javax.swing.JLabel jLabelUser;
-    private javax.swing.JLabel jLabelUsuarios;
-    private javax.swing.JLabel jLabelVentas;
+    private javax.swing.JButton jBSalir;
+    private javax.swing.JLabel jIconCliente;
+    private javax.swing.JLabel jIconInventario;
+    private javax.swing.JLabel jIconReporte;
+    private javax.swing.JLabel jIconSoporte;
+    private javax.swing.JLabel jIconTienda;
+    private javax.swing.JLabel jIconUser;
+    private javax.swing.JLabel jIconUsuario;
+    private javax.swing.JLabel jIconVenta;
+    private javax.swing.JLabel jLBienvenida;
+    private javax.swing.JLabel jLCliente;
+    private javax.swing.JLabel jLInventario;
+    private javax.swing.JLabel jLNombreEmp;
+    private javax.swing.JLabel jLReporte;
+    private javax.swing.JLabel jLSoporte;
+    private javax.swing.JLabel jLTituloVentana;
+    private javax.swing.JLabel jLUsuario;
+    private javax.swing.JLabel jLVenta;
     private javax.swing.JPanel jPanelIntreso;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JSeparator jSeparatorUsuario;
+    private javax.swing.JSeparator jSNomEmpleado;
     // End of variables declaration//GEN-END:variables
 
     private void setText(String a_) {

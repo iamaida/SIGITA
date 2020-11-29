@@ -11,16 +11,10 @@ package modeloGestionUsuario;
  */
 public class Usuario extends Persona {
     
-    private String cargo;
-    private String codigo;
-    private String nombreUsuario;
-    private String contrasenha;
-    private String estado;
-    
     public Usuario (){
         super();
     }
-    
+
     public void setCargo( String cargo) {
         this.cargo = cargo;
     }
@@ -29,12 +23,12 @@ public class Usuario extends Persona {
         this.codigo = codigo;
     }
     
-    public void setNombreUsuario (String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombreUsuario (String nomUsuario) {
+        this.nomUsuario = nomUsuario;
     }
 
-    public void setContrasenha( String contrasenha) {
-        this.contrasenha = contrasenha;
+    public void setContrasenha( String password) {
+        this.password = password;
     }
     
      public void setEstado( String estado) {
@@ -50,16 +44,20 @@ public class Usuario extends Persona {
     }
     
     public String getNombreUsuario ( ) {
-        return nombreUsuario;
+        return nomUsuario;
     }
 
     public String getContrasenha() {
-        return contrasenha;
+        return password;
     }
     
     public String getEstado( ) {
         return estado;
     }
     
-    
+    private String cargo;
+    private String codigo;
+    private String nomUsuario;
+    private String password;
+    private String estado;
 }

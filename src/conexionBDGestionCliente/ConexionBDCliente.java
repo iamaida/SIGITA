@@ -3,49 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backendGestionCliente;
+package conexionBDGestionCliente;
 
 import java.sql.*;
 import java.util.*;
+import modeloGestionCliente.Cliente;
 
 public class ConexionBDCliente {
     
-    private String url;
-    private String usuario;
-    private String contrasenha;
-    private boolean datoEncontrado;
-    private Cliente client;
+
     
     public ConexionBDCliente()
     {
         url = "jdbc:postgresql://localhost:5432/SIGITA";
-        usuario= "postgres";
-        contrasenha = "AMMC12345";
+        userBD= "postgres";
+        contraBD = "AMMC12345";
         datoEncontrado= false;
     }
     public Cliente consultarCliente(String docId)
     {
-        Cliente miCliente = new Cliente();
+        client = new Cliente();
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userBD,contraBD);
             java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
-            String consulta ="SELECT * FROM Cliente WHERE docid ="+"'"+docId+"'" ;
+            String consulta ="SELECT * "+
+                             "FROM Cliente "+
+                             "WHERE docid ="+"'"+docId+"'" ;
             ResultSet resultado = statement.executeQuery(consulta);
-            
             
             while(resultado.next())
             {
-             datoEncontrado = true;
-             System.out.println(resultado.getString("docid"));
-             
-                miCliente.setNombre(resultado.getString("nombre"));
-                miCliente.setEmail(resultado.getString("email"));
-                miCliente.setTelefono(resultado.getString("telefono"));
-                miCliente.setDireccion(resultado.getString("direccion"));
-                miCliente.setFechaRegistro(resultado.getString("fecharegistro"));
+                
+                setDatoEncontrado(true);
+                client.setNombre(resultado.getString("nombre"));
+                client.setEmail(resultado.getString("email"));
+                client.setTelefono(resultado.getString("telefono"));
+                client.setDireccion(resultado.getString("direccion"));
+                client.setFechaRegistro(resultado.getString("fecharegistro"));
                    
              }
             
@@ -54,35 +50,39 @@ public class ConexionBDCliente {
             statement.close();
             
         }catch(Exception e){
-            
+            setDatoEncontrado(false);
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
     
-        return miCliente;
+        return client;
     
     }
        
     public void actualizarCliente(String campoCambio, String valorCambio, String docId)
     {
-         datoEncontrado= true;
+        consultarCliente(docId);
         Connection conexion;
-        try{
-            Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
-            java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
-            String consulta ="UPDATE Cliente" +
-                   " SET "+campoCambio+ " =" +"'"+valorCambio+"'"+ "WHERE docid ="+"'"+docId+"'";
+        
+        if(getDatoEncontrado())
+        {
+            try{
+                Class.forName("org.postgresql.Driver");
+                conexion= DriverManager.getConnection(url,userBD,contraBD);
+                java.sql.Statement statement = conexion.createStatement();
+                String consulta ="UPDATE Cliente " +
+                             "SET "+campoCambio+ " =" +"'"+valorCambio+"'"+ 
+                             " WHERE docid ="+"'"+docId+"'";
             
-            statement.executeUpdate(consulta);
-            statement.close();
+                statement.executeUpdate(consulta);
+                setDatoEncontrado(true);
+                statement.close();
 
             
-        }catch(Exception e){
-            datoEncontrado= false;
-            System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
-        }
-                    
+            }catch(Exception e){
+                setDatoEncontrado(false);
+                System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
+            }
+        }           
   
     }
     
@@ -90,15 +90,13 @@ public class ConexionBDCliente {
     {
         client = new Cliente();
         client = miCliente;
-        
-        datoEncontrado= true;
+
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userBD,contraBD);
             java.sql.Statement statement = conexion.createStatement();
             
-            System.out.println("Hata AQUI");
             String consulta = "INSERT INTO Cliente (docid, nombre, telefono," +
                 " direccion, fecharegistro, email)";
             
@@ -109,18 +107,19 @@ public class ConexionBDCliente {
                 "'"+client.getEmail()+"'"+")";
             
             statement.executeUpdate(consulta);
+            setDatoEncontrado(true);
             statement.close();
 
             
         }catch(Exception e){
-            datoEncontrado= false;
+            setDatoEncontrado(false);
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
                     
   
     }
     
-    public void setDatoEncontrado(boolean datoEncontrado)
+    private void setDatoEncontrado(boolean datoEncontrado)
     {
         this.datoEncontrado= datoEncontrado;
     }
@@ -130,4 +129,9 @@ public class ConexionBDCliente {
         return datoEncontrado;
     }
     
+    private final String url;
+    private final String userBD;
+    private final String contraBD;
+    private boolean datoEncontrado;
+    private Cliente client;
 }

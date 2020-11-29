@@ -6,7 +6,6 @@
 package vistaGestionUsuario;
 
 import controladorGestionUsuario.ControladorMenu;
-import controladorGestionUsuario.ControladorUsuario;
 import modeloGestionUsuario.Usuario;
 
 
@@ -24,7 +23,6 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         //Centra la ventana
         this.setLocationRelativeTo(null);
         this.user = user;
-        controlUS = new ControladorUsuario();
         controlMenu = new ControladorMenu();
         jLabelUserName.setText(user.getNombreUsuario());
     }
@@ -39,35 +37,31 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelMenu = new javax.swing.JPanel();
-        jLabelCompanyTitle = new javax.swing.JLabel();
-        jLabelImageComputer = new javax.swing.JLabel();
-        jLabelImageWindow1 = new javax.swing.JLabel();
-        jLabelImageMail = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLCompanyName = new javax.swing.JLabel();
+        jImageComputer = new javax.swing.JLabel();
+        jIconWindow = new javax.swing.JLabel();
+        jIconEmail = new javax.swing.JLabel();
+        jLEmail = new javax.swing.JLabel();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelWindowTitle = new javax.swing.JLabel();
-        jLabelUserName = new javax.swing.JLabel();
         jLExit = new javax.swing.JLabel();
         jLabelMiniUser1 = new javax.swing.JLabel();
+        jLabelUserName = new javax.swing.JLabel();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jLMUsuario = new javax.swing.JLabel();
         jLMVenta = new javax.swing.JLabel();
         jLMSoporte = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
+        jSUsuarioVenta = new javax.swing.JSeparator();
+        jSCliente = new javax.swing.JSeparator();
         jLMReporte = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
-        jSeparator12 = new javax.swing.JSeparator();
-        jSeparator13 = new javax.swing.JSeparator();
+        jSClienteInventario = new javax.swing.JSeparator();
+        jSoporteInventario = new javax.swing.JSeparator();
+        jSoporteUsuario = new javax.swing.JSeparator();
         jLMInventario = new javax.swing.JLabel();
         jLMCliente = new javax.swing.JLabel();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
+        jSReporte = new javax.swing.JSeparator();
+        jSVentaSoporte = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,30 +73,30 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         jPanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCompanyTitle.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelCompanyTitle.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabelCompanyTitle.setForeground(new java.awt.Color(0, 153, 204));
-        jLabelCompanyTitle.setText("MULTY SOFTWARE");
-        jPanelMenu.add(jLabelCompanyTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 190, -1));
+        jLCompanyName.setBackground(new java.awt.Color(0, 0, 0));
+        jLCompanyName.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLCompanyName.setForeground(new java.awt.Color(0, 153, 204));
+        jLCompanyName.setText("MULTY SOFTWARE");
+        jPanelMenu.add(jLCompanyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 190, -1));
 
-        jLabelImageComputer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageComputer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMonitor.png"))); // NOI18N
-        jLabelImageComputer.setPreferredSize(new java.awt.Dimension(34, 34));
-        jPanelMenu.add(jLabelImageComputer, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 150, 130));
+        jImageComputer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jImageComputer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconMonitor.png"))); // NOI18N
+        jImageComputer.setPreferredSize(new java.awt.Dimension(34, 34));
+        jPanelMenu.add(jImageComputer, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 150, 130));
 
-        jLabelImageWindow1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageWindow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconWindow.png"))); // NOI18N
-        jLabelImageWindow1.setPreferredSize(new java.awt.Dimension(34, 34));
-        jPanelMenu.add(jLabelImageWindow1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 60, 40));
+        jIconWindow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconWindow.png"))); // NOI18N
+        jIconWindow.setPreferredSize(new java.awt.Dimension(34, 34));
+        jPanelMenu.add(jIconWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 60, 40));
 
-        jLabelImageMail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageMail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconsMail.png"))); // NOI18N
-        jLabelImageMail.setPreferredSize(new java.awt.Dimension(34, 34));
-        jPanelMenu.add(jLabelImageMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 60, 40));
+        jIconEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jIconEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconsMail.png"))); // NOI18N
+        jIconEmail.setPreferredSize(new java.awt.Dimension(34, 34));
+        jPanelMenu.add(jIconEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 60, 40));
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel2.setText("soporte@multisoftware.co");
-        jPanelMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, -1));
+        jLEmail.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLEmail.setText("soporte@multisoftware.co");
+        jPanelMenu.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, -1));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 810, 480));
 
@@ -116,12 +110,6 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         jLabelWindowTitle.setText("SOPORTE");
         jPanelTitulo.add(jLabelWindowTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
 
-        jLabelUserName.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelUserName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelUserName.setText("Administrador");
-        jPanelTitulo.add(jLabelUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, -1, -1));
-
         jLExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconExit.png"))); // NOI18N
         jLExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,6 +120,12 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
 
         jLabelMiniUser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUserMini.png"))); // NOI18N
         jPanelTitulo.add(jLabelMiniUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
+
+        jLabelUserName.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelUserName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelUserName.setText("Administrador");
+        jPanelTitulo.add(jLabelUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 90, -1));
 
         getContentPane().add(jPanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 100));
 
@@ -176,27 +170,11 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         });
         jPaneMenuLateral.add(jLMSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 230, -1));
 
-        jSeparator3.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 257, 1, 22));
+        jSUsuarioVenta.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSUsuarioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 10));
 
-        jSeparator7.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 10));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator10.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 238, 10));
-
-        jSeparator4.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 60, 290, 10));
-
-        jSeparator6.setForeground(new java.awt.Color(255, 102, 51));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 290, 10));
-
-        jPaneMenuLateral.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 10));
+        jSCliente.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 238, 10));
 
         jLMReporte.setBackground(new java.awt.Color(0, 0, 0));
         jLMReporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -209,14 +187,14 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         });
         jPaneMenuLateral.add(jLMReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 242, 230, 40));
 
-        jSeparator11.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 10));
+        jSClienteInventario.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSClienteInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 10));
 
-        jSeparator12.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 240, 10));
+        jSoporteInventario.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSoporteInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 240, 10));
 
-        jSeparator13.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 240, 10));
+        jSoporteUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSoporteUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 240, 10));
 
         jLMInventario.setBackground(new java.awt.Color(0, 0, 0));
         jLMInventario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -240,11 +218,11 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         });
         jPaneMenuLateral.add(jLMCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, -1));
 
-        jSeparator8.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 240, 10));
+        jSReporte.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 240, 10));
 
-        jSeparator9.setForeground(new java.awt.Color(255, 102, 51));
-        jPaneMenuLateral.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 240, 10));
+        jSVentaSoporte.setForeground(new java.awt.Color(255, 102, 51));
+        jPaneMenuLateral.add(jSVentaSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 240, 10));
 
         getContentPane().add(jPaneMenuLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 240, 480));
 
@@ -286,10 +264,15 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLMClienteMouseClicked
 
-    private Usuario user;
-    private ControladorUsuario controlUS;
-    private ControladorMenu controlMenu;
+    private final Usuario user;
+    private final ControladorMenu controlMenu;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jIconEmail;
+    private javax.swing.JLabel jIconWindow;
+    private javax.swing.JLabel jImageComputer;
+    private javax.swing.JLabel jLCompanyName;
+    private javax.swing.JLabel jLEmail;
     private javax.swing.JLabel jLExit;
     private javax.swing.JLabel jLMCliente;
     private javax.swing.JLabel jLMInventario;
@@ -297,28 +280,19 @@ public class VentanaPrincipalSoporte extends javax.swing.JFrame {
     private javax.swing.JLabel jLMSoporte;
     private javax.swing.JLabel jLMUsuario;
     private javax.swing.JLabel jLMVenta;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelCompanyTitle;
-    private javax.swing.JLabel jLabelImageComputer;
-    private javax.swing.JLabel jLabelImageMail;
-    private javax.swing.JLabel jLabelImageWindow1;
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelWindowTitle;
     private javax.swing.JPanel jPaneMenuLateral;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSCliente;
+    private javax.swing.JSeparator jSClienteInventario;
+    private javax.swing.JSeparator jSReporte;
+    private javax.swing.JSeparator jSUsuarioVenta;
+    private javax.swing.JSeparator jSVentaSoporte;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JSeparator jSoporteInventario;
+    private javax.swing.JSeparator jSoporteUsuario;
     // End of variables declaration//GEN-END:variables
 }

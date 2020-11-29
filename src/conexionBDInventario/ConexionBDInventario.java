@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backendGestionInventario;
+package conexionBDInventario;
 
-import modeloGestionUsuario.Usuario;
 import java.sql.*;
-import java.util.*;
+import modeloGestionInventario.*;
+
 
 public class ConexionBDInventario {
-    
-    private String url;
-    private String usuario;
-    private String contrasenha;
-    private boolean datoEncontrado;
-    private Producto product;
-    private ItemPedido itemPedido;
-    private Pedido pedido;
+   
     
     public ConexionBDInventario()
     {
@@ -71,7 +64,7 @@ public class ConexionBDInventario {
         itemPedido = new ItemPedido();
         itemPedido = miItem;
         
-        datoEncontrado= true;
+        
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
@@ -86,7 +79,7 @@ public class ConexionBDInventario {
                 "'"+itemPedido.getCodPedido()+"'"+","+
                 "'"+itemPedido.getCodProducto()+"'"+","+
                 "'"+itemPedido.getCantidad() +"'"+")";
-            
+            datoEncontrado= true;
             statement.executeUpdate(consulta);
             statement.close();
 
@@ -104,7 +97,7 @@ public class ConexionBDInventario {
         pedido = new Pedido();
         this.pedido = miPedido;
         
-        datoEncontrado= true;
+        
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
@@ -114,7 +107,7 @@ public class ConexionBDInventario {
             System.out.println("Hata AQUI");
             String consulta = "INSERT INTO Pedido (codigo, fechaPedido, codAlmacenista," +
                 " estado, total "+")";
-            
+            datoEncontrado= true;
             consulta = consulta + "VALUES("+"'"+pedido.getCodigo()+"'"+","+
                 "'"+pedido.getFecha()+"'"+","+
                 "'"+pedido.getCodAlmacenista()+"'"+","+
@@ -143,5 +136,13 @@ public class ConexionBDInventario {
     {
         return datoEncontrado;
     }
+    
+    private final String url;
+    private final String usuario;
+    private final String contrasenha;
+    private boolean datoEncontrado;
+    private Producto product;
+    private ItemPedido itemPedido;
+    private Pedido pedido;
     
 }

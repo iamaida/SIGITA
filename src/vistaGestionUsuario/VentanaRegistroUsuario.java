@@ -8,8 +8,6 @@ package vistaGestionUsuario;
 import controladorGestionUsuario.ControladorMenu;
 import controladorGestionUsuario.ControladorUsuario;
 import modeloGestionUsuario.Usuario;
-import modeloGestionUsuario.ConexionBDUsuario;
-import frontendMensEmerg.*;
 
 /**
  *
@@ -40,32 +38,32 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPFormulario = new javax.swing.JPanel();
-        jLabelAsterisco = new javax.swing.JLabel();
+        jAstTelefono = new javax.swing.JLabel();
         jLabelTelefono = new javax.swing.JLabel();
         jTFNomUser = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
-        jLabelAsterisco1 = new javax.swing.JLabel();
+        jAstNombre = new javax.swing.JLabel();
         jTFNombre = new javax.swing.JTextField();
         jTFFecha = new javax.swing.JTextField();
         jTFPassword = new javax.swing.JTextField();
         jLabelCodigo = new javax.swing.JLabel();
-        jLabelAsterisco2 = new javax.swing.JLabel();
+        jAstCodigo = new javax.swing.JLabel();
         jTFCC = new javax.swing.JTextField();
         jLabelCC = new javax.swing.JLabel();
-        jLabelAsterisco3 = new javax.swing.JLabel();
+        jAstCC = new javax.swing.JLabel();
         jLabelFecha = new javax.swing.JLabel();
-        jLabelAsterisco4 = new javax.swing.JLabel();
+        jAstFecha = new javax.swing.JLabel();
         jTFDireccion = new javax.swing.JTextField();
         jLabelDireccion = new javax.swing.JLabel();
-        jLabelAsterisco6 = new javax.swing.JLabel();
+        jAstDireccion = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
-        jLabelAsterisco7 = new javax.swing.JLabel();
+        jAstPassword = new javax.swing.JLabel();
         jTFTelefono = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
-        jLabelAsterisco8 = new javax.swing.JLabel();
+        jAstCargo = new javax.swing.JLabel();
         jTFCargo = new javax.swing.JTextField();
-        jLabelNomUser = new javax.swing.JLabel();
-        jLabelAsterisco9 = new javax.swing.JLabel();
+        jLabelNUser = new javax.swing.JLabel();
+        jAstNUsuario = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
         jPLateralI = new javax.swing.JPanel();
         jPTitulo = new javax.swing.JPanel();
@@ -87,11 +85,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jPFormulario.setForeground(new java.awt.Color(255, 255, 255));
         jPFormulario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelAsterisco.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco.setText("*");
-        jPFormulario.add(jLabelAsterisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
+        jAstTelefono.setBackground(new java.awt.Color(0, 0, 0));
+        jAstTelefono.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstTelefono.setForeground(new java.awt.Color(255, 102, 51));
+        jAstTelefono.setText("*");
+        jPFormulario.add(jAstTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
 
         jLabelTelefono.setBackground(new java.awt.Color(0, 0, 0));
         jLabelTelefono.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -111,11 +109,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelNombre.setText("NOMBRE");
         jPFormulario.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        jLabelAsterisco1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco1.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco1.setText("*");
-        jPFormulario.add(jLabelAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        jAstNombre.setBackground(new java.awt.Color(0, 0, 0));
+        jAstNombre.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstNombre.setForeground(new java.awt.Color(255, 102, 51));
+        jAstNombre.setText("*");
+        jPFormulario.add(jAstNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
         jTFNombre.setBackground(new java.awt.Color(220, 220, 220));
         jTFNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -141,11 +139,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelCodigo.setText("CODIGO");
         jPFormulario.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, -1, -1));
 
-        jLabelAsterisco2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco2.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco2.setText("*");
-        jPFormulario.add(jLabelAsterisco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
+        jAstCodigo.setBackground(new java.awt.Color(0, 0, 0));
+        jAstCodigo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstCodigo.setForeground(new java.awt.Color(255, 102, 51));
+        jAstCodigo.setText("*");
+        jPFormulario.add(jAstCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
         jTFCC.setBackground(new java.awt.Color(220, 220, 220));
         jTFCC.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -159,11 +157,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelCC.setText("C.C");
         jPFormulario.add(jLabelCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
-        jLabelAsterisco3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco3.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco3.setText("*");
-        jPFormulario.add(jLabelAsterisco3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        jAstCC.setBackground(new java.awt.Color(0, 0, 0));
+        jAstCC.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstCC.setForeground(new java.awt.Color(255, 102, 51));
+        jAstCC.setText("*");
+        jPFormulario.add(jAstCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         jLabelFecha.setBackground(new java.awt.Color(0, 0, 0));
         jLabelFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -171,11 +169,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelFecha.setText("FECHA REGISTRO");
         jPFormulario.add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
-        jLabelAsterisco4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco4.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco4.setText("*");
-        jPFormulario.add(jLabelAsterisco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
+        jAstFecha.setBackground(new java.awt.Color(0, 0, 0));
+        jAstFecha.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstFecha.setForeground(new java.awt.Color(255, 102, 51));
+        jAstFecha.setText("*");
+        jPFormulario.add(jAstFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
 
         jTFDireccion.setBackground(new java.awt.Color(220, 220, 220));
         jTFDireccion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -189,11 +187,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelDireccion.setText("DIRECCIÓN");
         jPFormulario.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
-        jLabelAsterisco6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco6.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco6.setText("*");
-        jPFormulario.add(jLabelAsterisco6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+        jAstDireccion.setBackground(new java.awt.Color(0, 0, 0));
+        jAstDireccion.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstDireccion.setForeground(new java.awt.Color(255, 102, 51));
+        jAstDireccion.setText("*");
+        jPFormulario.add(jAstDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
         jLabelPassword.setBackground(new java.awt.Color(0, 0, 0));
         jLabelPassword.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -201,11 +199,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelPassword.setText("CONTRASEÑA");
         jPFormulario.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
 
-        jLabelAsterisco7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco7.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco7.setText("*");
-        jPFormulario.add(jLabelAsterisco7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 10, -1));
+        jAstPassword.setBackground(new java.awt.Color(0, 0, 0));
+        jAstPassword.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstPassword.setForeground(new java.awt.Color(255, 102, 51));
+        jAstPassword.setText("*");
+        jPFormulario.add(jAstPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 10, -1));
 
         jTFTelefono.setBackground(new java.awt.Color(220, 220, 220));
         jTFTelefono.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -219,11 +217,11 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelCargo.setText("CARGO");
         jPFormulario.add(jLabelCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        jLabelAsterisco8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco8.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco8.setText("*");
-        jPFormulario.add(jLabelAsterisco8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+        jAstCargo.setBackground(new java.awt.Color(0, 0, 0));
+        jAstCargo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstCargo.setForeground(new java.awt.Color(255, 102, 51));
+        jAstCargo.setText("*");
+        jPFormulario.add(jAstCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
         jTFCargo.setBackground(new java.awt.Color(220, 220, 220));
         jTFCargo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -231,17 +229,17 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jTFCargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jPFormulario.add(jTFCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, 30));
 
-        jLabelNomUser.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelNomUser.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabelNomUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNomUser.setText("NUSUARIO");
-        jPFormulario.add(jLabelNomUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        jLabelNUser.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNUser.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNUser.setText("NUSUARIO");
+        jPFormulario.add(jLabelNUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
-        jLabelAsterisco9.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelAsterisco9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelAsterisco9.setForeground(new java.awt.Color(255, 102, 51));
-        jLabelAsterisco9.setText("*");
-        jPFormulario.add(jLabelAsterisco9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 10, -1));
+        jAstNUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jAstNUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jAstNUsuario.setForeground(new java.awt.Color(255, 102, 51));
+        jAstNUsuario.setText("*");
+        jPFormulario.add(jAstNUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 10, -1));
 
         jTFCodigo.setBackground(new java.awt.Color(220, 220, 220));
         jTFCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -364,24 +362,24 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
     private ControladorMenu controlMenu;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jAstCC;
+    private javax.swing.JLabel jAstCargo;
+    private javax.swing.JLabel jAstCodigo;
+    private javax.swing.JLabel jAstDireccion;
+    private javax.swing.JLabel jAstFecha;
+    private javax.swing.JLabel jAstNUsuario;
+    private javax.swing.JLabel jAstNombre;
+    private javax.swing.JLabel jAstPassword;
+    private javax.swing.JLabel jAstTelefono;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JLabel jLabelAsterisco;
-    private javax.swing.JLabel jLabelAsterisco1;
-    private javax.swing.JLabel jLabelAsterisco2;
-    private javax.swing.JLabel jLabelAsterisco3;
-    private javax.swing.JLabel jLabelAsterisco4;
-    private javax.swing.JLabel jLabelAsterisco6;
-    private javax.swing.JLabel jLabelAsterisco7;
-    private javax.swing.JLabel jLabelAsterisco8;
-    private javax.swing.JLabel jLabelAsterisco9;
     private javax.swing.JLabel jLabelCC;
     private javax.swing.JLabel jLabelCargo;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelMiniUser1;
-    private javax.swing.JLabel jLabelNomUser;
+    private javax.swing.JLabel jLabelNUser;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelTelefono;

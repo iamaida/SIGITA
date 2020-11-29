@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backendGestionReporte;
+package modeloGestionReporte;
 
 /**
  *
@@ -11,15 +11,7 @@ package backendGestionReporte;
  */
 public class Reporte {
     
-    private String codigo;
-    private String fecha;
-    private String tipo;
-    private String estado;
-    private String codUsuario;
-    private String codProducto;
-    private String nomInteresado;
-    private String comentario;   
- 
+
     public Reporte()
     {
     
@@ -91,4 +83,13 @@ public class Reporte {
         return comentario;
     }
     
+    private String codigo;
+    private String fecha;
+    private String tipo;
+    private String estado;
+    private String codUsuario;
+    private String codProducto;
+    private String nomInteresado;
+    private String comentario;   
+ 
 }

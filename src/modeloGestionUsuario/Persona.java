@@ -5,7 +5,6 @@
  */
 package modeloGestionUsuario;
 
-import java.util.Date;
 
 /**
  *
@@ -14,13 +13,7 @@ import java.util.Date;
 //Date(int year, int month, int date)
 public class Persona {
     
-    private String nombre;
-    private String docId;
-    private String fechaRegistro;
-    private String direccion;
-    private String telefono;
-    private String email;
- 
+
     public Persona()
     {
     
@@ -76,4 +69,10 @@ public class Persona {
         return email;
     }
     
+    private String nombre;
+    private String docId;
+    private String fechaRegistro;
+    private String direccion;
+    private String telefono;
+    private String email;
 }

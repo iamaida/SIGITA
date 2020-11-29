@@ -3,39 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backendGestionReporte;
+package conexionBDGestionReporte;
 
-import modeloGestionUsuario.Usuario;
 import java.sql.*;
 import java.util.*;
+import modeloGestionReporte.Reporte;
 
 public class ConexionBDReporte {
-    
-    private String url;
-    private String usuario;
-    private String contrasenha;
-    private boolean datoEncontrado;
-    private Reporte report;
-    private ArrayList<Reporte> reportes;
     
     public ConexionBDReporte()
     {
         url = "jdbc:postgresql://localhost:5432/SIGITA";
-        usuario= "postgres";
-        contrasenha = "AMMC12345";
+        userDB= "postgres";
+        contraDB = "AMMC12345";
         datoEncontrado= false;
-        reportes = new ArrayList<Reporte>();
+        reportes = new ArrayList<>();
     }
     
-    public void consultarReportes()
+    public ArrayList<Reporte> consultarReportes()
     {
        
         Connection conexion;
         try{
+            
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
             String consulta ="SELECT * FROM Reporte" ;
             ResultSet resultado = statement.executeQuery(consulta);
            
@@ -57,9 +50,7 @@ public class ConexionBDReporte {
                     report.setComentario(resultado.getString("comentario"));
                     
                     reportes.add(report);
-                }
-                              
-                
+                }               
                 
              }
             
@@ -67,49 +58,46 @@ public class ConexionBDReporte {
             statement.close();
             
         }catch(Exception e){
-            
+            setDatoEncontrado(false);
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
     
-    
+        return reportes;
     }
     
-    public void cambiarEstadoReporte (String campoCambio, String valorCambio, String codigo)
+    public void cambiarEstadoReporte (String campo, String valor, String codigo)
     {
-         datoEncontrado= true;
         Connection conexion;
+    
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
             String consulta ="UPDATE Reporte" +
-                   " SET "+campoCambio+ " =" +"'"+valorCambio+"'"+
+                   " SET "+campo+ " =" +"'"+valor+"'"+
                     "WHERE codigo ="+"'"+codigo+"'";
-            
+            setDatoEncontrado(true);
             statement.executeUpdate(consulta);
             statement.close();
-
             
         }catch(Exception e){
-            datoEncontrado= false;
+            setDatoEncontrado(false);
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
-                    
+                   
     }
     
-     public void insertarReporte(Reporte miReporte)
+    public void insertarReporte(Reporte miReporte)
     {
         report = new Reporte();
         report = miReporte;
-        
-        datoEncontrado= true;
+
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
-            
-            System.out.println("Hata AQUI");
+
             String consulta = "INSERT INTO Reporte (codigo, fecha, tipo," +
                 " estado, codUsuario, codProducto, nombreInt,"+
                 "comentario)";
@@ -122,21 +110,19 @@ public class ConexionBDReporte {
                 "'"+report.getNomInteresado()+"'"+","+
                 "'"+report.getComentario()+"'"+")";
             
+            setDatoEncontrado(true);
+            
             statement.executeUpdate(consulta);
             statement.close();
 
             
         }catch(Exception e){
-            datoEncontrado= false;
+            
+            setDatoEncontrado(false);
             System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
         }
                     
   
-    }
-    
-    public ArrayList<Reporte> getReportes()
-    {
-        return reportes;
     }
     
     public void setDatoEncontrado(boolean datoEncontrado)
@@ -149,4 +135,10 @@ public class ConexionBDReporte {
         return datoEncontrado;
     }
     
+    private final String url;
+    private final String userDB;
+    private final String contraDB;
+    private boolean datoEncontrado;
+    private Reporte report;
+    private final ArrayList<Reporte> reportes;
 }
