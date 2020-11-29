@@ -5,7 +5,7 @@
  */
 package controladorGestionInventario;
 
-import conexionBDInventario.ConexionBDInventario;
+import conexionBDGestionInventario.ConexionBDInventario;
 import controladorGestionUsuario.ControladorMenu;
 import modeloGestionInventario.ItemPedido;
 import modeloGestionInventario.Pedido;

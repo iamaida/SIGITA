@@ -5,7 +5,7 @@
  */
 package vistaGestionReporte;
 
-import conexionBDInventario.ConexionBDInventario;
+import conexionBDGestionInventario.ConexionBDInventario;
 import modeloGestionInventario.Producto;
 import conexionBDGestionReporte.ConexionBDReporte;
 import controladorGestionInventario.ControladorInventario;
