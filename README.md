@@ -39,5 +39,5 @@ Este repositorio contiene la totalidad del desarrollo asociado a la creación de
 ### Mensajes Emergentes
 - [vista](src/vistaMensEmerg)
 
-### Iconos Frontend
+### Iconos Vista
 - [imagenes](src/imagenes)
