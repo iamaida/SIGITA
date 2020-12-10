@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modeloGestionInventario;
+package modeloGestionVenta;
 
 import java.util.ArrayList;
+import modeloGestionInventario.Producto;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -13,19 +14,18 @@ import org.testng.annotations.Test;
  *
  * @author Aidis
  */
-public class PedidoNGTest {
+public class FacturaNGTest {
     
-    public PedidoNGTest() {
+    public FacturaNGTest() {
     }
 
     /**
-     * Test of agregarProducto method, of class Pedido.
+     * Test of agregarProducto method, of class Factura.
      */
     @Test
     public void testAgregarProducto() {
-        
         Producto producto = null;
-        Pedido instance = new Pedido();
+        Factura instance = new Factura();
         instance.agregarProducto(producto);
         Producto result = producto;
         Producto expResult = null;
@@ -33,39 +33,38 @@ public class PedidoNGTest {
     }
 
     /**
-     * Test of getProductos method, of class Pedido.
+     * Test of getProductos method, of class Factura.
      */
     @Test
     public void testGetProductos() {
         
-        Pedido instance = new Pedido();
+        Factura instance = new Factura();
         instance.agregarProducto(null);
         ArrayList result = instance.getProductos(); 
         ArrayList expResult = new ArrayList<Producto>();
         expResult.add(null);
         assertEquals(result, expResult);
- 
     }
 
     /**
-     * Test of getCodigo method, of class Pedido.
+     * Test of getCodigo method, of class Factura.
      */
     @Test
     public void testGetCodigo() {
-        Pedido instance = new Pedido();
-        String codigo= "P-002";
+        Factura instance = new Factura();
+        String codigo= "F-001";
         instance.setCodigo(codigo);
         String result = instance.getCodigo();
         assertTrue(result.equals(result));
     }
 
     /**
-     * Test of setCodigo method, of class Pedido.
+     * Test of setCodigo method, of class Factura.
      */
     @Test
     public void testSetCodigo() {
-        String codigo= "P-003";
-        Pedido instance = new Pedido();
+        String codigo= "F-003";
+        Factura instance = new Factura();
         instance.setCodigo(codigo);
         String expResult = codigo;
         String result = instance.getCodigo();
@@ -73,11 +72,12 @@ public class PedidoNGTest {
     }
 
     /**
-     * Test of getFecha method, of class Pedido.
+     * Test of getFecha method, of class Factura.
      */
     @Test
     public void testGetFecha() {
-        Pedido instance = new Pedido();
+        
+        Factura instance = new Factura();
         String fecha= "2019-03-08";
         instance.setFecha(fecha);
         String result = instance.getFecha();
@@ -85,12 +85,12 @@ public class PedidoNGTest {
     }
 
     /**
-     * Test of setFecha method, of class Pedido.
+     * Test of setFecha method, of class Factura.
      */
     @Test
     public void testSetFecha() {
         String fecha= "2020-12-05";
-        Pedido instance = new Pedido();
+        Factura instance = new Factura();
         instance.setFecha(fecha);
         String expResult = fecha;
         String result = instance.getFecha();
@@ -98,54 +98,54 @@ public class PedidoNGTest {
     }
 
     /**
-     * Test of getCodAlmacenista method, of class Pedido.
+     * Test of getCodCajero method, of class Factura.
      */
     @Test
-    public void testGetCodAlmacenista() {
-        Pedido instance = new Pedido();
-        String codAlmacenista= "A-002";
-        instance.setCodAlmacenista(codAlmacenista);
-        String result = instance.getCodAlmacenista();
-        assertTrue(result.equals(codAlmacenista));
+    public void testGetCodCajero() {
+        Factura instance = new Factura();
+        String codCajero= "C-002";
+        instance.setCodCajero(codCajero);
+        String result = instance.getCodCajero();
+        assertTrue(result.equals(codCajero));
     }
 
     /**
-     * Test of setCodAlmacenista method, of class Pedido.
+     * Test of setCodCajero method, of class Factura.
      */
     @Test
-    public void testSetCodAlmacenista() {
-        String codAlmacenista= "A-001";
-        Pedido instance = new Pedido();
-        instance.setCodAlmacenista(codAlmacenista);
-        String expResult = codAlmacenista;
-        String result = instance.getCodAlmacenista();
+    public void testSetCodCajero() {
+        String codCajero= "C-001";
+        Factura instance = new Factura();
+        instance.setCodCajero(codCajero);
+        String expResult = codCajero;
+        String result = instance.getCodCajero();
         assertEquals(result,expResult);
     }
 
     /**
-     * Test of getEstado method, of class Pedido.
+     * Test of getIdCliente method, of class Factura.
      */
     @Test
-    public void testGetEstado() {
-        Pedido instance = new Pedido();
-        String estado= "Enviado";
-        instance.setEstado(estado);
-        String result = instance.getEstado();
-        assertTrue(result.equals(estado));
+    public void testGetIdCliente() {
+        Factura instance = new Factura();
+        String idCliente = "95.034.234";
+        instance.setIdCliente(idCliente);
+        String result = instance.getIdCliente();
+        assertTrue(result.equals(idCliente));
     }
 
     /**
-     * Test of setEstado method, of class Pedido.
+     * Test of setIdCliente method, of class Factura.
      */
     @Test
-    public void testSetEstado() {
-        String estado= "Enviado";
-        Pedido instance = new Pedido();
-        instance.setEstado(estado);
-        String expResult = estado;
-        String result = instance.getEstado();
+    public void testSetIdCliente() {
+        String idCliente= "1.135.637.780";
+        Factura instance = new Factura();
+        instance.setIdCliente(idCliente);
+        String expResult = idCliente;
+        String result = instance.getIdCliente();
         assertEquals(result,expResult);
     }
 
-
+    
 }

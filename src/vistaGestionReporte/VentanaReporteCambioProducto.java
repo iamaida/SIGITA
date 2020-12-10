@@ -42,7 +42,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelFormula = new javax.swing.JPanel();
+        jPanelFormulario = new javax.swing.JPanel();
         jLCodigo = new javax.swing.JLabel();
         jAstCodigo = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
@@ -78,6 +78,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jLabelMiniUser1 = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
         jPanelLateralD = new javax.swing.JPanel();
+        jBInformacion = new javax.swing.JLabel();
         jPanelBotones = new javax.swing.JPanel();
         jBSalir = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
@@ -87,69 +88,69 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelFormula.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelFormula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
-        jPanelFormula.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelFormula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelFormulario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
+        jPanelFormulario.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelFormulario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLCodigo.setBackground(new java.awt.Color(0, 0, 0));
         jLCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLCodigo.setText("CODIGO");
-        jPanelFormula.add(jLCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        jPanelFormulario.add(jLCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jAstCodigo.setBackground(new java.awt.Color(0, 0, 0));
         jAstCodigo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jAstCodigo.setForeground(new java.awt.Color(255, 102, 51));
         jAstCodigo.setText("*");
-        jPanelFormula.add(jAstCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        jPanelFormulario.add(jAstCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         jTFCodigo.setBackground(new java.awt.Color(220, 220, 220));
         jTFCodigo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFCodigo.setForeground(new java.awt.Color(102, 102, 102));
         jTFCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jPanelFormula.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 30));
+        jPanelFormulario.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 30));
 
         jTFCajero.setBackground(new java.awt.Color(220, 220, 220));
         jTFCajero.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFCajero.setForeground(new java.awt.Color(102, 102, 102));
         jTFCajero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jPanelFormula.add(jTFCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
+        jPanelFormulario.add(jTFCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
 
         jLUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jLUsuario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLUsuario.setText("CAJERO");
-        jPanelFormula.add(jLUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, -1, -1));
+        jPanelFormulario.add(jLUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, -1, -1));
 
         jAstTipo.setBackground(new java.awt.Color(0, 0, 0));
         jAstTipo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jAstTipo.setForeground(new java.awt.Color(255, 102, 51));
         jAstTipo.setText("*");
-        jPanelFormula.add(jAstTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 10, -1));
+        jPanelFormulario.add(jAstTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 10, -1));
 
         jLNombre.setBackground(new java.awt.Color(0, 0, 0));
         jLNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLNombre.setText("NOMBRE ");
-        jPanelFormula.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanelFormulario.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabelAsterisco5.setBackground(new java.awt.Color(0, 0, 0));
         jLabelAsterisco5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabelAsterisco5.setForeground(new java.awt.Color(255, 102, 51));
         jLabelAsterisco5.setText("*");
-        jPanelFormula.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
+        jPanelFormulario.add(jLabelAsterisco5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 160, 0, -1));
 
         jBAddProducto.setBackground(new java.awt.Color(0, 0, 0));
         jBAddProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jBAddProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProduct.png"))); // NOI18N
         jBAddProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBAddProductoMouseClicked(evt);
             }
         });
-        jPanelFormula.add(jBAddProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 30));
+        jPanelFormulario.add(jBAddProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 30));
 
         jTFTipo.setBackground(new java.awt.Color(220, 220, 220));
         jTFTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -157,25 +158,25 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jTFTipo.setText("Cambio");
         jTFTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jTFTipo.setEnabled(false);
-        jPanelFormula.add(jTFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 190, 20));
+        jPanelFormulario.add(jTFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 190, 20));
 
         jLFecha.setBackground(new java.awt.Color(0, 0, 0));
         jLFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLFecha.setText("FECHA");
-        jPanelFormula.add(jLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanelFormulario.add(jLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         jAstFecha.setBackground(new java.awt.Color(0, 0, 0));
         jAstFecha.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jAstFecha.setForeground(new java.awt.Color(255, 102, 51));
         jAstFecha.setText("*");
-        jPanelFormula.add(jAstFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jPanelFormulario.add(jAstFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
         jLCliente.setBackground(new java.awt.Color(0, 0, 0));
         jLCliente.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLCliente.setText(" CLIENTE");
-        jPanelFormula.add(jLCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
+        jPanelFormulario.add(jLCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
 
         jTFCodProducto.setBackground(new java.awt.Color(220, 220, 220));
         jTFCodProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -187,7 +188,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
                 jTFCodProductoMouseClicked(evt);
             }
         });
-        jPanelFormula.add(jTFCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 410, 30));
+        jPanelFormulario.add(jTFCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 410, 30));
 
         jBAddCliente.setBackground(new java.awt.Color(0, 0, 0));
         jBAddCliente.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -198,7 +199,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
                 jBAddClienteMouseClicked(evt);
             }
         });
-        jPanelFormula.add(jBAddCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, 30));
+        jPanelFormulario.add(jBAddCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, 30));
 
         jTFIdCliente.setBackground(new java.awt.Color(220, 220, 220));
         jTFIdCliente.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -210,51 +211,51 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
                 jTFIdClienteMouseClicked(evt);
             }
         });
-        jPanelFormula.add(jTFIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 400, 30));
+        jPanelFormulario.add(jTFIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 400, 30));
 
         jLProducto.setBackground(new java.awt.Color(0, 0, 0));
         jLProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLProducto.setText("PRODUCTO");
-        jPanelFormula.add(jLProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 90, 30));
+        jPanelFormulario.add(jLProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 90, 30));
 
         jSNombre.setForeground(new java.awt.Color(255, 102, 51));
-        jPanelFormula.add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 330, 10));
+        jPanelFormulario.add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 330, 10));
 
         jTFNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTFNombre.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFNombre.setForeground(new java.awt.Color(102, 102, 102));
         jTFNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jTFNombre.setOpaque(true);
-        jPanelFormula.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 330, 30));
+        jPanelFormulario.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 330, 30));
 
         jLComentario.setBackground(new java.awt.Color(0, 0, 0));
         jLComentario.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLComentario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLComentario.setText("COMENTARIOS");
-        jPanelFormula.add(jLComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+        jPanelFormulario.add(jLComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         jTFDProducto.setBackground(new java.awt.Color(255, 255, 255));
         jTFDProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFDProducto.setForeground(new java.awt.Color(102, 102, 102));
         jTFDProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jTFDProducto.setOpaque(true);
-        jPanelFormula.add(jTFDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 420, 30));
+        jPanelFormulario.add(jTFDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 420, 30));
 
         jSDescripcion.setForeground(new java.awt.Color(255, 102, 51));
-        jPanelFormula.add(jSDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 420, 10));
+        jPanelFormulario.add(jSDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 420, 10));
 
         jLTipo.setBackground(new java.awt.Color(0, 0, 0));
         jLTipo.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTipo.setText("TIPO");
-        jPanelFormula.add(jLTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
+        jPanelFormulario.add(jLTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
 
         jAstComentario.setBackground(new java.awt.Color(0, 0, 0));
         jAstComentario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jAstComentario.setForeground(new java.awt.Color(255, 102, 51));
         jAstComentario.setText("*");
-        jPanelFormula.add(jAstComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 10, -1));
+        jPanelFormulario.add(jAstComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 10, -1));
 
         jTAComentario.setBackground(new java.awt.Color(220, 220, 220));
         jTAComentario.setColumns(20);
@@ -270,27 +271,27 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTAComentario);
 
-        jPanelFormula.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 630, 120));
+        jPanelFormulario.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 630, 120));
 
         jLDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         jLDescripcion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLDescripcion.setText("DESCRIPCIÓN");
-        jPanelFormula.add(jLDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+        jPanelFormulario.add(jLDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         jTFFecha.setBackground(new java.awt.Color(220, 220, 220));
         jTFFecha.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFFecha.setForeground(new java.awt.Color(102, 102, 102));
         jTFFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
-        jPanelFormula.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 180, 30));
+        jPanelFormulario.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 180, 30));
 
         jAstUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jAstUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jAstUsuario.setForeground(new java.awt.Color(255, 102, 51));
         jAstUsuario.setText("*");
-        jPanelFormula.add(jAstUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+        jPanelFormulario.add(jAstUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
-        getContentPane().add(jPanelFormula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 850, 400));
+        getContentPane().add(jPanelFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 850, 400));
 
         jPanelLateralI.setBackground(new java.awt.Color(255, 255, 255));
         jPanelLateralI.setForeground(new java.awt.Color(255, 255, 255));
@@ -323,6 +324,15 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
         jPanelLateralD.setForeground(new java.awt.Color(255, 255, 255));
         jPanelLateralD.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPanelLateralD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInformation.png"))); // NOI18N
+        jBInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBInformacionMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+
         getContentPane().add(jPanelLateralD, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 100, 510));
 
         jPanelBotones.setBackground(new java.awt.Color(255, 255, 255));
@@ -440,6 +450,15 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     private void jTAComentarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAComentarioMouseClicked
         jTAComentario.setText("");
     }//GEN-LAST:event_jTAComentarioMouseClicked
+
+    private void jBInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInformacionMouseClicked
+        jTFCodigo.setText("R-004");
+        jTFFecha.setText("2019-12-03");
+        jTFCajero.setText("C-002");
+        jTFIdCliente.setText("123.810.128");
+        jTFCodProducto.setText("USO-001");
+        jTAComentario.setText("¡El producto estaba vencido!");
+    }//GEN-LAST:event_jBInformacionMouseClicked
     
     private final Usuario user;
     private Reporte report;
@@ -454,6 +473,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jBAddCliente;
     private javax.swing.JLabel jBAddProducto;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JLabel jBInformacion;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLCliente;
     private javax.swing.JLabel jLCodigo;
@@ -469,7 +489,7 @@ public class VentanaReporteCambioProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelWindowTitle;
     private javax.swing.JPanel jPanelBotones;
-    private javax.swing.JPanel jPanelFormula;
+    private javax.swing.JPanel jPanelFormulario;
     private javax.swing.JPanel jPanelLateralD;
     private javax.swing.JPanel jPanelLateralI;
     private javax.swing.JPanel jPanelTitulo;

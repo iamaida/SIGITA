@@ -15,8 +15,8 @@ public class ConexionBDInventario {
     public ConexionBDInventario()
     {
         url = "jdbc:postgresql://localhost:5432/SIGITA";
-        usuario= "postgres";
-        contrasenha = "AMMC12345";
+        userDB= "postgres";
+        contraDB = "AMMC12345";
         datoEncontrado= false;
     }
     
@@ -26,16 +26,14 @@ public class ConexionBDInventario {
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
-            System.out.println("Hata AQUI");
             String consulta ="SELECT * FROM Producto WHERE codigo ="+"'"+codigo+"'" ;
             ResultSet resultado = statement.executeQuery(consulta);
            
             while(resultado.next())
             {
                 setDatoEncontrado(true);
-             System.out.println(resultado.getString("codigo"));
                 miProducto.setCodigo(resultado.getString("codigo"));
                 miProducto.setDescripcion(resultado.getString("descripcion"));
                 miProducto.setProveedor(resultado.getString("proveedor"));
@@ -68,7 +66,7 @@ public class ConexionBDInventario {
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
             
             System.out.println("Hata AQUI");
@@ -101,7 +99,7 @@ public class ConexionBDInventario {
         Connection conexion;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion= DriverManager.getConnection(url,usuario,contrasenha);
+            conexion= DriverManager.getConnection(url,userDB,contraDB);
             java.sql.Statement statement = conexion.createStatement();
             
             System.out.println("Hata AQUI");
@@ -126,7 +124,35 @@ public class ConexionBDInventario {
   
     }
     
+    public void actualizarProducto(String campoCambio, String valorCambio,
+                                    String codigo)
+    {
+            consultarProducto(codigo);
+        Connection conexion;
         
+        if(getDatoEncontrado())
+        {
+            try{
+            
+                Class.forName("org.postgresql.Driver");
+                conexion= DriverManager.getConnection(url,userDB,contraDB);
+                java.sql.Statement statement = conexion.createStatement();
+            
+                String consulta ="UPDATE Producto " +
+                             "SET "+campoCambio+ " =" +"'"+valorCambio+"'"+ 
+                             " WHERE codigo ="+"'"+codigo+"'";
+                setDatoEncontrado(true);
+                statement.executeUpdate(consulta);
+                statement.close();
+
+            
+            }catch(Exception e){
+                setDatoEncontrado(false);
+                System.out.println("ERROR DE CONEXIÓN"+e.getMessage());
+            }
+        }           
+    }
+       
     public void setDatoEncontrado(boolean datoEncontrado)
     {
         this.datoEncontrado= datoEncontrado;
@@ -138,10 +164,9 @@ public class ConexionBDInventario {
     }
     
     private final String url;
-    private final String usuario;
-    private final String contrasenha;
+    private final String userDB;
+    private final String contraDB;
     private boolean datoEncontrado;
-    private Producto product;
     private ItemPedido itemPedido;
     private Pedido pedido;
     

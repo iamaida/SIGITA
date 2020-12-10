@@ -10,16 +10,7 @@ package modeloGestionInventario;
  * @author Aidis
  */
 public class Producto {
-    
-    private String codigo;
-    private String descripcion;
-    private String proveedor;
-    private String tipo;
-    private String precioCompra;
-    private String precioVenta;
-    private String fecha;
-    private String cantidad;
- 
+     
     public Producto()
     {
     
@@ -92,4 +83,13 @@ public class Producto {
     {
         return cantidad;
     }
+    
+    private String codigo;
+    private String descripcion;
+    private String proveedor;
+    private String tipo;
+    private String precioCompra;
+    private String precioVenta;
+    private String fecha;
+    private String cantidad;
 }

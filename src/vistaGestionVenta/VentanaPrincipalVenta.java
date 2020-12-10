@@ -6,11 +6,8 @@
 package vistaGestionVenta;
 
 import controladorGestionUsuario.ControladorMenu;
+import controladorGestionVenta.ControladorVenta;
 import modeloGestionUsuario.Usuario;
-import vistaGestionUsuario.VentanaLogin;
-import vistaGestionDomicilio.VentanaPrincipalDomicilio;
-import vistaGestionReporte.VentanaReporteCambioProducto;
-
 
 /**
  *
@@ -27,7 +24,9 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.user = user;
         controlMenu = new ControladorMenu();
+        controlVenta = new ControladorVenta();
         jLabelUserName.setText(user.getNombreUsuario());
+        jImageDomicilio.enable(false);
     }
 
     /**
@@ -41,16 +40,17 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
 
         jPanelMenu = new javax.swing.JPanel();
         jLabelCambioProducto = new javax.swing.JLabel();
-        jLabelImageChangeProduct = new javax.swing.JLabel();
-        jLabelImageCliente = new javax.swing.JLabel();
+        jImageDomicilio = new javax.swing.JLabel();
         jLabelCliente = new javax.swing.JLabel();
-        jLabelImageFacturar = new javax.swing.JLabel();
         jLabelFacturar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jImageCambiarProducto = new javax.swing.JLabel();
+        jImageFacturar1 = new javax.swing.JLabel();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelWindowTitle = new javax.swing.JLabel();
         jLabelMiniUser1 = new javax.swing.JLabel();
-        jLabelUserName = new javax.swing.JLabel();
         jLExit = new javax.swing.JLabel();
+        jLabelUserName = new javax.swing.JLabel();
         jPaneMenuLateral = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jLMUsuario = new javax.swing.JLabel();
@@ -83,25 +83,15 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         jLabelCambioProducto.setText("CAMBIAR  ");
         jPanelMenu.add(jLabelCambioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
 
-        jLabelImageChangeProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageChangeProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconCanBeer.png"))); // NOI18N
-        jLabelImageChangeProduct.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageChangeProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+        jImageDomicilio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jImageDomicilio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconDelivery.png"))); // NOI18N
+        jImageDomicilio.setPreferredSize(new java.awt.Dimension(34, 34));
+        jImageDomicilio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageChangeProductMouseClicked(evt);
+                jImageDomicilioMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jLabelImageChangeProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 150, 130));
-
-        jLabelImageCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconDelivery.png"))); // NOI18N
-        jLabelImageCliente.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageCliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageClienteMouseClicked(evt);
-            }
-        });
-        jPanelMenu.add(jLabelImageCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 130, 110));
+        jPanelMenu.add(jImageDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 130, 100));
 
         jLabelCliente.setBackground(new java.awt.Color(0, 0, 0));
         jLabelCliente.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -109,21 +99,31 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         jLabelCliente.setText("ENVIAR");
         jPanelMenu.add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
 
-        jLabelImageFacturar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImageFacturar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconFacturar.png"))); // NOI18N
-        jLabelImageFacturar.setPreferredSize(new java.awt.Dimension(34, 34));
-        jLabelImageFacturar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelImageFacturarMouseClicked(evt);
-            }
-        });
-        jPanelMenu.add(jLabelImageFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 150, 110));
-
         jLabelFacturar.setBackground(new java.awt.Color(0, 0, 0));
         jLabelFacturar.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabelFacturar.setForeground(new java.awt.Color(255, 102, 51));
         jLabelFacturar.setText("FACTURAR");
         jPanelMenu.add(jLabelFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("¡Funcionalidad en construcción!");
+        jPanelMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 200, 20));
+
+        jImageCambiarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconCanBeer.png"))); // NOI18N
+        jImageCambiarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jImageCambiarProductoMouseClicked(evt);
+            }
+        });
+        jPanelMenu.add(jImageCambiarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, -1, -1));
+
+        jImageFacturar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Aidis\\Desktop\\Proyectos\\SIGITA\\src\\imagenes\\iconFacturar.png")); // NOI18N
+        jImageFacturar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jImageFacturar1MouseClicked(evt);
+            }
+        });
+        jPanelMenu.add(jImageFacturar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 810, 480));
 
@@ -140,12 +140,6 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         jLabelMiniUser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconUserMini.png"))); // NOI18N
         jPanelTitulo.add(jLabelMiniUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
 
-        jLabelUserName.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelUserName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelUserName.setText("Administrador");
-        jPanelTitulo.add(jLabelUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 90, -1));
-
         jLExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconExit.png"))); // NOI18N
         jLExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,6 +147,12 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
             }
         });
         jPanelTitulo.add(jLExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, -1, -1));
+
+        jLabelUserName.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelUserName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelUserName.setText("Administrador");
+        jPanelTitulo.add(jLabelUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 90, -1));
 
         getContentPane().add(jPanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 100));
 
@@ -256,24 +256,10 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelImageFacturarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageFacturarMouseClicked
-
-        VentanaGenerarFactura ventanaGF= new VentanaGenerarFactura(user);
-        ventanaGF.setVisible(true);//mostrar ventana usuarios
+    private void jImageDomicilioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jImageDomicilioMouseClicked
+        controlVenta.irEnvioDomicilio(user);
         this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageFacturarMouseClicked
-
-    private void jLabelImageClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageClienteMouseClicked
-        VentanaPrincipalDomicilio ventanaD= new VentanaPrincipalDomicilio(user);
-        ventanaD.setVisible(true);//mostrar ventana usuarios
-        this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageClienteMouseClicked
-
-    private void jLabelImageChangeProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImageChangeProductMouseClicked
-               VentanaReporteCambioProducto ventanaSCP= new VentanaReporteCambioProducto(user);
-               ventanaSCP.setVisible(true);//mostrar ventana usuarios
-                this.setVisible(false);//Ocultar ventana en la que me encuentr
-    }//GEN-LAST:event_jLabelImageChangeProductMouseClicked
+    }//GEN-LAST:event_jImageDomicilioMouseClicked
 
     private void jLMUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMUsuarioMouseClicked
         controlMenu.irModuloGUsuario(user);
@@ -309,11 +295,25 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
         controlMenu.irVentanaLogin();
         this.setVisible(false);
     }//GEN-LAST:event_jLExitMouseClicked
+
+    private void jImageCambiarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jImageCambiarProductoMouseClicked
+        controlVenta.irCambioProducto(user);
+        this.setVisible(false);//Ocultar ventana en la que me encuentr
+    }//GEN-LAST:event_jImageCambiarProductoMouseClicked
+
+    private void jImageFacturar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jImageFacturar1MouseClicked
+        controlVenta.irRegistroFactura(user);
+        this.setVisible(false);//Ocultar ventana en la que me encuentr
+    }//GEN-LAST:event_jImageFacturar1MouseClicked
     
     private final Usuario user;
     private final ControladorMenu controlMenu;
+    private final ControladorVenta controlVenta;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jImageCambiarProducto;
+    private javax.swing.JLabel jImageDomicilio;
+    private javax.swing.JLabel jImageFacturar1;
     private javax.swing.JLabel jLExit;
     private javax.swing.JLabel jLMCliente;
     private javax.swing.JLabel jLMInventario;
@@ -321,12 +321,10 @@ public class VentanaPrincipalVenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLMSoporte;
     private javax.swing.JLabel jLMUsuario;
     private javax.swing.JLabel jLMVenta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCambioProducto;
     private javax.swing.JLabel jLabelCliente;
     private javax.swing.JLabel jLabelFacturar;
-    private javax.swing.JLabel jLabelImageChangeProduct;
-    private javax.swing.JLabel jLabelImageCliente;
-    private javax.swing.JLabel jLabelImageFacturar;
     private javax.swing.JLabel jLabelMiniUser1;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JLabel jLabelWindowTitle;

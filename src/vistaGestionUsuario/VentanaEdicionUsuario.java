@@ -24,6 +24,7 @@ public class VentanaEdicionUsuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.user = user;
         count =0;
+        jTextFieldBuscar.setText("B-002");
         controlUS = new ControladorUsuario();
         controlMenu = new ControladorMenu();
         jLabelUserName.setText(user.getNombreUsuario());

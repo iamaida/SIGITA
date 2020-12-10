@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modeloGestionInventario;
+package modeloGestionVenta;
 
 import java.util.ArrayList;
+import modeloGestionInventario.Producto;
 
 /**
  *
  * @author Aidis
  */
-public class Pedido {
-
-    public Pedido()
+public class Factura {
+    
+    public Factura()
     {
         total = 0;
         productos = new ArrayList<>();
@@ -33,7 +34,7 @@ public class Pedido {
     {
         return productos;
     }
-            
+    
     public String getCodigo() {
         return codigo;
     }
@@ -49,28 +50,28 @@ public class Pedido {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
-    public String getCodAlmacenista() {
-        return codAlmacenista;
+    
+    public String getCodCajero() {
+        return codCajero;
     }
 
-    public void setCodAlmacenista(String codAlmacenista) {
-        this.codAlmacenista = codAlmacenista;
+    public void setCodCajero(String codCajero) {
+        this.codCajero = codCajero;
+    }
+    
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+    
     public double getTotal() {
         return total;
     }
 
-    public void sumarTotalPCompra()
+    public void sumarTotalPVenta()
     {
         total =0;
         double multp;
@@ -78,16 +79,17 @@ public class Pedido {
         for(int i =0; i< productos.size(); i++)
         {
             multp = Integer.parseInt(productos.get(i).getCantidad());
-            multp = multp* Double.parseDouble(productos.get(i).getPrecioCompra());
+            multp = multp* Double.parseDouble(productos.get(i).getPrecioVenta());
             total = total + multp;
         }
-       
+        
     }
+    
     
     private String codigo;
     private String fecha;
-    private String codAlmacenista;
-    private String estado;
+    private String codCajero;
+    private String idCliente;
     private double total;
     private final ArrayList<Producto> productos;
     

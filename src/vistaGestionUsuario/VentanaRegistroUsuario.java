@@ -71,6 +71,7 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jLabelUserName = new javax.swing.JLabel();
         jLabelMiniUser1 = new javax.swing.JLabel();
         jPLateralD = new javax.swing.JPanel();
+        jBInformacion = new javax.swing.JLabel();
         jPBotones = new javax.swing.JPanel();
         jButtonSalir = new javax.swing.JButton();
         jButtonRegistrar = new javax.swing.JButton();
@@ -280,6 +281,15 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         jPLateralD.setForeground(new java.awt.Color(255, 255, 255));
         jPLateralD.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPLateralD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInformation.png"))); // NOI18N
+        jBInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBInformacionMouseClicked(evt);
+            }
+        });
+        jPLateralD.add(jBInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
+
         getContentPane().add(jPLateralD, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 100, 480));
 
         jPBotones.setBackground(new java.awt.Color(255, 255, 255));
@@ -327,6 +337,18 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
         borrarInfoCampos();
 
     }//GEN-LAST:event_jButtonRegistrarMouseClicked
+
+    private void jBInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInformacionMouseClicked
+        jTFCodigo.setText("B-002");
+        jTFCC.setText("1.176.327.654");
+        jTFNombre.setText("Mateo Plazas Plazas");
+        jTFCargo.setText("Administrador");
+        jTFNomUser.setText("bMateo");
+        jTFPassword.setText("bM002");
+        jTFFecha.setText("2020-10-01");
+        jTFDireccion.setText("Cra 80 No. 75 -30");
+        jTFTelefono.setText("2327839");
+    }//GEN-LAST:event_jBInformacionMouseClicked
     
     private void tomarInfoUsuario()
     {
@@ -371,6 +393,7 @@ public class VentanaRegistroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jAstNombre;
     private javax.swing.JLabel jAstPassword;
     private javax.swing.JLabel jAstTelefono;
+    private javax.swing.JLabel jBInformacion;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelCC;

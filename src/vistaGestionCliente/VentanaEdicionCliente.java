@@ -27,6 +27,7 @@ public class VentanaEdicionCliente extends javax.swing.JFrame {
         count =0;
         controlClient = new ControladorCliente();
         controlMenu = new ControladorMenu();
+        jTFBuscar.setText("76.305.729");
         jLabelUserName.setText(user.getNombreUsuario());
     }
 

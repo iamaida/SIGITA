@@ -6,12 +6,12 @@
 package vistaGestionReporte;
 
 
-import controladorGestionInventario.ControladorInventario;
-import modeloGestionInventario.Producto;
-import controladorGestionReporte.ControladorReporte;
-import controladorGestionUsuario.ControladorMenu;
-import modeloGestionReporte.Reporte;
-import modeloGestionUsuario.Usuario;
+import controladorGestionInventario.*;
+import modeloGestionInventario.*;
+import controladorGestionReporte.*;
+import controladorGestionUsuario.*;
+import modeloGestionReporte.*;
+import modeloGestionUsuario.*;
 
 
 /**
@@ -25,7 +25,7 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
      * @param user
      */
     public VentanaReporteAveriaProducto(Usuario user) {
-        initComponents();
+       initComponents();
         //Centra la ventana
         this.setLocationRelativeTo(null);
         this.user = user;
@@ -75,6 +75,7 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jLabelMiniUser1 = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
         jPanelLateralD = new javax.swing.JPanel();
+        jBInformacion = new javax.swing.JLabel();
         jPanelBotones = new javax.swing.JPanel();
         jBSalir = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
@@ -128,7 +129,7 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jBAddProducto.setBackground(new java.awt.Color(0, 0, 0));
         jBAddProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jBAddProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProduct.png"))); // NOI18N
         jBAddProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBAddProductoMouseClicked(evt);
@@ -285,6 +286,15 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jPanelLateralD.setForeground(new java.awt.Color(255, 255, 255));
         jPanelLateralD.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPanelLateralD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInformation.png"))); // NOI18N
+        jBInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBInformacionMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+
         getContentPane().add(jPanelLateralD, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 100, 510));
 
         jPanelBotones.setBackground(new java.awt.Color(255, 255, 255));
@@ -382,6 +392,14 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
         jTAComentario.setText("");
     }//GEN-LAST:event_jTAComentarioMouseClicked
 
+    private void jBInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInformacionMouseClicked
+        jTFCodigo.setText("R-005");
+        jTFFecha.setText("2019-10-01");
+        jTFAlmacenista.setText("A-003");
+        jTFCProduct.setText("DSC-001");
+        jTAComentario.setText("¡El empaque del producto esta deteriorado!");
+    }//GEN-LAST:event_jBInformacionMouseClicked
+
     private final Usuario user;
     private Reporte report;
     private final ControladorReporte controlReport;
@@ -394,6 +412,7 @@ public class VentanaReporteAveriaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jAstUsuario;
     private javax.swing.JLabel jBAddProducto;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JLabel jBInformacion;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLComentarios;

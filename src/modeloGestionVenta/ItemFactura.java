@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modeloGestionInventario;
+package modeloGestionVenta;
 
 /**
  *
  * @author Aidis
  */
-public class ItemPedido {
-
-    public ItemPedido() {
+public class ItemFactura {
+    
+    public ItemFactura() {
         
     }
 
@@ -23,12 +23,12 @@ public class ItemPedido {
         this.nroItem = nroItem;
     }
 
-    public String getCodPedido() {
-        return codPedido;
+    public String getCodFactura() {
+        return codFactura;
     }
 
-    public void setCodPedido(String codPedido) {
-        this.codPedido = codPedido;
+    public void setCodFactura(String codFactura) {
+        this.codFactura = codFactura;
     }
 
     public String getCodProducto() {
@@ -48,8 +48,8 @@ public class ItemPedido {
     }
     
     private String nroItem;
-    private String codPedido;
+    private String codFactura;
     private String codProducto;
     private double cantidad;
-
+    
 }

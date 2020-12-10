@@ -63,6 +63,7 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jLabelMiniUser1 = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
         jPanelLDerecho = new javax.swing.JPanel();
+        jBInformacion = new javax.swing.JLabel();
         jPanelBotones = new javax.swing.JPanel();
         jBSalir = new javax.swing.JButton();
         jBRegistrar = new javax.swing.JButton();
@@ -218,6 +219,15 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         jPanelLDerecho.setForeground(new java.awt.Color(255, 255, 255));
         jPanelLDerecho.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jPanelLDerecho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInformation.png"))); // NOI18N
+        jBInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBInformacionMouseClicked(evt);
+            }
+        });
+        jPanelLDerecho.add(jBInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
+
         getContentPane().add(jPanelLDerecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 100, 480));
 
         jPanelBotones.setBackground(new java.awt.Color(255, 255, 255));
@@ -264,6 +274,15 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
         borrarInfoCampos();
 
     }//GEN-LAST:event_jBRegistrarMouseClicked
+
+    private void jBInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInformacionMouseClicked
+        jTFCC.setText("76.305.729");
+        jTFNombre.setText("Rodrigo Arteage Brigard");
+        jTextFieldFecha.setText("2020-11-08");
+        jTFDireccion.setText("Av 1AE # 18-08");
+        jTFTelefono.setText("3412169");
+        jTFEmail.setText("rodrigoA@uncorreo.com");
+    }//GEN-LAST:event_jBInformacionMouseClicked
     
     private void tomarInfoCliente()
     {
@@ -296,6 +315,7 @@ public class VentanaRegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jAstFecha;
     private javax.swing.JLabel jAstNombre;
     private javax.swing.JLabel jAstTelefono;
+    private javax.swing.JLabel jBInformacion;
     private javax.swing.JButton jBRegistrar;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLCC;

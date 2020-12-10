@@ -20,6 +20,8 @@ public class VentanaLogin extends javax.swing.JFrame {
         initComponents();
         //Centra la ventana
         this.setLocationRelativeTo(null);
+        jTFUserName.setText("aPaola");
+        jTFPassword.setText("aP002");
     }
     
     /**

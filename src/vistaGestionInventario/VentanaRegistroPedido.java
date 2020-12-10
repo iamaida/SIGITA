@@ -77,15 +77,20 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTProductos = new javax.swing.JTable();
         jTFCantidad = new javax.swing.JTextField();
+        jBRemoveProducto = new javax.swing.JLabel();
         jPanelLateralI = new javax.swing.JPanel();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelWindowTitle = new javax.swing.JLabel();
         jLabelMiniUser1 = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
-        jPanelLateralD = new javax.swing.JPanel();
         jPanelBotones = new javax.swing.JPanel();
         jBSalir = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
+        jPanelLateralD = new javax.swing.JPanel();
+        jBInformacion = new javax.swing.JLabel();
+        jBUno = new javax.swing.JLabel();
+        jBDos = new javax.swing.JLabel();
+        jBTres = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -218,13 +223,13 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jBAddProducto.setBackground(new java.awt.Color(0, 0, 0));
         jBAddProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jBAddProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProducto.png"))); // NOI18N
+        jBAddProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconAddProduct.png"))); // NOI18N
         jBAddProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBAddProductoMouseClicked(evt);
             }
         });
-        jPanelMenu.add(jBAddProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, -1, 30));
+        jPanelMenu.add(jBAddProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 100, -1, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(220, 220, 220));
         jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -256,13 +261,24 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jTProductos.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTProductos);
 
-        jPanelMenu.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 770, 170));
+        jPanelMenu.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 770, 200));
 
         jTFCantidad.setBackground(new java.awt.Color(220, 220, 220));
         jTFCantidad.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jTFCantidad.setForeground(new java.awt.Color(102, 102, 102));
         jTFCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         jPanelMenu.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 50, 30));
+
+        jBRemoveProducto.setBackground(new java.awt.Color(0, 0, 0));
+        jBRemoveProducto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jBRemoveProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBRemoveProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconRemoveProduct.png"))); // NOI18N
+        jBRemoveProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBRemoveProductoMouseClicked(evt);
+            }
+        });
+        jPanelMenu.add(jBRemoveProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 30));
 
         getContentPane().add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 850, 430));
 
@@ -293,12 +309,6 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
 
         getContentPane().add(jPanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 90));
 
-        jPanelLateralD.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelLateralD.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelLateralD.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jPanelLateralD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanelLateralD, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 100, 520));
-
         jPanelBotones.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBotones.setForeground(new java.awt.Color(255, 255, 255));
         jPanelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -327,6 +337,46 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
 
         getContentPane().add(jPanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 850, 90));
 
+        jPanelLateralD.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelLateralD.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelLateralD.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jPanelLateralD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconInformation.png"))); // NOI18N
+        jBInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBInformacionMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
+
+        jBUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon1.png"))); // NOI18N
+        jBUno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBUnoMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+
+        jBDos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon2.png"))); // NOI18N
+        jBDos.setToolTipText("");
+        jBDos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBDosMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+
+        jBTres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon3.png"))); // NOI18N
+        jBTres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBTresMouseClicked(evt);
+            }
+        });
+        jPanelLateralD.add(jBTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+
+        getContentPane().add(jPanelLateralD, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 100, 520));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -342,22 +392,7 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         jTFcodUsuario.setText("");
         jTFCantidad.setText("");
         jTFCodProducto.setText("");
-        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
-            }
-        ));
+        mostrarTabla(obtenerTablaVacia());
         jLTotal.setText("");
     }
     
@@ -366,15 +401,17 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         order.setCodigo(jTFCodigo.getText());
         order.setFecha(jTFFecha.getText());
         order.setCodAlmacenista(jTFcodUsuario.getText());
-        order.setEstado("Enviado");
+        order.setEstado("Recibido");
     }
     
     private void jBGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBGuardarMouseClicked
 
         tomarInfoPedido();
         controlInv.procesarRegistroPedido(order);
+        modificarStockProducto();
         registrarItemsPedido();
         borrarInfoCampos();
+        items.clear();
         
     }//GEN-LAST:event_jBGuardarMouseClicked
     
@@ -383,10 +420,28 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         for(int i=0; i< items.size(); i++)
         {
             controlInv.procesarRegistroItemPedido(items.get(i));
+            
         }
     }
+
+    private void modificarStockProducto()
+    {
+        String codigo;
+        int totalCantidad, nuevaCant,antiguaCant ;
+       for(int i=0; i< items.size(); i++)
+       {
+            product = new Producto();
+            codigo =items.get(i).getCodProducto();
+            product =controlInv.procesarVistaProducto(codigo);
+           
+            antiguaCant = Integer.parseInt(product.getCantidad());
+            nuevaCant = (int) items.get(i).getCantidad();
+            totalCantidad= antiguaCant + nuevaCant; 
+            controlInv. procesarCambioCantidadProducto("cantidad",Integer.toString(totalCantidad),codigo);
+       }
+    }
     
-    public void agregarItemPedido()
+    private void agregarItemPedido()
     {
         //Registrar Item Pedido
         ItemPedido itemPedido = new ItemPedido();
@@ -397,51 +452,100 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
         itemPedido.setCantidad(Integer.parseInt(jTFCantidad.getText()));
         items.add(itemPedido);
         
-        jTFCodProducto.setText("");
+        jTFCodProducto.setText("Buscar");
         jTFCantidad.setText("");
     }
     
+    private void quitarItemPedido()
+    {
+    
+        items.remove(nroItem-1);
+        jTFCodProducto.setText("Buscar");
+        jTFCantidad.setText("");
+        nroItem --;
+    
+    }
+    
     private void jBAddProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAddProductoMouseClicked
-       
-       String  precio, cantidad;
-
-  
-        precio = product.getPrecioCompra();
-        cantidad = jTFCantidad.getText();
-        product.setCantidad(cantidad);
-           
-        order.sumarATotal(Double.parseDouble(cantidad), Double.parseDouble(precio));   
+      
+        product.setCantidad(jTFCantidad.getText());  
+        
         order.agregarProducto(product);
+        
+        order.sumarTotalPCompra(); 
         
         agregarItemPedido();
         
-        //Mostrar Información en tabla
-        ArrayList<Producto> productos = new ArrayList<Producto>();
-        productos = order.getProductos();
-        mostrar(productos);
+        obtenerTablaProductos(order.getProductos());
         
         jLTotal.setText(Double.toString(order.getTotal()));
             
     }//GEN-LAST:event_jBAddProductoMouseClicked
     
-    private void mostrar(ArrayList<Producto> products)
+    private String [][] obtenerTablaProductosSub(ArrayList<Producto> products, 
+                                                                String [][] imp)
     {
-        String imprime[][] = new String [products.size()][4];
-        
-        for(int i=0; i< products.size(); i++)
+        for(int i=0; i< imp.length; i++)
         {
-            imprime[i][0]= products.get(i).getCodigo();
-            imprime[i][1]= products.get(i).getDescripcion();
-            imprime[i][2]= products.get(i).getPrecioCompra();
-            imprime[i][3]= products.get(i).getCantidad();
+            if(i< products.size())
+            {
+                imp[i][0]= products.get(i).getCodigo();
+                imp[i][1]= products.get(i).getDescripcion();
+                imp[i][2]= products.get(i).getPrecioCompra();
+                imp[i][3]= products.get(i).getCantidad();
+            }else
+            {
+                imp[i][0]= null;
+                imp[i][1]= null;
+                imp[i][2]= null;
+                imp[i][3]= null;           
+             }
         }
         
-        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
-           imprime,
+        return imp;
+    }
+    
+    private void obtenerTablaProductos(ArrayList<Producto> products)
+    {
+        String imprime[][] = new String [9][4];
+        if (products.size()>0)
+        {
+
+            imprime = obtenerTablaProductosSub(products, imprime);
+        }else
+        {
+        
+            imprime = obtenerTablaVacia();
+        
+        }
+       
+         mostrarTabla( imprime);
+    }
+    
+    private void mostrarTabla(String [][] infoTabla)
+    {
+           jTProductos.setModel(new javax.swing.table.DefaultTableModel(
+           infoTabla,
             new String [] {
                 "CODIGO", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"
             }
         ));
+    
+    }
+    
+    private String [][] obtenerTablaVacia()
+    {
+         return    new String [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            };
     }
     
     private void jBBuscarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBBuscarProductoMouseClicked
@@ -451,6 +555,7 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
        if(controlInv.getDatoEncontrado())
        { 
             jTFCantidad.setText(product.getCantidad());
+            System.out.println(product.getCantidad());
             
        }else
        {
@@ -462,6 +567,34 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
     private void jTFCodProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFCodProductoMouseClicked
         jTFCodProducto.setText("");
     }//GEN-LAST:event_jTFCodProductoMouseClicked
+
+    private void jBRemoveProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRemoveProductoMouseClicked
+        
+        order.quitarProducto(nroItem);
+        order.sumarTotalPCompra(); 
+        quitarItemPedido();
+        obtenerTablaProductos(order.getProductos());
+        jLTotal.setText(Double.toString(order.getTotal()));
+   
+    }//GEN-LAST:event_jBRemoveProductoMouseClicked
+
+    private void jBInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInformacionMouseClicked
+        jTFCodigo.setText("P-004");
+        jTFFecha.setText("2020-06-21");
+        jTFcodUsuario.setText("A-002");
+    }//GEN-LAST:event_jBInformacionMouseClicked
+
+    private void jBUnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBUnoMouseClicked
+        jTFCodProducto.setText("USO-001");
+    }//GEN-LAST:event_jBUnoMouseClicked
+
+    private void jBDosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDosMouseClicked
+       jTFCodProducto.setText("LAT-001");
+    }//GEN-LAST:event_jBDosMouseClicked
+
+    private void jBTresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBTresMouseClicked
+       jTFCodProducto.setText("ETD-001");
+    }//GEN-LAST:event_jBTresMouseClicked
     
     
     private final Usuario user;
@@ -479,8 +612,13 @@ public class VentanaRegistroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jAstUsuario;
     private javax.swing.JLabel jBAddProducto;
     private javax.swing.JLabel jBBuscarProducto;
+    private javax.swing.JLabel jBDos;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JLabel jBInformacion;
+    private javax.swing.JLabel jBRemoveProducto;
     private javax.swing.JButton jBSalir;
+    private javax.swing.JLabel jBTres;
+    private javax.swing.JLabel jBUno;
     private javax.swing.JLabel jLCantidad;
     private javax.swing.JLabel jLCodProducto;
     private javax.swing.JLabel jLCodigo;

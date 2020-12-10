@@ -5,15 +5,12 @@
  */
 package controladorGestionInventario;
 
-import conexionBDGestionInventario.ConexionBDInventario;
-import controladorGestionUsuario.ControladorMenu;
-import modeloGestionInventario.ItemPedido;
-import modeloGestionInventario.Pedido;
-import modeloGestionInventario.Producto;
-import modeloGestionUsuario.Usuario;
-import vistaGestionInventario.VentanaRegistroPedido;
-import vistaGestionInventario.VentanaVerProducto;
-import vistaGestionReporte.VentanaReporteAveriaProducto;
+import conexionBDGestionInventario.*;
+import controladorGestionUsuario.*;
+import modeloGestionInventario.*;
+import modeloGestionUsuario.*;
+import vistaGestionInventario.*;
+import vistaGestionReporte.*;
 
 /**
  *
@@ -36,12 +33,12 @@ public class ControladorInventario {
        
        if(conexionInv.getDatoEncontrado())
        { 
-            controlMenu.desplegarMRegistroExitoso();
+            System.out.println("Registro Exitoso");
             encontrado= true;
           
        }else
        {
-            controlMenu.desplegarMRegistroNoExitoso();
+            System.out.println("Registro No Exitoso");
             encontrado = false;
            
        }
@@ -54,6 +51,7 @@ public class ControladorInventario {
        
        if(conexionInv.getDatoEncontrado())
        { 
+          
             controlMenu.desplegarMRegistroExitoso();
             encontrado= true;
           
@@ -64,6 +62,28 @@ public class ControladorInventario {
            
        }
     } 
+    
+    public void procesarCambioCantidadProducto(String cCambio, String vCambio, 
+                                       String codigo)
+    {
+       conexionInv = new ConexionBDInventario();
+       conexionInv.actualizarProducto(cCambio, vCambio,codigo);
+       
+       if(conexionInv.getDatoEncontrado())
+       { 
+ 
+           System.out.println("Actualización exitosa");
+           encontrado= true;
+          
+       }else
+       {
+   
+           System.out.println("Actualización exitosa");
+           encontrado = false;
+           
+       }
+    
+    }
     
     public Producto procesarVistaProducto(String codigo)
     {
@@ -98,9 +118,9 @@ public class ControladorInventario {
     
     public void irReporteAveria(Usuario usuario)
     {
- 
-        VentanaReporteAveriaProducto ventanaAP= new VentanaReporteAveriaProducto(usuario);
-        ventanaAP.setVisible(true);
+           System.out.println("oTRA averia");
+           VentanaReporteAveriaProducto ventanaAP= new VentanaReporteAveriaProducto(usuario);
+           ventanaAP.setVisible(true);
     }
     
     public void irSolicitudPedido(Usuario usuario)

@@ -26,6 +26,7 @@ public class VentanaVerUsuario extends javax.swing.JFrame {
         this.user = user;
         controlUS = new ControladorUsuario();
         controlMenu = new ControladorMenu();
+        jTFBuscar.setText("B-002");
         jLabelUserName.setText(user.getNombreUsuario());
     }
     

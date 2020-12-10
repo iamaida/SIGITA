@@ -98,7 +98,7 @@ public class VentanaPrincipalInventario extends javax.swing.JFrame {
         jPanelMenu.add(jIconFindProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 120, 110));
 
         jIconReportarAveria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jIconReportarAveria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconChangeProduct.png"))); // NOI18N
+        jIconReportarAveria.setIcon(new javax.swing.ImageIcon("C:\\Users\\Aidis\\Desktop\\Proyectos\\SIGITA\\src\\imagenes\\iconChangeProduct.png")); // NOI18N
         jIconReportarAveria.setPreferredSize(new java.awt.Dimension(34, 34));
         jIconReportarAveria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -258,7 +258,8 @@ public class VentanaPrincipalInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jIconFindProductoMouseClicked
 
     private void jIconReportarAveriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIconReportarAveriaMouseClicked
-        controlInv.irReporteAveria(user);
+       controlInv.irReporteAveria(user);
+       System.out.println("Averia");
         this.setVisible(false);
     }//GEN-LAST:event_jIconReportarAveriaMouseClicked
 
