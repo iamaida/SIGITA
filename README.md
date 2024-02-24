@@ -66,7 +66,11 @@ The objective of this project was to develop a system management desktop applica
 
 ### Delivey Management
 
+<p align="center">
+
 ![image](images/delivery.PNG)
+
+</p>
 
 - [vista](src/vistaGestionDomicilio)
 
