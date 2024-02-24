@@ -16,7 +16,9 @@ The objective of this project was to develop a system management desktop applica
 
 ### Customer Management
 
-![image](images/customers.PNG)
+<p align="center">
+    <img src="images/customers.PNG" alt="Description of the image">
+</p>
 
 - [modelo](src/modeloGestionCliente)
 - [vista](src/vistaGestionCliente)
@@ -26,7 +28,9 @@ The objective of this project was to develop a system management desktop applica
 
 ### User Management
 
-![image](images/users.PNG)
+<p align="center">
+    <img src="images/users.PNG" alt="Description of the image">
+</p>
 
 - [modelo](src/modeloGestionUsuario)
 - [vista](src/vistaGestionUsuario)
@@ -36,7 +40,9 @@ The objective of this project was to develop a system management desktop applica
 
 ### Report Management
 
-![image](images/reports.PNG)
+<p align="center">
+    <img src="images/reports.PNG" alt="Description of the image">
+</p>
 
 - [modelo](src/modeloGestionReporte)
 - [vista](src/vistaGestionReporte)
@@ -46,7 +52,9 @@ The objective of this project was to develop a system management desktop applica
 
 ### Inventoy Management
 
-![image](images/invenmtory.PNG)
+<p align="center">
+    <img src="images/invenmtory.PNG" alt="Description of the image">
+</p>
 
 - [modelo](src/modeloGestionInventario)
 - [vista](src/vistaGestionInventario)
