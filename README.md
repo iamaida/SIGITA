@@ -28,11 +28,7 @@ The objective of this project was to develop a system management desktop applica
     <img src="images/users.PNG" alt="Description of the image">
 </p>
 
-- [modelo](src/modeloGestionUsuario)
-- [vista](src/vistaGestionUsuario)
-- [controlador](src/controladorGestionUsuario)
-- [conexionBD](src/conexionBDGestionUsuario)
-- [tests](test/modeloGestionUsuario)
+💻[modelo](src/modeloGestionUsuario) &nbsp;&nbsp; 🎨[vista](src/vistaGestionUsuario) &nbsp;&nbsp; 🛠️[controlador](src/controladorGestionUsuario) &nbsp;&nbsp; 🗄️[conexionBD](src/conexionBDGestionUsuario) &nbsp;&nbsp; 🧪[tests](test/modeloGestionUsuario)
 
 ### Report Management
 
@@ -40,11 +36,7 @@ The objective of this project was to develop a system management desktop applica
     <img src="images/reports.PNG" alt="Description of the image">
 </p>
 
-- [modelo](src/modeloGestionReporte)
-- [vista](src/vistaGestionReporte)
-- [controlador](src/controladorGestionReporte)
-- [conexionBD](src/conexionBDGestionReporte)
-- [tests](test/modeloGestionReporte)
+💻[modelo](src/modeloGestionReporte)&nbsp;&nbsp; 🎨[vista](src/vistaGestionReporte)&nbsp;&nbsp; 🛠️[controlador](src/controladorGestionReporte)&nbsp;&nbsp; 🗄️[conexionBD](src/conexionBDGestionReporte)&nbsp;&nbsp; 🧪[tests](test/modeloGestionReporte)
 
 ### Inventoy Management
 
@@ -52,21 +44,13 @@ The objective of this project was to develop a system management desktop applica
     <img src="images/invenmtory.PNG" alt="Description of the image">
 </p>
 
-- [modelo](src/modeloGestionInventario)
-- [vista](src/vistaGestionInventario)
-- [controlador](src/controladorGestionInventario)
-- [conexionBD](src/conexionBDGestionInventario)
-- [tests](test/modeloGestionInventario)
+💻[modelo](src/modeloGestionInventario)&nbsp;&nbsp; 🎨[vista](src/vistaGestionInventario)&nbsp;&nbsp; 🛠️[controlador](src/controladorGestionInventario)&nbsp;&nbsp; 🗄️[conexionBD](src/conexionBDGestionInventario)&nbsp;&nbsp; 🧪[tests](test/modeloGestionInventario)
 
 ### Sales Management
 
 ![image](images/sales.PNG)
 
-- [modelo](src/modeloGestionVenta)
-- [vista](src/vistaGestionVenta)
-- [controlador](src/controladorGestionVenta)
-- [conexionBD](src/conexionBDGestionVenta)
-- [tests](test/modeloGestionVenta)
+💻[modelo](src/modeloGestionVenta) &nbsp;&nbsp; 🎨[vista](src/vistaGestionVenta) &nbsp;&nbsp; 🛠️[controlador](src/controladorGestionVenta) &nbsp;&nbsp; 🗄️[conexionBD](src/conexionBDGestionVenta)&nbsp;&nbsp; 🧪[tests](test/modeloGestionVenta)
 
 ### Delivey Management
 
@@ -74,7 +58,7 @@ The objective of this project was to develop a system management desktop applica
     <img src="images/delivery.PNG" alt="Description of the image">
 </p>
 
-- [vista](src/vistaGestionDomicilio)
+🎨[vista](src/vistaGestionDomicilio)
 
 ### Pop-ups
 
