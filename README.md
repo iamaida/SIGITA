@@ -8,15 +8,15 @@ The objective of this project was to develop a system management desktop applica
 
 ### 👀 Take a look at the GUI!
 
-| Login page                                    | Home page                                     |
-| --------------------------------------------- | --------------------------------------------- |
-| ![Screenshot 1](/screenshots/screenshot1.png) | ![Screenshot 2](/screenshots/screenshot2.png) |
+| Login page                    | Home page                     |
+| ----------------------------- | ----------------------------- |
+| ![Screenshot 1](images/1.PNG) | ![Screenshot 2](images/2.PNG) |
 
 ## Modules
 
 ### Customer Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/customers.PNG)
 
 - [modelo](src/modeloGestionCliente)
 - [vista](src/vistaGestionCliente)
@@ -26,7 +26,7 @@ The objective of this project was to develop a system management desktop applica
 
 ### User Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/users.PNG)
 
 - [modelo](src/modeloGestionUsuario)
 - [vista](src/vistaGestionUsuario)
@@ -36,7 +36,7 @@ The objective of this project was to develop a system management desktop applica
 
 ### Report Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/reports.PNG)
 
 - [modelo](src/modeloGestionReporte)
 - [vista](src/vistaGestionReporte)
@@ -46,7 +46,7 @@ The objective of this project was to develop a system management desktop applica
 
 ### Inventoy Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/invenmtory.PNG)
 
 - [modelo](src/modeloGestionInventario)
 - [vista](src/vistaGestionInventario)
@@ -56,7 +56,7 @@ The objective of this project was to develop a system management desktop applica
 
 ### Sales Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/sales.PNG)
 
 - [modelo](src/modeloGestionVenta)
 - [vista](src/vistaGestionVenta)
@@ -66,13 +66,23 @@ The objective of this project was to develop a system management desktop applica
 
 ### Delivey Management
 
-![image](proyecto/images/sample_video.gif)
+![image](images/delivery.PNG)
 
 - [vista](src/vistaGestionDomicilio)
 
 ### Pop-ups
 
-![image](proyecto/images/sample_video.gif)
+| Pop-up 1                           | Pop-up 2                           |
+| ---------------------------------- | ---------------------------------- |
+| ![Screenshot 1](images/emerg1.PNG) | ![Screenshot 2](images/emerg2.PNG) |
+
+| Pop-up 3                           | Pop-up 4                           |
+| ---------------------------------- | ---------------------------------- |
+| ![Screenshot 1](images/emerg3.PNG) | ![Screenshot 2](images/emerg4.PNG) |
+
+| Pop-up 5                           |
+| ---------------------------------- |
+| ![Screenshot 1](images/emerg5.PNG) |
 
 - [vista](src/vistaMensEmerg)
 
