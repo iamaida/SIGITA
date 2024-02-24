@@ -72,17 +72,13 @@ The objective of this project was to develop a system management desktop applica
 
 ### Pop-ups
 
-| Pop-up 1                           | Pop-up 2                           |
-| ---------------------------------- | ---------------------------------- |
-| ![Screenshot 1](images/emerg1.PNG) | ![Screenshot 2](images/emerg2.PNG) |
+| Pop-up 1                           | Pop-up 2                           | Pop-up 3                           |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| ![Screenshot 1](images/emerg1.PNG) | ![Screenshot 2](images/emerg2.PNG) | ![Screenshot 1](images/emerg3.PNG) |
 
-| Pop-up 3                           | Pop-up 4                           |
+| Pop-up 4                           | Pop-up 5                           |
 | ---------------------------------- | ---------------------------------- |
-| ![Screenshot 1](images/emerg3.PNG) | ![Screenshot 2](images/emerg4.PNG) |
-
-| Pop-up 5                           |
-| ---------------------------------- |
-| ![Screenshot 1](images/emerg5.PNG) |
+| ![Screenshot 2](images/emerg4.PNG) | ![Screenshot 1](images/emerg5.PNG) |
 
 - [vista](src/vistaMensEmerg)
 
