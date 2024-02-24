@@ -69,6 +69,7 @@ The objective of this project was to develop a system management desktop applica
 <p align="center">
 
 ![image](images/delivery.PNG)
+<img src="images/delivery.PNG" alt="Description of the image">
 
 </p>
 
