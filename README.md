@@ -20,11 +20,7 @@ The objective of this project was to develop a system management desktop applica
     <img src="images/customers.PNG" alt="Description of the image">
 </p>
 
-- [modelo](src/modeloGestionCliente)
-- [vista](src/vistaGestionCliente)
-- [controlador](src/controladorGestionCliente)
-- [conexionBD](src/conexionBDGestionCliente)
-- [tests](test/modeloGestionCliente)
+[modelo](src/modeloGestionCliente) [vista](src/vistaGestionCliente) [controlador](src/controladorGestionCliente) [conexionBD](src/conexionBDGestionCliente) [tests](test/modeloGestionCliente)
 
 ### User Management
 
